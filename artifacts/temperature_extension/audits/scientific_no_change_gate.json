@@ -1,0 +1,8 @@
+{
+  "compared_non_healing_fields": 10,
+  "frozen_source_files_referenced": 12,
+  "maximum_absolute_difference": 0.0,
+  "non_healing_pass": true,
+  "pass": true,
+  "tolerance": 1e-12
+}

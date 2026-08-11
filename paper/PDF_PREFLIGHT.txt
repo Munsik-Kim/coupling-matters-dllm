@@ -1,0 +1,8 @@
+PDF: paper/Coupling_Matters_Technical_Report_v1.0.0.pdf
+Pages: 29
+Encrypted: False
+Openable: True
+Text-based: True
+Visible author: Munsik Kim
+Status: Preprint / technical report; not peer reviewed
+Zenodo DOI embedded: No

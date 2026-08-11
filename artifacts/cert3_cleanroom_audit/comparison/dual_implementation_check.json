@@ -1,0 +1,51 @@
+{
+  "absolute_certified_horizons": {
+    "W4/B_FS_CMC/0.25": "NONE",
+    "W4/B_FS_CMC/0.5": "NONE",
+    "W4/B_FS_CMC/0.75": "H4",
+    "W4/D_CMC/0.25": "H4",
+    "W4/D_CMC/0.5": "H16",
+    "W4/D_CMC/0.75": "H24",
+    "W6/B_FS_CMC/0.25": "NONE",
+    "W6/B_FS_CMC/0.5": "H8",
+    "W6/B_FS_CMC/0.75": "FULL",
+    "W6/D_CMC/0.25": "H12",
+    "W6/D_CMC/0.5": "H24",
+    "W6/D_CMC/0.75": "FULL",
+    "W8/B_FS_CMC/0.25": "H4",
+    "W8/B_FS_CMC/0.5": "FULL",
+    "W8/B_FS_CMC/0.75": "FULL",
+    "W8/D_CMC/0.25": "H16",
+    "W8/D_CMC/0.5": "FULL",
+    "W8/D_CMC/0.75": "FULL"
+  },
+  "full_horizon": {
+    "W4": {
+      "UCB_B_FS_CMC": 1.0,
+      "UCB_D_CMC": 0.883073683643894,
+      "mean_B_FS_CMC": 0.920166015625,
+      "mean_D_CMC": 0.76708984375,
+      "n": 256
+    },
+    "W6": {
+      "UCB_B_FS_CMC": 0.711931105518894,
+      "UCB_D_CMC": 0.520280714893894,
+      "mean_B_FS_CMC": 0.595947265625,
+      "mean_D_CMC": 0.404296875,
+      "n": 256
+    },
+    "W8": {
+      "UCB_B_FS_CMC": 0.47877680864389405,
+      "UCB_D_CMC": 0.35084712114389405,
+      "mean_B_FS_CMC": 0.36279296875,
+      "mean_D_CMC": 0.23486328125,
+      "n": 256
+    }
+  },
+  "hoeffding_radius_n256": 0.11598383989389408,
+  "implementation": "direct PyArrow scan + Python dictionaries",
+  "maximum_first_vs_second_abs_diff": 0.0,
+  "mismatches": [],
+  "pathwise_violation_count": 0,
+  "status": "PASS"
+}

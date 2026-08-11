@@ -1,0 +1,8 @@
+{
+  "module_a_gate": "PASS_INDEPENDENT_REAGGREGATION",
+  "module_d_gate": "PASS_REACHABLE_STATE_PUSHFORWARD_AUDIT",
+  "original_monotone_violations": 0,
+  "original_pathwise_violations": 0,
+  "overall_gate": "PASS_LOCAL_LIFT_1R_CORRECTED_RELEASE",
+  "temperature_zero_pass": true
+}

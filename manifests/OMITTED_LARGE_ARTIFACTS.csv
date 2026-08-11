@@ -1,0 +1,9 @@
+artifact,size_bytes,sha256,description,reason_not_duplicated
+WP06_CERT3_full_review.zip,119713469,f99e316c4a21a02d5c59aefaa9ee9401b3d0eaa23b984e1eead09dd4abb1fc45,Primary fixed-suite CMC certificate raw work package,Compact public release; large raw package retained by immutable hash
+WP07C_prompt_population_full_review.zip,102709093,dbb76ac22aa1734d5c168ebeb8c725c16b35165b3b07f8ed942a9d1f7ec235d3,Declared prompt-population raw work package,Compact public release; large raw package retained by immutable hash
+WP07B_six_bit_scaling_full_review.tar.xz,94337276,c3243252c1eee31b147ec695539c6cd9de740cde7f18574615d6c175aec8940e,Six-level finite-bit scaling raw work package,Compact public release; large raw package retained by immutable hash
+WP07D_SMDM_full_review.zip,26241387,ffec696f7a5eb4f1f0d46dddc2dd83c8fd4262a1d52b43086d32205e5b3d7360,Second-model and GSM8K raw work package,Compact public release; large raw package retained by immutable hash
+LOCAL_LIFT_1_full_review.zip,71680668,65a4cad00d6602e515ec545098baa9dd3b8bcea683d0b6c28a71e7fe4536af51,Lifted sample-then-select trajectory raw work package,Compact public release; large raw package retained by immutable hash
+LOCAL_LIFT_TEMP_1_full_review.zip,104355539,20d04e580268b58de3d840d82db5e327c9704c7205ce5b48f579467a6990d65a,Temperature extension raw work package,Compact public release; large raw package retained by immutable hash
+METRIC_LOC_1_full_review.zip,40239386,35779d9568f975612f24d3484e0b2f986281e4164e4275f89bd41d12fc7d9535,Metric/localization negative investigation raw work package,Compact public release; large raw package retained by immutable hash
+TRCAL_1_full_review.zip,157495758,6f0132c0c11a182a7cfce6a8951580027ddb99ceeb35cc1a18b82aa518faf440,Transport-calibration pilot raw work package,Compact public release; large raw package retained by immutable hash

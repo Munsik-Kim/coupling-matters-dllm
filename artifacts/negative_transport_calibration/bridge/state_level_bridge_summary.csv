@@ -1,0 +1,3 @@
+bit,state_count,split_count,roc_auc,roc_auc_bootstrap_lo,roc_auc_bootstrap_hi,pr_auc,spearman_residual_damage
+4,390,64,0.5451495398773006,0.47855060568820224,0.6023792588659519,0.19184519591087362,0.05230843641068914
+3,128,64,0.5,0.5,0.5,0.5,

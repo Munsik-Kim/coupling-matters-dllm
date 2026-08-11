@@ -1,0 +1,11 @@
+field,rows,maximum_absolute_difference,tolerance,pass
+prompt_blocks,21,0.0,1e-12,True
+mean_D,21,0.0,1e-12,True
+D_ci_low,21,0.0,1e-12,True
+D_ci_high,21,0.0,1e-12,True
+mean_B_FS,21,0.0,1e-12,True
+B_FS_ci_low,21,0.0,1e-12,True
+B_FS_ci_high,21,0.0,1e-12,True
+split_probability,21,0.0,1e-12,True
+no_split_probability,21,0.0,1e-12,True
+mean_first_split_step,21,0.0,1e-12,True

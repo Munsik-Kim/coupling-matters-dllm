@@ -1,0 +1,13 @@
+{
+  "mechanism_seed": 311002,
+  "primary_bit": 4,
+  "primary_comparators": [
+    "RTN_ABSMAX",
+    "CLIP_UNIFORM"
+  ],
+  "primary_method": "CLIP_TRANSPORT_SR",
+  "selection_after_heldout": false,
+  "task_bootstrap_resamples": 20000,
+  "task_seed": 311001,
+  "top_level_unit": "held-out GSM8K row"
+}

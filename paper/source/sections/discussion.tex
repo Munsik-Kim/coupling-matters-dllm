@@ -1,0 +1,30 @@
+\section{Discussion, Reporting Guidance, and Limitations}
+\label{sec:discussion}
+
+\subsection{What is established}
+The analysis supports three conclusions. First, path KL may be an unusable upper-bound route for masked generation because one policy or token decision can create support mismatch. Second, a finite transport statement requires a declared coupling: two couplings of the same marginal chains can yield substantially different paired costs. Third, monotone copy-only structure gives a domain-specific first-divergence bound in which split incidence and residual consequence are separated. The fixed-suite and prompt-population experiments, finite-bit study, second-model panel, and official-sampler temperature sweep support these conclusions under their declared estimands.
+
+The direct and first-divergence routes serve different purposes. Direct paired cost is typically tighter but depends on the selected coupling. The residual-mass route is diameter-safe and mechanistically legible, but can be loose because it discards all post-split healing. A large gap between the two is therefore not a contradiction; it is evidence that transient policy-boundary differences often disappear before the terminal state.
+
+\subsection{A minimal reporting standard}
+A stability number for quantized masked generation is incomplete unless it identifies the experiment that defines it. We recommend reporting at least:
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+\item the terminal metric and generated-position weights;
+\item the coupling, including vocabulary order and post-split continuation;
+\item the horizon and whether the result is direct or first-divergence based;
+\item the statistical unit, simultaneous family, and confidence level;
+\item the prompt estimand (fixed suite or a declared source population);
+\item an intrinsic FP--FP reference and a task-relevance panel when available.
+\end{enumerate}
+For sample-then-select systems, proposal coupling and selector implementation should be audited separately. Event-addressed random streams are important: a preliminary stateful-RNG implementation produced 809 spurious pathwise violations that disappeared after semantic event addressing and replay tests.
+
+\subsection{What is not established}
+The title deliberately uses ``analysis'' rather than suggesting input-wise certified robustness. Our high-probability statements concern expected bounded costs over a fixed suite or declared prompt population. They are not deterministic per-input radii. Exact-token Hamming is a finite, auditable metric aligned with the product-coupling theory, but not a semantic or task metric. All relative-to-reference-diversity certificates fail. The bounded-functional corollary is formally valid, yet current first-split UCBs are too loose for a useful task-accuracy guarantee.
+
+We also lack a nontrivial population lower confidence bound for terminal Wasserstein distance. The held-out coordinate-witness investigation in Section~\ref{sec:negative} yields zero formal LCBs, so the primary numerical results remain coupling-based upper bounds. The attempted additive token metrics do not resolve saturation, and the attempted transport-weighted calibration does not improve the primary W4 task endpoint. These failures are part of the evidence, not omitted alternatives.
+
+\subsection{External validity}
+Quantization is simulated matrix-weight RTN with reference-precision activations, not a deployment-kernel benchmark. The largest checkpoint is 1.14B. The prompt-population guarantee concerns a frozen filtered WikiText-103 source population, not arbitrary prompts, and official-sampler comparisons use a fixed 32-prompt suite. Large confidence/entropy samplers, activation quantization, hardware kernels, and substantially larger dLLMs remain external-validity questions. The present contribution is an analysis and measurement framework rather than a new state-of-the-art quantizer.
+
+\section{Conclusion}
+Local PTQ error does not by itself determine the stability of iterative masked generation. A finite statement requires a propagation argument, an explicit coupling, a horizon, and a statistical estimand. For monotone masked generation, first divergence and residual masked mass provide a simple domain-specific explanation of how local decisions can affect terminal outputs. Across the audited panels, coupling changes the measured upper bound, while no single coupling universally minimizes terminal damage. The negative investigations further show that neither a frozen token-level metric substitution nor a simple survival--residual calibration rule closes the gap to semantic or task-level guarantees. Quantized dLLM stability should therefore be reported as a carefully scoped transport analysis, together with the coupling and evidence that define it.

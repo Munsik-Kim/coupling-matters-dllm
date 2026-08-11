@@ -1,0 +1,9 @@
+\section*{First-divergence corollary for additive token metrics}
+For a monotone MASK-to-token, copy-only chain and any valid path coupling
+$\Gamma$, let $\tau^{(r)}$ be the first split before endpoint $r$. Then
+\[
+D_\Gamma^{(c)}(r)\leq \mathbb E_\Gamma\!\left[R_c(X_{\tau}^{(r)})
+\mathbf 1\{\tau^{(r)}\neq\dagger\}\right],\qquad
+R_c(s)=\sum_{i:s_i=\mathrm{MASK}}\lambda_i\operatorname{diam}(c_i)
+\leq\sum_{i:s_i=\mathrm{MASK}}\lambda_i.
+\]

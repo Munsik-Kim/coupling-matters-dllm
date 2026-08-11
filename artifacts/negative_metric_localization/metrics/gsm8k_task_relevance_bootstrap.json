@@ -1,0 +1,82 @@
+{
+  "aggregation": "two decoding seeds averaged for metric; disagreement is any-seed disagreement",
+  "cells": {
+    "embedding_hybrid|answer_disagreement_auc": {
+      "ci_high": 0.9973633746690148,
+      "ci_low": 0.9689296771340115
+    },
+    "embedding_hybrid|correctness_disagreement_auc": {
+      "ci_high": 0.9797322451317297,
+      "ci_low": 0.9213550391208961
+    },
+    "embedding_hybrid|mean_answer_agree": {
+      "ci_high": 0.007515521396227667,
+      "ci_low": 0.0006544933317688151
+    },
+    "embedding_hybrid|mean_answer_disagree": {
+      "ci_high": 0.18235477057359245,
+      "ci_low": 0.10756922157068315
+    },
+    "embedding_hybrid|point_biserial_answer_disagreement": {
+      "ci_high": 0.854963081968784,
+      "ci_low": 0.6130188661131024
+    },
+    "embedding_hybrid|spearman_frozen_token_edit": {
+      "ci_high": 0.9997088250087378,
+      "ci_low": 0.9957098020361881
+    },
+    "hamming|answer_disagreement_auc": {
+      "ci_high": 0.9971876255524307,
+      "ci_low": 0.9665425450292682
+    },
+    "hamming|correctness_disagreement_auc": {
+      "ci_high": 0.9829351535836177,
+      "ci_low": 0.9264214046822742
+    },
+    "hamming|mean_answer_agree": {
+      "ci_high": 0.010121510552295562,
+      "ci_low": 0.0009291643180864864
+    },
+    "hamming|mean_answer_disagree": {
+      "ci_high": 0.2240993195066744,
+      "ci_low": 0.13330384461958616
+    },
+    "hamming|point_biserial_answer_disagreement": {
+      "ci_high": 0.8558625116149723,
+      "ci_low": 0.5995820524614836
+    },
+    "hamming|spearman_frozen_token_edit": {
+      "ci_high": 0.999752649749699,
+      "ci_low": 0.9952538028279938
+    },
+    "tokenizer_byte_hybrid|answer_disagreement_auc": {
+      "ci_high": 0.9971113445378151,
+      "ci_low": 0.9739424143394733
+    },
+    "tokenizer_byte_hybrid|correctness_disagreement_auc": {
+      "ci_high": 0.9742372881355932,
+      "ci_low": 0.9054054054054054
+    },
+    "tokenizer_byte_hybrid|mean_answer_agree": {
+      "ci_high": 0.0023691615980796056,
+      "ci_low": 9.075136708037558e-05
+    },
+    "tokenizer_byte_hybrid|mean_answer_disagree": {
+      "ci_high": 0.10591023273383333,
+      "ci_low": 0.05178378567741648
+    },
+    "tokenizer_byte_hybrid|point_biserial_answer_disagreement": {
+      "ci_high": 0.8072342505094355,
+      "ci_low": 0.59237060882947
+    },
+    "tokenizer_byte_hybrid|spearman_frozen_token_edit": {
+      "ci_high": 0.9996755772551685,
+      "ci_low": 0.9959493584547353
+    }
+  },
+  "interval": "percentile two-sided 95% descriptive",
+  "resamples": 20000,
+  "schema_version": 1,
+  "seed": 301002,
+  "top_level_unit": "unique GSM8K example"
+}

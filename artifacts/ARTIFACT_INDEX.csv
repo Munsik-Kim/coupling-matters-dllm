@@ -1,0 +1,10 @@
+family,directory,role,public_contents
+paper,paper,Technical report and source,PDF full LaTeX source figures and figure data
+cert3_cleanroom_audit,artifacts/cert3_cleanroom_audit,Independent audit,Clean-room recalculation tables discrepancy ledger traceability and scripts
+cert3_primary_results,artifacts/cert3_primary_results,Primary fixed-suite results,Certificate UCBs horizons CMC-CRN comparisons survival and figures
+smdm_gsm8k,artifacts/smdm_gsm8k,Second-model and task panel,SMDM certificates GSM8K paired tables audits and figures
+lifted_sampler_validation,artifacts/lifted_sampler_validation,Sample-then-select validation,Corrected channel tables reachable-state audits and figures
+temperature_extension,artifacts/temperature_extension,Official-sampler stochasticity,Temperature comparison healing correction reports tables and figures
+negative_metric_localization,artifacts/negative_metric_localization,Preregistered negative investigation,Additive metrics terminal witness lower bounds theory memos and figures
+negative_transport_calibration,artifacts/negative_transport_calibration,Preregistered negative investigation,Calibration task and mechanism tables bridge diagnostics and figures
+paper_raw_to_claim_audit,artifacts/paper_raw_to_claim_audit,Paper-wide audit,Count reconciliation scope/proof review discrepancy tables and independent review

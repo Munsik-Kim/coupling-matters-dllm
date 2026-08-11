@@ -1,0 +1,10 @@
+{
+  "analysis_gate": "PASS_CMC_CERTIFIED_HORIZON_ALL_BITS",
+  "fixed_suite_claim_scope": true,
+  "hard_audits_pass": true,
+  "joint_maximal_coupling_run": false,
+  "main_theory_revised": false,
+  "pathwise_violation_count": 0,
+  "reason": "All bit widths have a simultaneous-95% B_FS horizon at epsilon 0.75, with a nontrivial W8/W6 epsilon-0.50 cell.",
+  "schema_version": 1
+}

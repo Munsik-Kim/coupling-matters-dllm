@@ -1,0 +1,32 @@
+{
+  "expected_counts": {
+    "CERT3": 1280,
+    "LOCAL_LIFT_TEMP": 1152,
+    "WP07C": 768,
+    "WP07D_GSM8K": 600
+  },
+  "hamming_reproduction_max_discrepancy": 0.0,
+  "pass": true,
+  "primary_key_audit": {
+    "duplicate_count": 0,
+    "pass": true,
+    "primary_key": [
+      "panel",
+      "pair_type",
+      "coupling",
+      "prompt_id",
+      "draw_id",
+      "severity",
+      "temperature"
+    ],
+    "row_count": 3800
+  },
+  "source_panels_read_only": true,
+  "terminal_pair_count": 3800,
+  "terminal_pair_counts_by_panel": {
+    "CERT3": 1280,
+    "LOCAL_LIFT_TEMP": 1152,
+    "WP07C": 768,
+    "WP07D_GSM8K": 600
+  }
+}

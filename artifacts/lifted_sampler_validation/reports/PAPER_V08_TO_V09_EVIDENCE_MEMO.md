@@ -1,0 +1,3 @@
+# Evidence memo for a possible v0.9 revision
+
+The corrected evidence may support a narrowly scoped statement that the proposal-level lifted interface reproduces each branch's official transition marginal across a finite preregistered reachable-state panel. Report channel attribution separately by generation length. State that W8/W6 length-16 first splits are policy-first dominated and that W4 shows a larger simultaneous share and persistent damage. Preserve the caveat that the channel relation is an upper bound and that current first-split/task-functional bounds are valid but practically loose. Do not edit v0.8 automatically.

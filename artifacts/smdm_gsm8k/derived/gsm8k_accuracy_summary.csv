@@ -1,0 +1,5 @@
+precision,rows,examples,seeds,exact_accuracy,extraction_success,generation_failure_rate,mean_output_length,mean_repetition
+BF16,200,100,2,0.51,1.0,0.0,113.31,0.025683045435002928
+W8,200,100,2,0.51,1.0,0.0,113.33,0.025731825922807806
+W6,200,100,2,0.5,1.0,0.0,113.29,0.02578758339433849
+W4,200,100,2,0.49,1.0,0.0,115.29,0.026996387838418987

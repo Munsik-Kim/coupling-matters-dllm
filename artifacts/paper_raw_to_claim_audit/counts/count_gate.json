@@ -1,0 +1,7 @@
+{
+  "component_counts_pass": true,
+  "expected_total": 24864,
+  "gate": "PASS_COUNT_RECONCILIATION",
+  "total": 24864,
+  "violation_count": 0
+}

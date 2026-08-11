@@ -1,0 +1,18 @@
+{
+  "correction_gate": "PASS_LOCAL_LIFT_TEMP_1R_MODEL_FREE_CORRECTION",
+  "expected_counts_pass": true,
+  "frozen_backfill_pass": true,
+  "gpu_execution": false,
+  "missing_reports": [],
+  "model_execution": false,
+  "pass": true,
+  "preserved_scientific_gates": {
+    "effect": "COUPLING_EFFECT_MIXED",
+    "interface": "PASS_LOCAL_LIFT_TEMP_1_INTERFACE",
+    "overall": "PASS_LOCAL_LIFT_TEMP_1_FULL",
+    "stochastic_stress": "PUSHFORWARD_STOCHASTICITY_INCREASED"
+  },
+  "raw_reconstruction_pass": true,
+  "scientific_no_change_pass": true,
+  "source_archives_verified": true
+}

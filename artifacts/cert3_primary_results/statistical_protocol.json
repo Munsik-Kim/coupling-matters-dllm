@@ -1,0 +1,23 @@
+{
+  "target": "fixed_64_prompt_suite_average_over_independent_coupling_draws",
+  "family_wise_delta": 0.05,
+  "simultaneous_statement_count": 49,
+  "cmc_observations_per_cell": 256,
+  "delta_ref_observations_per_horizon": 128,
+  "primary_method": "one-sided Hoeffding",
+  "radius_formula": "sqrt(log(K/delta_family)/(2*n))",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 260803,
+  "absolute_epsilons": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "relative_thetas": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "prefix_closed_horizons": true,
+  "hazard_consistency_z": 1.96
+}

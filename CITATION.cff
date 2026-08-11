@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: If you use this preprint compendium, please cite the Zenodo record.
+title: 'Coupling Matters: Finite-Horizon Transport Analysis for Quantized Masked Diffusion
+  Language Models'
+type: article
+authors:
+- family-names: Kim
+  given-names: Munsik
+  affiliation: Independent Researcher
+version: 1.0.0
+date-released: '2026-08-05'
+doi: 10.5281/zenodo.21880649
+url: https://zenodo.org/records/21880649
+repository-code: https://github.com/Munsik-Kim/coupling-matters-dllm
+license: CC-BY-4.0
+keywords:
+- masked diffusion language models
+- post-training quantization
+- coupling
+- Wasserstein distance
+- finite-horizon stability
+- reproducibility

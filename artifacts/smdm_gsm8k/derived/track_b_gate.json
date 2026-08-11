@@ -1,0 +1,9 @@
+{
+  "accuracy_nonmonotone": false,
+  "bf16_accuracy": 0.51,
+  "bf16_extraction_success": 1.0,
+  "certificate_claim": false,
+  "complete_paired_blocks": true,
+  "gate": "PASS_GSM8K_DESCRIPTIVE_RELEVANCE",
+  "material_absolute_difference_threshold_0_10": false
+}

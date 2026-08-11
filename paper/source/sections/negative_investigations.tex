@@ -1,0 +1,40 @@
+\section{Preregistered Negative Investigations}
+\label{sec:negative}
+
+Two follow-up work packages tested whether the analysis could support materially stronger claims. Their designs, gates, and outcomes were fixed before evaluation. Neither investigation supports an additional positive contribution; we include them because they delimit the framework's interpretation and prevent post-hoc escalation of claims.
+
+\subsection{Alternative additive metrics and terminal localization}
+The first investigation generalized the product-transition result from $0$--$1$ token cost to any bounded additive token metric. For $d_c(x,y)=\sum_i\lambda_i c_i(x_i,y_i)$ and product laws $P=\bigotimes_i p_i$, $Q=\bigotimes_i q_i$, the exact identity
+\[
+W_{d_c}(P,Q)=\sum_i\lambda_i W_{c_i}(p_i,q_i)
+\]
+holds; Appendix~\ref{app:negative} gives the proof and a general-cost first-divergence corollary. The empirical question was whether a frozen token-embedding hybrid or tokenizer-byte metric would reduce the saturation seen under exact-token Hamming.
+
+It did not. For W8 under CRN, the ratio of FP--quantized distance to independent-FP distance is $0.9365$ for Hamming, $0.9209$ for the embedding hybrid, and $0.9159$ for the byte hybrid. The alternative metrics mainly rescale disagreements and preserve nearly the same example ordering. On the 100-example GSM8K panel, answer-disagreement AUCs are $0.9845/0.9856/0.9876$ for Hamming/embedding/byte, while correctness-disagreement AUC is highest for Hamming ($0.9573$). We therefore retain exact Hamming as the theorem-aligned audit metric and do not present the alternatives as semantic metrics.
+
+The same work package trained coordinatewise Kantorovich witnesses on the fixed suite and evaluated them on disjoint prompt-population draws. Point estimates at W4 were positive, but every simultaneous distribution-free lower confidence bound was zero. Hence the attempted terminal localization remains
+$0\le W_d\le\mathrm{UCB}$ rather than a nontrivial lower/upper interval. The result does not imply that the true distance is small; it shows that the frozen prompt-independent witness and available sample size do not certify a positive lower bound.
+
+\subsection{Survival--residual calibration pilot}
+The second investigation asked whether the survival--residual decomposition could improve per-row clipping calibration. Calibration states were weighted by survival and residual masked mass, with uniform, margin-frontier, residual-only, and hazard-only baselines. The primary endpoint was held-out W4 GSM8K accuracy on 512 examples.
+
+\begin{table}[H]
+\caption{Primary W4 calibration result. Transport weighting improves some FP-fidelity metrics but not held-out task accuracy.}
+\label{tab:negative-calibration}
+\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Method & Accuracy & BF16 answer agreement & Terminal Hamming \\
+\midrule
+RTN absmax & 56.84\% & 84.57\% & 0.0534 \\
+Uniform clipping & \textbf{57.42\%} & 87.50\% & 0.0472 \\
+Margin frontier & 56.84\% & 88.48\% & 0.0405 \\
+Transport SR & 56.64\% & \textbf{89.26\%} & \textbf{0.0381} \\
+Transport SRH & 56.45\% & 88.67\% & 0.0364 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Transport SR differs from RTN by $-0.20$ percentage points (95\% paired-bootstrap interval $[-1.95,1.37]$) and from uniform clipping by $-0.78$ points ($[-1.95,0.39]$). It reduces terminal Hamming relative to RTN and raises BF16 answer agreement, but does not improve ground-truth accuracy. The proposed surrogate bridge is also weak: state-level reconstruction perturbation predicts the next split with ROC AUC $0.545$ (95\% interval $[0.479,0.602]$), and its Spearman correlation with residual terminal damage is $0.052$. At W3, calibrated clipping broadly improves over absmax RTN, but transport weighting is not uniquely superior to uniform calibration.
+
+These outcomes sharpen the scope of the paper. First-divergence analysis is useful for explanation and auditing, but the tested local reconstruction objective is not a reliable proxy for split risk. Similarly, closeness to the BF16 output need not improve task accuracy. We therefore make no algorithmic, semantic, or lower-bound localization claim from these follow-ups.

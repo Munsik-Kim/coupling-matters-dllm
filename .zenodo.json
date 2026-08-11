@@ -1,0 +1,39 @@
+{
+  "creators": [
+    {
+      "name": "Kim, Munsik",
+      "affiliation": "Independent Researcher",
+      "type": "Researcher"
+    }
+  ],
+  "title": "Coupling Matters: Finite-Horizon Transport Analysis for Quantized Masked Diffusion Language Models",
+  "version": "1.0.0",
+  "access_right": "open",
+  "keywords": [
+    "masked diffusion language models",
+    "post-training quantization",
+    "coupling",
+    "optimal transport",
+    "Wasserstein distance",
+    "finite-horizon stability",
+    "first divergence",
+    "reproducibility"
+  ],
+  "license": "cc-by-4.0",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "language": "eng",
+  "description": "Preprint / technical report; not peer reviewed. Post-training quantization of masked diffusion language models can alter token choices, commit sets, and subsequent states. This technical report develops a finite-horizon transport framework in which the coupling used to synchronize full-precision and quantized generation is part of the measured upper bound. The central first-divergence result controls terminal distortion by residual masked mass. The artifact includes complete proofs, fixed-suite and declared prompt-population analyses, second-model and official-sampler validations, independent audits, and preregistered negative investigations of additive token metrics, terminal lower-bound witnesses, and transport-weighted calibration. This record is a technical report and has not undergone peer review.",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.21880649",
+      "relation": "isIdenticalTo",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "identifier": "https://github.com/Munsik-Kim/coupling-matters-dllm",
+      "relation": "isSupplementedBy",
+      "resource_type": "software"
+    }
+  ]
+}

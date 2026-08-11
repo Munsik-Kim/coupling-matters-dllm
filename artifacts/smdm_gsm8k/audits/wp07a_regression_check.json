@@ -1,0 +1,58 @@
+{
+  "declared_tolerance": "exact hashes; no float-valued archived logits available",
+  "pass": true,
+  "rows": [
+    {
+      "archived_fp_hash": "16b3374e6fecc8ff3fa1feb3264c1f79fa4462bcc703a24d62f0e3f8b69c71ab",
+      "archived_q_hash": "3eda4117c789296d27a46d0b79ee23626aac4d4880027d8e995a5ad9eae906bb",
+      "endpoint_hashes_exact": true,
+      "family": "CMC",
+      "length": 16,
+      "observed_fp_hash": "16b3374e6fecc8ff3fa1feb3264c1f79fa4462bcc703a24d62f0e3f8b69c71ab",
+      "observed_q_hash": "3eda4117c789296d27a46d0b79ee23626aac4d4880027d8e995a5ad9eae906bb",
+      "prompt_id": "smdm_p00",
+      "severity": "W8",
+      "trace_hash_exact": false,
+      "trace_hash_note": "WP07D adds progress/TV logging fields, so the serialized trace hash is not required to match; terminal state hashes are the preregistered exact regression target."
+    },
+    {
+      "archived_fp_hash": "74de4fe22fd7597f9639f7b0e0e9af6c7f0b7364c1dd5d6becee9fc415f6e462",
+      "archived_q_hash": "e7d88a16661de1aa8b56a8d75750942884b9e3b0ac8492f1b3fc5ec41f58c18d",
+      "endpoint_hashes_exact": true,
+      "family": "CMC",
+      "length": 64,
+      "observed_fp_hash": "74de4fe22fd7597f9639f7b0e0e9af6c7f0b7364c1dd5d6becee9fc415f6e462",
+      "observed_q_hash": "e7d88a16661de1aa8b56a8d75750942884b9e3b0ac8492f1b3fc5ec41f58c18d",
+      "prompt_id": "smdm_p00",
+      "severity": "W8",
+      "trace_hash_exact": false,
+      "trace_hash_note": "WP07D adds progress/TV logging fields, so the serialized trace hash is not required to match; terminal state hashes are the preregistered exact regression target."
+    },
+    {
+      "archived_fp_hash": "435fae8bab8cfe020962a90389400a37463117d69718a7da4ceed6a2452670e5",
+      "archived_q_hash": "64ed30e2ab8a724fa3a85fd49af2b07643d9d06292acbd0d61939521026cb7e9",
+      "endpoint_hashes_exact": true,
+      "family": "CMC",
+      "length": 16,
+      "observed_fp_hash": "435fae8bab8cfe020962a90389400a37463117d69718a7da4ceed6a2452670e5",
+      "observed_q_hash": "64ed30e2ab8a724fa3a85fd49af2b07643d9d06292acbd0d61939521026cb7e9",
+      "prompt_id": "smdm_p00",
+      "severity": "W4",
+      "trace_hash_exact": false,
+      "trace_hash_note": "WP07D adds progress/TV logging fields, so the serialized trace hash is not required to match; terminal state hashes are the preregistered exact regression target."
+    },
+    {
+      "archived_fp_hash": "b480abce96bb775e8f6eeaa845c9b33ac5e908ecb83fab3d808769b03319d3f5",
+      "archived_q_hash": "c71b4719cab636460f764272db28cd64ad551e13ebbf4eb1eb9b82585ab86fe2",
+      "endpoint_hashes_exact": true,
+      "family": "CMC",
+      "length": 64,
+      "observed_fp_hash": "b480abce96bb775e8f6eeaa845c9b33ac5e908ecb83fab3d808769b03319d3f5",
+      "observed_q_hash": "c71b4719cab636460f764272db28cd64ad551e13ebbf4eb1eb9b82585ab86fe2",
+      "prompt_id": "smdm_p00",
+      "severity": "W4",
+      "trace_hash_exact": false,
+      "trace_hash_note": "WP07D adds progress/TV logging fields, so the serialized trace hash is not required to match; terminal state hashes are the preregistered exact regression target."
+    }
+  ]
+}

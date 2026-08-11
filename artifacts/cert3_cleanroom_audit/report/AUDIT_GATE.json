@@ -1,0 +1,19 @@
+{
+  "archive_integrity": "PASS",
+  "audit_gate": "AUDIT_PASS_WITH_QUALIFICATIONS",
+  "coupling_marginal_audit": "PASS",
+  "dual_implementation": "PASS",
+  "model_execution": false,
+  "original_headline_discrepancy_count": 0,
+  "pathwise_violation_count": 0,
+  "primary_fixed_suite_result_survives": true,
+  "qualifications": [
+    "The n=256 certificate is conditional on the semantic-key pseudorandom streams representing independent coupling draws.",
+    "The archive stores categorical laws and summaries but not every original marginal-audit draw; clean-room marginal validation used fresh draws.",
+    "The conservative n=64 prompt-block sensitivity weakens horizons, particularly W4.",
+    "PDF Remark 11.4 is stale after completion of this audit."
+  ],
+  "raw_integrity": "PASS",
+  "schema_version": 1,
+  "theory_audit": "PASS_WITH_WORDING_QUALIFICATIONS"
+}

@@ -1,0 +1,5 @@
+precision,failure_category,count
+BF16,none,200
+W4,none,200
+W6,none,200
+W8,none,200

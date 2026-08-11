@@ -1,0 +1,7 @@
+{
+  "candidate_wording_patches": 1,
+  "claim_count": 566,
+  "fail_scope": 0,
+  "gate": "PASS",
+  "patch_topic": "Clarify that 24,864 are recorded trajectory-horizon checks, not independent statistical observations."
+}

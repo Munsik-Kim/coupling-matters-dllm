@@ -1,0 +1,13 @@
+{
+  "H32_FULL_identity": true,
+  "branch_and_evaluation_order_invariance": true,
+  "checked": 3072,
+  "deterministic_rerun": true,
+  "marginal_pairs": 36,
+  "marginal_pass": true,
+  "no_state_mutation": true,
+  "pass": true,
+  "product_law_pass": true,
+  "tolerance": 1e-12,
+  "violations": 0
+}

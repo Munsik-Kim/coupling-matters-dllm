@@ -1,0 +1,58 @@
+\section{Supporting Statements Used by the Complete Proofs}
+\label{app:supporting}
+
+This appendix records secondary statements omitted from the main presentation. Their complete proofs appear in Appendix~\ref{app:proofs}.
+
+\begin{theorem}[Exact one-step decomposition]
+\label{thm:exact}
+For deterministic monotone decoders with a common tie-break, evaluated at a shared state $s$,
+\[
+\epsilon_t(s)=
+\sum_{i\in C_t^\star\triangle C_t^q}\lambda_i
++\sum_{i\in C_t^\star\cap C_t^q}\lambda_i
+\Ind{a_{t,i}^\star\ne a_{t,i}^q}.
+\]
+\end{theorem}
+
+\begin{proposition}[Persistent-token lower bound]
+\label{prop:persistent-token}
+Let $I=\{i\in C_t^\star\cap C_t^q:a_{t,i}^\star\ne a_{t,i}^q\}$. If the common suffix is monotone copy-only, then $\eta_t(s)\ge\sum_{i\in I}\lambda_i$.
+\end{proposition}
+
+\begin{lemma}[Margin necessity]
+\label{lem:margin-main}
+Under common deterministic tie-breaking, a token-argmax change caused by an $\ell_\infty$ logit perturbation $R^{\rm tok}$ requires $M^{\rm tok}\le2R^{\rm tok}$; a deterministic top-$k$ set change caused by an $\ell_\infty$ score perturbation $R^{\rm pol}$ requires $M^{\rm pol}\le2R^{\rm pol}$.
+\end{lemma}
+
+\begin{theorem}[Coordinate-union hierarchy]
+\label{thm:coord}
+$\Wd(\mu_0^\star,\mu_0^q)\le\Dcrn\le B_{\rm union}\le B_{\rm coord}\le\min\{1,B_{\rm tel}\}$.
+\end{theorem}
+
+\begin{proposition}[Exact gap decomposition]
+\label{prop:gap}
+For each coordinate define $m_i=\min\{1,\Ex[N_i]\}-\Pr(N_i\ge1)$ and
+$c_i=\Pr(N_i\ge1)-\Pr(Z^{(0)}[i]\ne Z^{(T)}[i])$. Then $m_i,c_i\ge0$ and
+$B_{\rm coord}-\Dcrn=\sum_i\lambda_i(m_i+c_i)$.
+\end{proposition}
+
+\begin{corollary}[Finite-horizon first-divergence certificate]
+\label{cor:fs-horizon}
+Stopping at any deterministic horizon $r$ gives
+$\Wd(\mu_r^\star,\mu_r^q)\le\Ex[d(X_r^\star,X_r^q)]\le
+\Ex[R(X_{\tau^{(r)}})\Ind{\tau^{(r)}\ne\dagger}]\le1$.
+\end{corollary}
+
+
+
+\begin{corollary}[Simultaneous fixed-suite CMC certificate]
+\label{cor:fixedsuite}
+Applying Theorem~\ref{thm:fixedsuite} simultaneously to preregistered direct and first-divergence cells yields, on one $1-\delta$ event,
+$\overline W_j\le\min\{1,\operatorname{UCB}(\widehat D_j),\operatorname{UCB}(\widehat B_j)\}$ for every cell and any prefix-closed selected horizon.
+\end{corollary}
+
+\begin{corollary}[Prompt-population CMC certificate]
+\label{cor:population}
+Under Theorem~\ref{thm:population}, prompt-block UCBs satisfy
+$\Ex_{C\sim\Psrc}[W_j(C)]\le\min\{1,\operatorname{UCB}(\widehat D_j),\operatorname{UCB}(\widehat B_j)\}$ simultaneously over all preregistered cells.
+\end{corollary}

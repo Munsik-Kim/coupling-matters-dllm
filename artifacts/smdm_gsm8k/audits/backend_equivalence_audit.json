@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "rmsnorm": true,
+    "rotary": true,
+    "sdpa": true,
+    "swiglu": true
+  },
+  "declared_tolerances": {
+    "rmsnorm": 5e-07,
+    "rotary": 1e-12,
+    "sdpa": 1e-12,
+    "swiglu": 1e-12
+  },
+  "max_absolute_errors": {
+    "rmsnorm": 2.743769127455664e-07,
+    "rotary": 0.0,
+    "sdpa": 4.996003610813204e-16,
+    "swiglu": 0.0
+  },
+  "pass": true,
+  "tested_at_utc": "2026-07-31T10:31:44.779894+00:00"
+}

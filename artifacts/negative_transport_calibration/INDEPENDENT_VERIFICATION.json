@@ -1,0 +1,20 @@
+{
+  "archive_sha256": {
+    "delivery": "70be4772523e6dfb180777ff7accd3fa40e7cc31ca0c75d6f0e9e724888e4a17",
+    "summary": "92465c19b70b4ab32dcf48d824d2da446a9de057c31924164f83fb087610462b",
+    "full": "6f0132c0c11a182a7cfce6a8951580027ddb99ceeb35cc1a18b82aa518faf440"
+  },
+  "archive_crc": true,
+  "full_manifest_entries": 15017,
+  "full_manifest_failures": 0,
+  "summary_manifest_entries": 67,
+  "summary_manifest_failures": 0,
+  "heldout_rows": 6144,
+  "duplicate_primary_keys": 0,
+  "missing_primary_keys": 0,
+  "independent_reaggregation_max_discrepancy": 1.1102230246251565e-16,
+  "validity_gate": "PASS_TRCAL_1_VALIDITY",
+  "bridge_label": "SURROGATE_BRIDGE_WEAK",
+  "method_effect_label": "NO_TRANSPORT_CALIBRATION_EFFECT",
+  "overall_gate": "PASS_TRCAL_1_NEGATIVE"
+}

@@ -1,0 +1,7 @@
+topic,required_scope,status
+first-divergence,"monotone copy-only, common pre-split state",PASS
+CMC,factorized actual transition; coordinatewise not joint maximal,PASS
+lifted coupling,proposal coupling valid; no output maximality claim,PASS
+fixed-suite Hoeffding,"fixed prompts, independent within-prompt draws",PASS_WITH_IMPLEMENTATION_PREMISE
+population Hoeffding,IID prompt blocks; within-block repeats averaged,PASS
+bounded functional,bounded metric implication; no tight semantic guarantee,PASS

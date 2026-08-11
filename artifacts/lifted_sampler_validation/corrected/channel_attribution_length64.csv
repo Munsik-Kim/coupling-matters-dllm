@@ -1,0 +1,3 @@
+generation_length,precision,temperature,trajectory_count,split_trajectory_count,no_split_count,proposal_first_count,proposal_first_fraction,policy_first_count,policy_first_fraction,simultaneous_proposal_policy_count,simultaneous_proposal_policy_fraction,mean_terminal_damage_proposal,mean_terminal_damage_policy,mean_terminal_damage_simultaneous,median_first_split_step,mean_normalized_first_split_progress,reagreement_rate
+64,W4,0.2,16,16,0,0,0.0,2,0.125,14,0.875,,0.0,0.11160714285714286,5.5,0.111328125,1.0
+64,W8,0.2,16,14,2,0,0.0,12,0.8571428571428571,2,0.14285714285714285,,0.0,0.0,16.0,0.33482142857142855,1.0

@@ -1,0 +1,3 @@
+discrepancy_id,level,claim_id,detail
+SCOPE-001,CLAIM_SCOPE_ONLY,abstract-count,"Recommend explicitly calling 24,864 a count of recorded pathwise checks, not independent statistical units."
+SCOPE-002,CLAIM_SCOPE_ONLY,Table CMC caption and relative-diversity paragraph,The printed 0.9878 comes from the separate CERT-0 32-token intrinsic-diversity audit; the matched CERT-3 16-token Delta_ref mean is 0.9765625. Qualify the source rather than implying the same run.

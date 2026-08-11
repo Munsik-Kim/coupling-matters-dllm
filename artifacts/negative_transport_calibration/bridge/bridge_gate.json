@@ -1,0 +1,7 @@
+{
+  "label": "SURROGATE_BRIDGE_WEAK",
+  "method_rho_calibration_objective_BFS": -0.8214285714285715,
+  "model_free_recalculation": true,
+  "small_method_count_descriptive_only": true,
+  "w4_auc_lower_95": 0.47855060568820224
+}

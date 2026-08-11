@@ -1,0 +1,24 @@
+{
+  "lower_bound_gate": "LOWER_BOUND_VACUOUS",
+  "lower_bound_gate_conditions": {
+    "any_positive_LCB": false,
+    "cells_localization_fraction_ge_0_10": 0,
+    "positive_W8_metric": false
+  },
+  "metric_gate": "METRIC_NOT_PROMISING",
+  "metric_gate_conditions": {
+    "CERT3_CMC_bit_ordering": true,
+    "GSM8K_relevance": false,
+    "embedding_W8_CRN_saturation": 0.9208634108728064,
+    "embedding_W8_CRN_saturation_improves_by_0_10": false,
+    "embedding_answer_auc": 0.9855861990693451,
+    "embedding_edit_spearman": 0.9984531401097934,
+    "external_panel_bit_ordering": true,
+    "hamming_W8_CRN_saturation": 0.9365,
+    "hamming_answer_auc": 0.9844512541141754,
+    "hamming_edit_spearman": 0.9983368088744534
+  },
+  "overall_gate": "PASS_METRIC_LOC_1_NEGATIVE",
+  "plan_a_calibration_readiness": "NOT_READY",
+  "validity_pass": true
+}

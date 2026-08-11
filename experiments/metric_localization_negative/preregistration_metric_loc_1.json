@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "work_package": "METRIC_LOC_1",
+  "mode": "MODEL_FREE_CPU_ONLY",
+  "alpha": 0.05,
+  "metrics": ["hamming", "embedding_hybrid", "tokenizer_byte_hybrid"],
+  "severities": ["W8", "W6", "W4"],
+  "metric_bootstrap_resamples": 20000,
+  "metric_bootstrap_seed": 301001,
+  "task_bootstrap_resamples": 20000,
+  "task_bootstrap_seed": 301002,
+  "lower_bound_bootstrap_resamples": 20000,
+  "lower_bound_bootstrap_seed": 301003,
+  "lower_bound_family_size": 9,
+  "upper_bound_family_size": 9,
+  "family_error": 0.05,
+  "model_execution": false,
+  "gpu_execution": false,
+  "paper_modified": false
+}

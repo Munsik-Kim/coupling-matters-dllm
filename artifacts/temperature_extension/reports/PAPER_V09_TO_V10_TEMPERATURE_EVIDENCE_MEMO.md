@@ -1,0 +1,3 @@
+# Temperature evidence memo
+
+Higher temperature moved the official sample-then-select sampler beyond the predecessor's near-deterministic pushed-forward regime. Coupling choice changed measured paired cost, but direction remained mixed by bit and prompt. At T=1 the frozen macro CRN-minus-lifted mean was 0.0152994791667 with bootstrap CI [0.00260416666667, 0.0305989583333], while prompt-wise sign evidence remained weak. Proposal CMC reduced proposal mismatch but does not guarantee lower output or terminal cost after model-dependent selection and propagation. No paper modification was performed.

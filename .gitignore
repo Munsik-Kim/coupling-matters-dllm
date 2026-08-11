@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.venv/
+build/
+paper/source/*.aux
+paper/source/*.bbl
+paper/source/*.blg
+paper/source/*.fdb_latexmk
+paper/source/*.fls
+paper/source/*.log
+paper/source/*.out
+paper/source/*.pdf

@@ -1,0 +1,9 @@
+{
+  "H_A1": true,
+  "H_A2": true,
+  "H_A3": true,
+  "H_A4": true,
+  "fixed_suite_scope": "p032-p063 only; no prompt-population generalization",
+  "gate": "PASS_SMDM_SECOND_MODEL_CONFIRMATORY",
+  "max_single_prompt_share": 0.036920495070274804
+}

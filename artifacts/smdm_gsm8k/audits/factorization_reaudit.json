@@ -1,0 +1,8 @@
+{
+  "current_certificate_applies_to": [
+    "origin"
+  ],
+  "greddy": "NOT_FACTORIZED_GLOBAL_FIXED_COUNT_TOPK",
+  "origin": "FACTORIZED",
+  "pass": true
+}

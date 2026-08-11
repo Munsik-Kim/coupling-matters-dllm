@@ -1,0 +1,8 @@
+{
+  "bridge_label": "SURROGATE_BRIDGE_WEAK",
+  "external_validation_readiness": "NOT_READY_FOR_EXTERNAL_METHOD_CLAIM",
+  "method_effect_label": "NO_TRANSPORT_CALIBRATION_EFFECT",
+  "model_free_reaggregated": true,
+  "overall_gate": "PASS_TRCAL_1_NEGATIVE",
+  "validity_gate": "PASS_TRCAL_1_VALIDITY"
+}

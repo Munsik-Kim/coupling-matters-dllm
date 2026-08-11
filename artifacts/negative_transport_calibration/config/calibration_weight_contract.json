@@ -1,0 +1,17 @@
+{
+  "jeffreys_hazard": "(n_split+0.5)/(n_survive+1.0)",
+  "normalization": "arithmetic mean over all calibration states equals one",
+  "schemes": [
+    "UNIFORM",
+    "MARGIN_FRONTIER",
+    "RESIDUAL_ONLY",
+    "HAZARD_ONLY",
+    "TRANSPORT_SR",
+    "TRANSPORT_SRH"
+  ],
+  "thresholds": {
+    "q20_policy": 2.5033950805664062e-06,
+    "q20_token": 0.6458876132965088
+  },
+  "weight_rows_sha256": "c6aef07acbac648e4575750e411f0b6bb83008eb47b3f8027cf2f7495eccf908"
+}

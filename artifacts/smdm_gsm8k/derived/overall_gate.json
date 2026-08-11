@@ -1,0 +1,6 @@
+{
+  "gate": "PASS_LOCAL_SECOND_MODEL_PACKAGE",
+  "numerical_estimands_pooled": false,
+  "track_a_gate": "PASS_SMDM_SECOND_MODEL_CONFIRMATORY",
+  "track_b_gate": "PASS_GSM8K_DESCRIPTIVE_RELEVANCE"
+}

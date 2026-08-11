@@ -1,0 +1,3 @@
+discrepancy_id,level,claim_id,detail
+STAT-001,SECONDARY_STATISTICAL_CORRECTION,WP07C split paragraph and appendix,"0.8047/0.9688/1.0000 are prompt-block any-split fractions, not coupling-draw split probabilities. Raw trajectory probabilities are 0.578125/0.8359375/1.0."
+STAT-002,SECONDARY_STATISTICAL_CORRECTION,WP07C W8 conditional diagnostic,0.283203/0.804688=0.352 mixes a trajectory mean numerator with a prompt-block any-split denominator and is not E[D|split]. Raw trajectory-conditional W8 D is 0.4898648649.

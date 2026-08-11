@@ -1,0 +1,6 @@
+component,raw_count,definition,pass,violation_count
+CERT3 fixed suite,8064,"family,prompt,seed,severity,horizon",True,0
+WP07C prompt population,6048,"family,prompt,seed,severity,horizon",True,0
+WP07B six-level scaling,6048,"family,prompt,seed,severity,horizon",True,0
+WP07D SMDM,3072,"family,prompt,seed,length,severity,horizon",True,0
+LOCAL-LIFT,1632,"prompt,draw,length,temp,severity,horizon",True,0

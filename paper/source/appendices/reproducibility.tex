@@ -1,0 +1,43 @@
+\section{Reproducibility and Artifact Map}
+\label{app:repro}
+
+\subsection{Release structure}
+The public source package contains the complete manuscript, TMLR style file, every displayed figure, and plotted-data CSVs for newly generated summary figures. The experimental artifact is organized into immutable work packages. Each package records configuration, model/checkpoint and tokenizer identities, prompt manifests, event-addressed RNG contracts, row-level results, tests, reports, and SHA-256 manifests. Public checkpoints and datasets are referenced by immutable identifiers rather than duplicated.
+
+\begin{table}[ht]
+\caption{Source-to-claim map for the primary and negative work packages.}
+\label{tab:artifact-map}
+\centering\small
+\begin{tabular}{@{}p{.22\linewidth}p{.30\linewidth}p{.38\linewidth}@{}}
+\toprule
+Package family & Main paper role & Reproduction target \\
+\midrule
+WP05A/WP05B & local mismatch and split consequence & flip rates, early/middle/late damage \\
+CERT-3/CERT-3R & fixed-suite coupling and certificate & CRN/CMC costs, UCBs, horizons, pathwise audit \\
+WP07C & declared prompt population & source contract, block UCBs, horizons \\
+WP07B & finite-bit scaling & W3--W8 slopes and stress point \\
+WP07D & second model and task panel & SMDM length transfer, GSM8K relevance \\
+LOCAL-LIFT/TEMP & official selector and temperature & proposal lifting, stochastic stress, healing \\
+METRIC-LOC-1 & negative metric/lower-bound study & additive costs, witnesses, zero formal LCBs \\
+TRCAL-1 & negative calibration study & state weights, clipping scales, held-out task comparison \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Model-free reproduction}
+Each work package provides a model-free command that reconstructs its derived tables, simultaneous bounds, horizon decisions, figure data, and gates from frozen raw outputs. Independent secondary implementations recalculate the load-bearing arithmetic without importing the primary aggregation helpers. The healing correction reconstructs split and re-agreement counts from checkpoint JSON rather than report prose. The metric and calibration investigations similarly preserve their preregistered negative gates.
+
+\subsection{Randomness and pathwise auditing}
+Random events are addressed by semantic keys including prompt, bit, draw, reverse step, branch, position, and subevent. Reordering branches or positions therefore does not change the generated random event. This contract was introduced after a stateful-RNG implementation produced 809 apparent pathwise violations that disappeared under event-addressed replay. Every final release checks duplicate event keys, replay, branch and iteration order, fixed commit counts, copy-only state monotonicity, and $D_H\le B_{\rm FS,H}$ at every recorded horizon.
+
+The five initial pathwise families contribute
+$8{,}064+6{,}048+6{,}048+3{,}072+1{,}632=24{,}864$ checks. The official-sampler temperature extension contributes $4{,}800$, for $29{,}664$ recorded checks total, all with zero violation. These counts are dependent audit totals; they are not used as confidence-sample sizes.
+
+\subsection{Statistical units}
+Fixed-suite statements average over frozen prompts and the declared independently addressed coupling draws. The conservative sensitivity first averages draws within each prompt. Prompt-population statements first average repeated draws within each IID prompt block and apply concentration across prompt blocks. Bootstrap analyses resample the top-level prompt or example block. Tokens, reverse steps, horizons, and multiple methods on one example are never treated as independent statistical observations.
+
+\subsection{Anonymity and release hygiene}
+The public preprint package removes usernames, local absolute paths, credentials, private repository URLs, and personal storage links. The public PDF and metadata identify Munsik Kim as the author. Any future double-blind venue submission must use a separately generated anonymous manuscript and supplementary package, must not link to this archive during review unless the venue policy explicitly permits it, and must preserve the same scientific source hashes and manifests.
+
+\subsection{Claim boundaries encoded in the artifacts}
+Gates distinguish validity from scientific outcome. For example, the metric-localization and transport-calibration packages pass implementation and reproducibility checks but retain negative scientific labels. Reports explicitly prohibit interpreting token embeddings as semantic metrics, plug-in OT as a certified population lower bound, proposal maximality as terminal optimality, or BF16 fidelity as task improvement. This prevents later artifact users from converting failed preregistered hypotheses into unsupported positive claims.

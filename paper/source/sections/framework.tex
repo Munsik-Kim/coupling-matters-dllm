@@ -1,0 +1,178 @@
+\section{Finite-Horizon Transport Framework}
+\label{sec:framework}
+
+\subsection{Setup}
+Let $\Vs$ be a finite vocabulary, $\Mtok\notin\Vs$ a mask token, and $\Xs=(\Vs\cup\{\Mtok\})^N$. Reverse time runs $t=T,\ldots,0$. The FP and quantized kernels are $P_t,Q_t$, with a common initial law at $T$ and terminal laws $\mu_0^\star,\mu_0^q$. We use normalized weighted Hamming
+\begin{equation}
+ d(s,s')=\sum_{i=1}^N\lambda_i\Ind{s[i]\ne s'[i]},
+ \qquad \lambda_i>0,\quad \sum_i\lambda_i=1,
+ \label{eq:metric}
+\end{equation}
+so $\operatorname{diam}(d)=1$. A transition is \emph{monotone copy-only} if an already unmasked token is copied forever. For any coupling $\Gamma$ of the two chains,
+\[
+  \Wd(\mu_0^\star,\mu_0^q)
+  \le D_\Gamma:=\Ex_\Gamma[d(X_0^\star,X_0^q)].
+\]
+For sample-then-select samplers, model $M\in\{\star,q\}$ first draws a proposal $\xi^M\sim\nu_t^M(\cdot\mid s)$ and then applies a deterministic, model-dependent map $\Phi_t^M(s,\xi^M)$. Thus $P_t=(\Phi_t^\star)_\#\nu_t^\star$ and $Q_t=(\Phi_t^q)_\#\nu_t^q$ at a common state.
+
+\begin{table}[t]
+\caption{The certificate map. Proofs and supporting statements are collected in Appendices~\ref{app:supporting}--\ref{app:proofs}.}
+\label{tab:theory-map}
+\centering\small
+\begin{tabular}{@{}p{.22\linewidth}p{.28\linewidth}p{.41\linewidth}@{}}
+\toprule
+Result & Key assumption & What it licenses \\
+\midrule
+Path-KL obstruction & teacher-reachable support mismatch & the trajectory-KL upper-bound route can be infinite \\
+Hybrid transport & finite state, common initial law & local kernel replacements propagated through a common suffix \\
+First divergence & monotone copy-only & $D_\Gamma$ bounded by residual masked mass \\
+Survival--hazard identity & synchronous coupling & split incidence and residual consequence separated by time \\
+Coordinatewise optimum & product transition, additive cost & exact one-step Wasserstein cost \\
+Lifted coupling & valid proposal coupling, deterministic selectors & a valid sample-then-select transition coupling \\
+Concentration & bounded preregistered prompt blocks & simultaneous fixed-suite or prompt-population UCBs \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Why trajectory KL can be vacuous}
+Let $\mathbb P^\star,\mathbb P^q$ be trajectory laws on $\Xs^{T+1}$.
+\begin{proposition}[Path-KL obstruction]
+\label{prop:kl}
+If some teacher-reachable state $s$ at step $t$ satisfies $P_t(s,\cdot)\not\ll Q_t(s,\cdot)$, then
+$\mathrm{KL}(\mathbb P^\star\|\mathbb P^q)=\infty$. This includes deterministic transitions with different next states and deterministic commit-set selectors with different commit sets.
+\end{proposition}
+\proofapp
+Data processing then supplies only an infinite upper bound on terminal KL. The terminal laws may still be close, so a finite metric route is needed.
+
+\subsection{Hybrid transport}
+Let $Q_{t-1:1}=Q_{t-1}\cdots Q_1$ and define the terminal effect of replacing one kernel at state $s$ by
+\[
+\eta_t(s)=\Wd\!\left(P_t(s,\cdot)Q_{t-1:1},Q_t(s,\cdot)Q_{t-1:1}\right).
+\]
+\begin{theorem}[Teacher-prefix/quantized-suffix transport]
+\label{thm:hybrid}
+With a common initial law,
+\begin{equation}
+\Wd(\mu_0^\star,\mu_0^q)
+\le \sum_{t=1}^T\Ex_{S_t\sim\mu_t^\star}[\eta_t(S_t)].
+\label{eq:hybrid}
+\end{equation}
+The teacher prefix determines occupancy and the quantized suffix determines propagation. Reversing the hybrid order yields the mirror pairing.
+\end{theorem}
+\proofapp
+The raw telescoping sum can exceed the metric diameter because repeated kernel swaps charge the same terminal coordinate multiple times. The coordinate-union hierarchy in Appendix~\ref{app:supporting} charges each coordinate once. The sharper domain-specific statement stops at the first split.
+
+\subsection{First divergence and residual masked mass}
+Let $\tau$ be the first transition at which two coupled chains differ, and define residual masked mass
+\[
+R(s)=\sum_{i:s_i=\Mtok}\lambda_i.
+\]
+\begin{theorem}[First-divergence residual-mass bound]
+\label{thm:fs}
+For any coupling $\Gamma$ of monotone copy-only chains from a common initial state,
+\begin{equation}
+\Wd(\mu_0^\star,\mu_0^q)
+\le D_\Gamma
+\le \Bfs^\Gamma
+:=\Ex_\Gamma[R(X_\tau)\Ind{\tau\ne\dagger}]
+\le \Pr_\Gamma(\tau\ne\dagger)
+\le1.
+\label{eq:fs-main}
+\end{equation}
+The same statement holds at every deterministic finite horizon.
+\end{theorem}
+\proofapp
+The argument uses the irreversible structure directly: before the first split both chains share the same committed tokens, and those coordinates remain fixed. Only coordinates still masked at the split can contribute new terminal cost.
+
+For a synchronous coupling, let $G_t$ be survival without an earlier split and let $h_t^\Gamma(s)$ be the one-step split probability at a common state.
+\begin{proposition}[Survival--hazard decomposition]
+\label{prop:hazard}
+Under the synchronous representation,
+\begin{equation}
+\Bfs^\Gamma
+=\sum_{t=1}^T
+\Ex\!\left[
+\Ind{G_t}\,h_t^\Gamma(X_t)\,R(X_t)
+\right].
+\label{eq:hazard}
+\end{equation}
+\end{proposition}
+\proofapp
+Equation~\eqref{eq:hazard} separates three factors: survival to the current step, the probability of splitting now, and the maximal remaining consequence. It motivates the empirical analysis in Section~\ref{sec:mechanism}, but does not by itself imply that a local reconstruction loss is a valid surrogate for $h_t$.
+
+For any fixed $f:\Xs\to[0,1]$, the split event also controls a bounded downstream functional.
+\begin{corollary}[Bounded-functional stability]
+\label{cor:functional}
+At every deterministic horizon $r$,
+\[
+|\Ex f(X_r^\star)-\Ex f(X_r^q)|
+\le \Pr_\Gamma(\tau^{(r)}\ne\dagger).
+\]
+\end{corollary}
+\proofapp
+This is a validity statement, not a claim that first-split probability tightly controls semantics or task accuracy.
+
+\subsection{Coupling is part of the measurement}
+Assume first that the actual one-step transitions factorize as $P_t=\bigotimes_i p_{t,i}^\star$ and $Q_t=\bigotimes_i p_{t,i}^q$. Let $\delta_{t,i}=\TV(p_{t,i}^\star,p_{t,i}^q)$.
+\begin{theorem}[Coordinatewise maximal coupling]
+\label{thm:cmc}
+Independently maximally coupling each coordinate defines a valid transition coupling with split hazard
+$h_t^{\mathrm{CMC}}=1-\prod_i(1-\delta_{t,i})$. Iteration yields a path coupling satisfying
+$\Wd\le\Dcmc\le\Bfs^{\mathrm{CMC}}\le1$.
+\end{theorem}
+\proofapp
+\begin{proposition}[One-step weighted-Hamming optimality]
+\label{prop:cmc-onestep-opt}
+For weighted Hamming,
+\begin{equation}
+\Wd(P_t(s,\cdot),Q_t(s,\cdot))
+=\sum_i\lambda_i\delta_{t,i}(s),
+\label{eq:cmc-opt}
+\end{equation}
+and coordinatewise maximal coupling attains the minimum.
+\end{proposition}
+\proofapp
+This is additive one-step optimality. It is not joint maximality for the event $X\ne Y$ and does not imply terminal or path optimality.
+
+For a sample-then-select transition, proposals are coupled before selection.
+\begin{proposition}[Lifted proposal coupling]
+\label{prop:lifted}
+If $\pi_t$ couples $\nu_t^\star$ and $\nu_t^q$, then
+$\Gamma_t^{\mathrm{lift}}=\operatorname{Law}(\Phi_t^\star(s,\xi^\star),\Phi_t^q(s,\xi^q))$
+is a valid coupling of the actual transitions. Moreover,
+\begin{align}
+ h_t^{\mathrm{lift}}(s)\le&\ \Pr_{\pi_t}(\xi^\star\ne\xi^q)\\
+ &+\Pr_{\pi_t}(\xi^\star=\xi^q,\ \Phi_t^\star(s,\xi^\star)\ne\Phi_t^q(s,\xi^q)).
+ \label{eq:lift-channels}
+\end{align}
+\end{proposition}
+\proofapp
+The two terms are proposal/token and policy-selection channels. They are an upper-bound decomposition rather than an exact causal partition because different proposals can map to the same next state.
+\begin{corollary}[Temperature-zero limit]
+\label{cor:det-limit}
+If both proposal laws are Dirac masses, the proposal coupling is unique. Coupling-choice comparisons disappear; splits are determined by proposal-token or deterministic policy-boundary differences.
+\end{corollary}
+\proofapp
+
+\subsection{Simultaneous statistical statements}
+For a fixed suite of $m$ prompts, $r_j$ independent coupling draws per prompt, and $K$ preregistered one-sided cells:
+\begin{theorem}[Fixed-suite simultaneous concentration]
+\label{thm:fixedsuite}
+With probability at least $1-\delta$, simultaneously for all upper cells $j$,
+\[
+\mu_j\le\widehat\mu_j+
+\sqrt{\frac{\log(K/\delta)}{2mr_j}}.
+\]
+\end{theorem}
+\proofapp
+For IID prompt draws $C_1,\ldots,C_m\sim\Psrc$, repeated coupling draws are first averaged within each prompt block.
+\begin{theorem}[Prompt-population simultaneous concentration]
+\label{thm:population}
+With probability at least $1-\delta$, simultaneously for all upper cells,
+\[
+\nu_j\le\widehat\nu_j+
+\sqrt{\frac{\log(K/\delta)}{2m}}.
+\]
+\end{theorem}
+\proofapp
+The estimands are distinct. The first controls the fixed-suite average over declared coupling randomness; the second controls expectation under the declared source population. Because every horizon cell is included in the simultaneous family, prefix-closed horizon selection is licensed without post-selection correction.

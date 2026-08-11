@@ -1,0 +1,4 @@
+precision,paired_rows,mean_accuracy_difference,bootstrap_95_low,bootstrap_95_high,answer_agreement,mean_normalized_token_edit_distance,mcnemar_q_wins,mcnemar_bf16_wins,mcnemar_exact_p
+W8,200,0.0,0.0,0.0,0.985,0.0025692559455518234,0,0,1.0
+W6,200,-0.01,-0.03,0.0,0.925,0.009074359382537908,0,2,0.5
+W4,200,-0.02,-0.06,0.02,0.775,0.03180621159755612,2,6,0.2890625

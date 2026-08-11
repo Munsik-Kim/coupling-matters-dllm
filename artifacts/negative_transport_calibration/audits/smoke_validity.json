@@ -1,0 +1,24 @@
+{
+  "grid_complete": true,
+  "hashes_verified": true,
+  "pass": true,
+  "runtime_only_selection": true,
+  "timing": {
+    "bridge_label": "SURROGATE_BRIDGE_WEAK",
+    "calibration_seconds": 25.358917163001024,
+    "counts": {
+      "calibration": 4,
+      "test": 8,
+      "validation": 4
+    },
+    "eligible_modules": 101,
+    "eligible_rows": 497920,
+    "peak_vram_mib": 7770.869140625,
+    "result_rows": 96,
+    "risk_seconds": 17.76857855400158,
+    "test_seconds": 166.67503602200304,
+    "total_seconds": 319.1381766919949,
+    "trajectory_step_rows": 9216,
+    "validation_seconds": 101.96846519999963
+  }
+}

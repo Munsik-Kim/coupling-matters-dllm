@@ -1,0 +1,59 @@
+{
+  "deterministic_triples_per_family_metric": 100000,
+  "families": {
+    "MDLM_GPT2": {
+      "embedding_hybrid": {
+        "max_symmetry_error": 0.0,
+        "max_triangle_violation": 0.0,
+        "maximum_cost": 0.82477807700634,
+        "minimum_cost": 0.0,
+        "minimum_distinct_token_cost": 0.4748728990554809,
+        "pass": true
+      },
+      "hamming": {
+        "max_symmetry_error": 0.0,
+        "max_triangle_violation": 0.0,
+        "maximum_cost": 1.0,
+        "minimum_cost": 0.0,
+        "minimum_distinct_token_cost": 1.0,
+        "pass": true
+      },
+      "tokenizer_byte_hybrid": {
+        "max_symmetry_error": 0.0,
+        "max_triangle_violation": 0.0,
+        "maximum_cost": 0.116796875,
+        "minimum_cost": 0.0,
+        "minimum_distinct_token_cost": 0.0537109375,
+        "pass": true
+      }
+    },
+    "SMDM_GSM8K": {
+      "embedding_hybrid": {
+        "max_symmetry_error": 0.0,
+        "max_triangle_violation": 0.0,
+        "maximum_cost": 0.8113754749298095,
+        "minimum_cost": 0.0,
+        "minimum_distinct_token_cost": 0.46917744576931,
+        "pass": true
+      },
+      "hamming": {
+        "max_symmetry_error": 0.0,
+        "max_triangle_violation": 0.0,
+        "maximum_cost": 1.0,
+        "minimum_cost": 0.0,
+        "minimum_distinct_token_cost": 1.0,
+        "pass": true
+      },
+      "tokenizer_byte_hybrid": {
+        "max_symmetry_error": 0.0,
+        "max_triangle_violation": 0.0,
+        "maximum_cost": 0.5777777777777778,
+        "minimum_cost": 0.0,
+        "minimum_distinct_token_cost": 0.08518518518518518,
+        "pass": true
+      }
+    }
+  },
+  "pass": true,
+  "seed": 301004
+}

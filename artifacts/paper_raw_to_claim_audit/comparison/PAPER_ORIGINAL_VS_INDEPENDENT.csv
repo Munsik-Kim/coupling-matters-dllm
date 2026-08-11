@@ -1,0 +1,567 @@
+claim_id,displayed_text,source_family,audit_status,independent_comparison
+P09-preamble-1-43363d3f,\documentclass[10pt]{article},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-2-021a3947,\usepackage[margin=1in]{geometry},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-23-3d8fff43,\newcommand{\Ind}[1]{\mathbf{1}\{#1\}},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-34-cb964dc0,\title{\bf Coupling Matters: Certified Finite-Horizon Stability for\\Quantized Masked Diffusion Language Models},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-43-96e047d3,controlling a local reconstruction error. We show that the standard path-KL route from such a,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-44-4add66c3,local objective to an output guarantee can lose all finite information: a single teacher-reachable,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-48-9d3b714b,"necessary margin conditions, and a teacher-prefix/quantized-suffix Wasserstein propagation bound.",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-54-fc19fe4c,"deterministic boundary-crossing regime. Third, coordinate-union and first-divergence arguments give",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-55-4ce1f1d8,"diameter-safe certificates, while simultaneous concentration yields both fixed-suite and declared",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-56-2aa8e760,prompt-population guarantees. A bounded-functional corollary additionally upper-bounds any,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-59-e7f3351e,"Empirically, inverse-CDF common randomness gives a full-horizon W8 MDLM coupling cost of $0.915$,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-60-7efdf626,"close to the $0.988$ distance between independent full-precision samples, whereas CMC gives",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-61-479dd97f,$0.235$ and leaves $48.4\%$ of trajectories unsplit. Simultaneous one-sided $95\%$ upper,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-62-599edb61,certificates are $0.351/0.520/0.883$ on a fixed 64-prompt suite and,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-63-b867037c,$0.447/0.603/0.964$ on 128 IID draws from a frozen filtered WikiText-103 source-record,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-65-30efca75,"of exact one-step Wasserstein cost and CMC split hazard over W4--W8, with exponents",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-66-befbbb61,"$0.786\,[0.762,0.808]$ and $0.758\,[0.735,0.780]$; W3 is a prespecified low-bit stress",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-67-b987efc7,point. The coupling-dependent ordering also reproduces on a separate $1.14$B SMDM checkpoint at,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-68-39fadd76,16 and 64 generation positions. A new 320-trajectory lifted-coupling release on the official SMDM,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-69-5ab368b5,"GSM8K fixed-count selector closes the sample-then-select interface gap: $1{,}632$",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-70-59b55016,"trajectory--horizon endpoints have no pathwise or monotonicity violation, 30 preregistered",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-72-23456202,"selectors agree on $3{,}840$ FP/quantized proposals. At length 16 and temperature $0.2$, W8/W6",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-73-49e53f83,first splits are $87.5\%/84.6\%$ policy-first; at W4 the simultaneous proposal--policy share rises,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-74-efff6e5b,to $39.7\%$ and its conditional terminal damage is $6.1\times$ the policy-only value. The audited,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-75-b2121976,"pushed-forward laws are nearly deterministic, so this is finite concentrated-regime validation,",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-preamble-77-d2fac05e,"releases, $24{,}864$ recorded trajectory--horizon inequalities contain no violation.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-84-dc8bcf83,"reverse process~\citep{sahoo2024mdlm,arriola2025bd3lm,nie2025llada,ye2025dream}. Recent",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-86-8b6d7954,"modify a local reconstruction objective accordingly~\citep{lin2025qdllm,xu2025dllmquant,zhang2026quantdllm,yan2026starquant,huang2026faircalib}.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-87-1845f177,What remains unclear is when such local control yields a mathematically valid and empirically,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-91-87bff733,A common argument bounds the KL divergence between full-precision and quantized trajectories and,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-92-08ea09ea,then applies data processing. Proposition~\ref{prop:kl} shows that this route fails whenever a,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-95-8b41bdf8,"The statement is deliberately one-directional: the proposed upper bound becomes infinite, not",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-100-7fe7c765,"$\Wd(\mu_0^\star,\mu_0^q)\le D_\Gamma$, so the synchronization rule is part of the",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-101-6ed4e184,certificate rather than an invisible evaluation convention. This single viewpoint connects the,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-102-477fda7a,previously separate deterministic-boundary and stochastic-coupling regimes.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-105-476f3409,"\begin{enumerate}[label=(\arabic*),leftmargin=1.9em,itemsep=2pt]",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-106-d5ebbfdb,\item \textbf{Failure-to-transport replacement.} We give a support-based criterion for path-KL,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-116-a77eee8d,\item \textbf{Finite-horizon statistical certification.} Coordinate-union and first-divergence,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-117-b00cd040,arguments avoid repeated terminal charges and yield diameter-safe upper bounds. Separate,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-118-f4737fe9,simultaneous concentration theorems certify a fixed prompt suite and IID prompt draws from a,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-119-d73742b9,declared source population. A bounded-functional corollary shows that first-split probability also,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-120-14a43b89,"upper-bounds disagreement of any fixed $[0,1]$-valued downstream functional",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-124-5529fa6a,\paragraph{Evidence rather than additional claims.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-125-9303699f,The remaining experiments support these three contributions rather than define new ones. On the,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-126-d0a4a59a,"primary MDLM release, inverse-CDF common randomness gives a W8 terminal cost $0.915$, close to the",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-127-f03b4b3b,"$0.988$ distance between independent FP samples, while CMC gives $0.235$ and preserves exact",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-128-2dfd3b67,synchronization on $48.4\%$ of trajectories. Fixed-suite simultaneous UCBs are,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-129-a300552e,$0.351/0.520/0.883$ at W8/W6/W4. On 128 IID prompt draws from a frozen filtered,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-130-a9ff69db,"WikiText-103 source-record population, the corresponding UCBs are $0.447/0.603/0.964$; the",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-131-0c2d43ca,"point estimates are modestly higher, but precision ordering and certified horizons persist. A",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-133-531821b9,finite-range log-linear W4--W8 slopes $0.786$ for exact one-step transport and $0.758$ for CMC,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-134-88dbbeaa,"split hazard, with W3 retained as a prespecified stress point.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-136-1b011103,The same qualitative coupling ordering reproduces on a separate $1.14$B SMDM checkpoint at both,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-137-a82414db,16 and 64 generation positions~\citep{nie2025smdm}. A strictly separated 100-example GSM8K panel,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-138-ed06764a,"shows small BF16/W8/W6/W4 accuracy differences and remains descriptive. We therefore ran a new,",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-139-2cece9c0,independent lifted-coupling release on the same official fixed-count confidence selector: 320,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-140-8b4b2872,"trajectories cover W8/W6/W4, temperatures $0$ and $0.2$, a 32-prompt length-16 panel, and an",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-141-b3e15cbf,8-prompt length-64 sensitivity. The release validates the pushed-forward branch marginals on a,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-142-4895ed4f,"finite preregistered 30-state panel, checks symmetric FP/Q selector equivalence on $3{,}840$",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-143-d1de6e58,"proposals, and independently verifies the temperature-zero draw/order limit. At length 16 and",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-144-f40b119b,"temperature $0.2$, first splits at W8 and W6 are predominantly policy-first and usually heal,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-145-d716e814,whereas W4 produces substantially more simultaneous proposal--policy splits and persistent damage.,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-146-aff28781,"The bounded-functional inequality is instantiated on this fixed suite, but its current",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-147-a7efa2a9,first-split UCBs are too loose to constitute a useful GSM8K accuracy certificate.,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-150-96eb56f4,"The current certified experiments use monotone copy-only decoding, simulated weight-only symmetric",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-156-7e17498e,"stress, and large confidence- or entropy-policy models remain outside the empirical scope. The",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-introduction-159-1660e39c,"semantic-similarity, joint-maximal, or terminal/pathwise optimality guarantees.",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-166-37c7e09d,"$\Xs=(\Vs\cup\{\Mtok\})^N$. Reverse time runs $t=T,\dots,0$. Write $P_t$ and $Q_t$",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-177-a2b519b8,Fix $\lambda_i>0$ with $\sum_i\lambda_i=1$ and define,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-179-62eca7c7,"d(s,s')=\sum_{i=1}^N\lambda_i\Ind{s[i]\ne s'[i]},",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-180-b368344e,"\qquad \operatorname{diam}(d)=1,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-182-b1584f2b,"with $\Wd$ the induced $1$-Wasserstein distance. For kernels, $Q_{t-1:1}$ denotes",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-183-b8aadb38,$Q_{t-1}\cdots Q_1$ (identity when $t=1$). A coupling $\Gamma$ of the two chains realizes both,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-185-6f4e4f4f,"$D_\Gamma=\Ex_\Gamma[d(X_0^\star,X_0^q)]$, and $\Wd\le D_\Gamma$.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-setup-198-09ef5c3f,first-divergence certificates additionally require the resulting transitions to be monotone,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-the-trajectory-kl-route-degenerates-205-a5ed5586,$\Xs^{T+1}$.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-the-trajectory-kl-route-degenerates-219-60eb031c,$\mathrm{KL}(\mu_0^\star\|\mu_0^q)\le,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-the-trajectory-kl-route-degenerates-220-bb7975f2,\mathrm{KL}(\mathbb P^\star\|\mathbb P^q)$. An infinite upper bound therefore says,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-239-2cd1af97,"Under a fixed commit count, a nonempty policy symmetric difference contains at least two",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-240-bf620468,coordinates and therefore costs at least $2\lambda_{\min}$ locally. A token event can cost only,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-243-5ef4a3c3,\begin{proposition}[Persistent token lower bound],THEORY,SUPPORTED_THEORETICAL,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-250-4190ff96,"Policy discrepancies, by contrast, are token-versus-mask differences and may be repaired when the",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-259-e5dce71e,$M^{\mathrm{tok}}\le2R^{\mathrm{tok}}$. If a deterministic top-$k$ commit set changes under a,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-261-570351e1,$M^{\mathrm{pol}}\le2R^{\mathrm{pol}}$.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-265-71a89635,"These are necessary, not sufficient. In the measured deterministic diagnostic panel, boundary",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-266-e3df60eb,"events over-count actual flips, while the ratio $2R/M$ predicts flips more accurately than either",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-268-5d131d89,stochastic D1 certificate; that route uses categorical total variation in Sec.~\ref{sec:cmc}.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-274-e75fba33,"\Wd(\mu_0^\star,\mu_0^q)",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-275-885abf86,"\le\sum_{t=1}^T\Ex_{S_t\sim\mu_t^\star}[\eta_t(S_t)],",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-277-0d5901b5,"\eta_t(s)=\Wd\big(P_t(s,\cdot)Q_{t-1:1},Q_t(s,\cdot)Q_{t-1:1}\big).",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-281-7158bc0e,"\Ex[d(X_0^\star,X_0^q)]",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-282-2165fb9b,"\le\sum_{t=1}^T\Ex[d(Z^{(t-1)},Z^{(t)})].",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-action-channels-and-propagation-290-26f6e429,propagation operator to the quantized suffix $Q_{t-1:1}$. Reversing the hybrid order gives the,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-295-2b7907bf,\section{Diameter-safe certificates},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-299-074c79e9,effects. In the real-model micro-audit its mean was $3.55$ while the metric diameter is one. This is,PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-304-3dff302d,"$Z^{(0)},\dots,Z^{(T)}$. Let",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-305-b01d33bc,"$A_{t,i}=\Ind{Z^{(t-1)}[i]\ne Z^{(t)}[i]}$,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-308-f0775e7b,"U_{\mathrm{union}}(Z)=\sum_i\lambda_i\Ind{N_i\ge1},\quad",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-310-d0b7813b,"B_{\mathrm{coord}}=\sum_i\lambda_i\min\{1,\Ex[N_i]\},",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-312-af86b11a,"and $B_{\mathrm{tel}}=\sum_t\Ex[d(Z^{(t-1)},Z^{(t)})]$.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-317-e75fba33,"\Wd(\mu_0^\star,\mu_0^q)",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-321-b06e94d9,"\le\min\{1,B_{\mathrm{tel}}\}.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-330-5bdfe014,"m_i=\min\{1,\Ex[N_i]\}-\Pr(N_i\ge1),\qquad",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-331-7f63aa29,c_i=\Pr(N_i\ge1)-\Pr(Z^{(0)}[i]\ne Z^{(T)}[i]).,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-333-45f43c37,"Then $m_i,c_i\ge0$ and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-337-54fa2568,"If $\Ex[N_i]\le1$, then $m_i=\Ex[(N_i-1)^+]$; without that condition, this simplification",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-338-3f8b6029,"need not hold. Moreover, $c_i=0$ exactly when",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-339-f163ee06,"$\Pr(N_i\ge1,\,Z^{(0)}[i]=Z^{(T)}[i])=0$ for every coordinate with $\lambda_i>0$.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-343-f7099aff,"On the canonical audit chains, the pathwise union cost $U_{\mathrm{union}}$ had mean $0.948$ against $D=0.938$ and equaled the endpoint cost on $22/24$ trajectories. Contextual changes were frequent; tightness arose because endpoint",PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-348-f8cb5edc,"Let $\tau\in\{1,\dots,T\}\cup\{\dagger\}$ be the unique first transition at which two coupled",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-354-e75fba33,"\Wd(\mu_0^\star,\mu_0^q)",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-359-c3f9dee8,\le1.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-364-4d095017,\begin{corollary}[Finite-horizon first-divergence certificate],THEORY,SUPPORTED_THEORETICAL,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-366-89312499,"Fix $r\in\{0,\dots,T-1\}$ and stop both coupled chains at time $r$. Let",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-367-e69b1287,"$\tau^{(r)}\in\{r+1,\dots,T\}\cup\{\dagger\}$ be the unique first divergence among the",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-374-c3f9dee8,\le1.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-382-de33ad8f,\begin{corollary}[Bounded-functional stability],THEORY,SUPPORTED_THEORETICAL,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-384-998f341b,"Under the setting of Corollary~\ref{cor:fs-horizon}, let $f:\Xs\to[0,1]$ be any fixed",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-392-2228a1eb,"In particular, if $f$ is an exact-answer correctness indicator, the absolute accuracy gap is at",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-393-35b47ccc,most the first-split probability. This does not imply a tight semantic certificate: the bound can,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-398-a936a547,\begin{proposition}[Survival--hazard identity],THEORY,SUPPORTED_THEORETICAL,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-404-75e9c95c,=\sum_{t=1}^T\Ex[\Ind{G_t}h_t^\Gamma(X_t)R(X_t)].,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-diameter-safe-certificates-407-1d93b7ee,\noindent\emph{Proof.} Appendix~\ref{app:proofs:hazard}.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-coordinatewise-maximal-coupling-417-f41bc93e,"hazard, while the direct route seeks small expected weighted-Hamming cost. These are different",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-coordinatewise-maximal-coupling-418-cd26b224,"one-step objectives: joint maximal coupling minimizes the $0$--$1$ split event, whereas the product",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-coordinatewise-maximal-coupling-431-abc5b298,"h_t^{\mathrm{CMC}}(s)=1-\prod_i(1-\delta_{t,i}(s))",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-coordinatewise-maximal-coupling-438-182f834d,"\le\min\Big\{1,\sum_i\delta_{t,i}(s)\Big\}.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-coordinatewise-maximal-coupling-443-e75fba33,"\Wd(\mu_0^\star,\mu_0^q)",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-coordinatewise-maximal-coupling-446-c3f9dee8,\le1.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-502-48264273,"$1-\prod_i(1-\delta_{t,i}^{\mathrm{prop}}(s))$. If the pushed-forward transitions are monotone",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-509-bf41c7ad,"The displayed two-channel expression is an upper bound, not generally an exact decomposition:",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-531-151c7a02,W8 & 0.2349 & 0.9146 & $74.3\%$ & $48.4\%$\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-532-37fbdb15,W6 & 0.4043 & 0.8999 & $55.1\%$ & $16.4\%$\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-533-acd8e998,W4 & 0.7671 & 0.9575 & $19.9\%$ & $0\%$\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-537-82b222e4,"$0.9878$ in the same metric; the inverse-CDF CRN cost is near this reference, whereas CMC retains",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifting-proposal-couplings-through-model-538-b39ff4c8,substantial synchronization at W8 and W6.},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-542-0e72a214,\section{Fixed-suite and prompt-population statistical certification},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-547-e5f73def,"Fix prompts $c_1,\dots,c_m$ and a preregistered family of $K$ one-sided cells. In cell $j$, let",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-548-6c288277,"$X_{a,s,j}\in[0,1]$ be $r_j$ draws for prompt $a$, independent across $(a,s)$ within that cell and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-551-a83e55af,"\widehat\mu_j=\frac1{mr_j}\sum_{a=1}^m\sum_{s=1}^{r_j}X_{a,s,j},\qquad",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-552-e7a64f3f,"\mu_j=\frac1m\sum_{a=1}^m\Ex[X_{a,1,j}].",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-554-134cfabe,"With probability at least $1-\delta$, simultaneously for every upper cell,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-556-e6f6d5d4,"\mu_j\le\widehat\mu_j+\sqrt{\frac{\log(K/\delta)}{2mr_j}},",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-558-09c9f7c3,and the analogous lower bound holds for every lower cell.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-562-5f973045,\begin{corollary}[Simultaneous fixed-suite CMC certificate],THEORY,SUPPORTED_THEORETICAL,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-565-4a3f9a51,"bounds $B_{a,s,j}$ satisfy, prompt-wise,",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-567-84f29cfe,"W_{a,j}\le\Ex[D_{a,1,j}]\le\Ex[B_{a,1,j}].",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-571-ffd222e8,"\overline W_j:=\frac1m\sum_a W_{a,j}",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-572-ce19482d,"\le\min\{1,\operatorname{UCB}(\widehat D_j),",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-575-b32ae9db,for all cells on the same $1-\delta$ event. Any prefix-closed certified-horizon rule chosen from,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-576-5f25c098,these simultaneous bounds retains the same coverage.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-580-9930ef16,"In CERT-3, $m=64$, $r_j=4$ for the CMC upper-bound cells, $K=49$, and $\delta=0.05$, giving",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-581-6cdcca5a,"radius $0.11598$. The target is the average over the fixed prompt suite, and the certified",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-588-79a826f6,"Let $C_1,\dots,C_m\stackrel{\mathrm{iid}}{\sim}\Psrc$. For a preregistered cell $j$, let",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-589-580ada86,"$X_{a,1,j},\dots,X_{a,r_j,j}\in[0,1]$ be repeated conditional draws for prompt draw $C_a$, with",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-591-5f0d1dff,"$(C_a,X_{a,1:r_j,j})$ are independent across $a$ within the cell. Set",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-593-3ea5a5bb,"Y_{a,j}=\frac1{r_j}\sum_{s=1}^{r_j}X_{a,s,j},\qquad",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-594-3c96b14c,"\widehat\nu_j=\frac1m\sum_{a=1}^mY_{a,j},\qquad",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-597-d55cdbd5,"For a preregistered family of $K$ one-sided statements, with probability at least $1-\delta$,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-600-307afbc6,"\nu_j\le\widehat\nu_j+\sqrt{\frac{\log(K/\delta)}{2m}},",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-606-61c23272,\begin{corollary}[Prompt-population CMC certificate],THEORY,SUPPORTED_THEORETICAL,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-613-ce19482d,"\le\min\{1,\operatorname{UCB}(\widehat D_j),",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-616-0aadd1c0,for every preregistered cell on the same $1-\delta$ event. Prefix-closed horizon selection retains,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-622-56f25607,"sizes. In the population experiment, two CMC draws are averaged inside each of $m=128$ IID prompt",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-fixed-suite-and-prompt-population-statis-623-0d2f2e52,"draws, so the primary radius uses $m=128$, not $256$.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-628-d048776c,\subsection{Primary MDLM mechanism and certificate},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-631-640e095d,"\paragraph{Setup.} The primary study uses MDLM-OWT (FP32, no flash-attention), its native",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-632-b2b7e91e,"factorized sampler, $16$ generation positions, $32$ reverse kernels plus explicit terminal",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-633-ffb33bf7,"completion, and simulated weight-only per-output-channel symmetric RTN at W8/W6/W4 on an RTX",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-634-adee2e73,5080. The metric is normalized exact-token Hamming over generation positions only. RNG is,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-637-ff82b27e,streams. These invariants are load-bearing---an earlier stateful implementation produced $809$,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-641-cf154144,"$7.79\%/16.06\%/47.70\%$ at W8/W6/W4, with the severity ordering respected in $127$ of",WP05A,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-642-70e99922,$128$ prompt--seed clusters; a preregistered predictor of flips reaches held-out AUROC $0.925$.,WP05A,AUDITED_DERIVED_FALLBACK,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-644-abff991c,"($0.079/0.097/0.157$), while conditional damage given a mismatch is nearly flat in bit width",PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-645-31f5f0cd,"($0.543/0.514/0.485$) and varies strongly with reverse-process location: early $0.774$, middle",PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-646-968a6e61,"$0.398$, late $0.119$. The mechanism statement is therefore",PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-652-b21f769a,\paragraph{Certificates.} Table~\ref{tab:main} reports the simultaneous $95\%$ upper bounds.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-653-33ec87bb,The full-horizon direct route certifies $0.351/0.520/0.883$ at W8/W6/W4. Certified horizons,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-654-b1ca439c,"(prefix-closed, simultaneous, absolute) shorten as precision drops: at tolerance $0.25$ the direct",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-655-dfc6453e,"route certifies H16 at W8, H12 at W6 and H4 at W4. \emph{``All bit widths certified'' means some",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-656-591226eb,"$(\varepsilon,H)$ cell passed at every bit width}---not that W4 is stable over the full trajectory.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-664-dde61f36,W8 & 0.234863 & \textbf{0.350847} & 0.362793 & \textbf{0.478777}\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-665-32c3411c,W6 & 0.404297 & \textbf{0.520281} & 0.595947 & \textbf{0.711931}\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-666-353e740e,W4 & 0.767090 & \textbf{0.883074} & 0.920166 & 1.000000\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-669-d2ee94b8,\caption{Primary MDLM full-horizon simultaneous one-sided $95\%$ certificates over the fixed,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-670-e01bf321,64-prompt suite. The direct route ($\Dcmc$) is tighter; the first-divergence route ($\Bfs$) is,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-671-da9d5bd9,interpretable through split hazard and residual mask mass.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-675-9f408761,\paragraph{Relative certificates fail.} Because independent full-precision samples already differ,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-676-a69f2afd,"by $0.988$, we also tested",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-678-e8626437,"$\theta\in\{0.25,0.5,0.75\}$. All failed. The authorised result is an \emph{absolute}",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-679-99fb2d46,"certificate. This is a limitation of the metric, and we report it rather than substituting a metric",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-682-f7e3f847,\paragraph{Independent audit.} A blind clean-room audit reassembled $27$ archive parts,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-683-75169955,"($146$ payload files, hash failures $0$), recomputed all aggregates without importing the original",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-684-92e14b1e,"code, re-derived $8{,}064$ pathwise comparisons from raw transition states (violations $0$),",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-685-9a051960,"re-verified $24$ categorical coupling laws with $100{,}000$ fresh draws each ($24/24$ pass), and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-686-1a8c9a09,"compared $338$ headline quantities after freezing ($338/338$ agreement, maximum discrepancy",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-687-f73c3bf2,$1.11\times10^{-16}$). A conservative sensitivity that first averages the four draws within each,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-primary-mdlm-mechanism-and-certificate-688-ae731a4a,prompt and applies Hoeffding at $n=64$ roughly doubles the radius and weakens W4 in particular.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-691-e9908fe4,\subsection{Prompt-source population certification},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-695-16926309,source is the WikiText-103 raw-train snapshot~\citep{merity2017pointer} at a pinned revision. One,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-697-92f9701c,"records contain $40$ or more characters, $24$ or more alphabetic characters, and between $8$ and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-698-c521fb63,"$64$ GPT-2 tokens, are not heading rows, and exclude prior prompt hashes. These rules leave",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-699-d7e30b16,"$151{,}528$ eligible records. We draw $128$ records IID with replacement using a frozen PCG64 seed;",WP07C,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-701-91d1926d,"averaged inside each prompt draw, giving the $m=128$ prompt blocks required by",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-702-1a53357b,Theorem~\ref{thm:population}. The preregistered family again has $K=49$ one-sided statements and,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-703-12b65c56,radius $0.16403$.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-707-8455e2d5,\includegraphics[width=0.92\linewidth]{figure_wp07c_population_direct.png},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-709-d2d2dd0c,(dashed) across the preregistered horizon grid. The sample contains 128 IID prompt draws from the,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-721-c8b54b43,W8 & 0.283203 & \textbf{0.447229} & 0.420654 & 0.584680 & +0.048340\\,WP07C,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-722-dd41ee18,W6 & 0.438477 & \textbf{0.602502} & 0.628906 & 0.792932 & +0.034180\\,WP07C,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-723-48eb068c,W4 & 0.799561 & \textbf{0.963586} & 0.942871 & 1.000000 & +0.032471\\,WP07C,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-727-2491a02d,direct absolute certificate remains non-vacuous at every precision and the ordering is unchanged. The two experiments target different estimands and are not pooled.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-731-8065b50e,"For the direct route, tolerance $0.25$ certifies H12, H8, and H4 at",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-732-f3d95444,"W8, W6, and W4; tolerance $0.50$ certifies FULL, H24, and H12; and tolerance $0.75$",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-733-a816f9db,"certifies FULL, FULL, and H24. The first-divergence route is more conservative: it",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-734-25237688,"certifies H12/FULL at W8 for tolerances $0.50/0.75$, H4/H16 at W6, and no",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-735-53a46484,preregistered tolerance at W4. Relative certificates against independent-reference diversity fail,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-737-b6c40a84,"the fixed suite to $0.805/0.969/1.000$ at W8/W6/W4, so the source population is measurably harder,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-738-f9874d5b,"yet the terminal direct means rise by only $0.048/0.034/0.032$. At W8, the endpoint cost",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-739-9ab56ed1,conditional on a split decreases from $0.234863/0.515625=0.455$ on the fixed suite to,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-740-ad059973,"$0.283203/0.804688=0.352$ on the source population. This post-hoc diagnostic is consistent with,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-746-c0a32a8c,It is not a guarantee for arbitrary prompts or a semantic-quality population. The frozen release,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-747-76af0891,"records $5{,}376$ CMC and $672$ CRN trajectory--horizon checks ($6{,}048$ total) with no",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-source-population-certification-748-d5d5ad20,certificate violations and supports model-free regeneration of the reported tables.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-755-da7a2f06,"only an ordering, we draw $64$ fresh prompts IID from the frozen WikiText-derived eligible-record",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-756-f5030ba4,population and split them deterministically into $32$ calibration and $32$ held-out draws. At every,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-757-21a62062,state of one FP teacher trajectory we evaluate the FP32 transition and six simulated weight-only,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-758-5605a0d1,RTN variants W3--W8 at the \emph{same discrete state}. Thus the local analysis excludes context,WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-759-dbc2be5c,shift caused by an earlier split. For each prompt and precision we average over $32$ stochastic,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-760-8795b320,reverse kernels plus the explicit terminal completion. The primary fit range W4--W8 and the W3,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-766-917c820f,\includegraphics[width=0.485\linewidth]{figure_wp07b_one_step_scaling.png} &,PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-767-28202467,\includegraphics[width=0.485\linewidth]{figure_wp07b_split_hazard_scaling.png},PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-770-7ffac47d,"$\sum_i\lambda_i\delta_{t,i}$. Right: CMC split hazard",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-771-c7efd7b5,"$1-\prod_i(1-\delta_{t,i})$. Curves are prompt averages for the fixed calibration and held-out",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-772-f405fd83,splits. W4--W8 form the preregistered fitting range; W3 is a low-bit stress point and is not used in,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-779-7ce55e65,"\log_2 \overline w_{c,b}=\alpha_c-\beta_W b+e_{c,b},\qquad",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-780-dec986a8,"\log_2 \overline h_{c,b}=\alpha'_c-\beta_H b+e'_{c,b}",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-782-88f659ae,"on W4--W8, with prompt-cluster bootstrap intervals. Table~\ref{tab:bit-scaling} shows that the",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-784-7bf40c9d,"$\widehat\beta_W=0.7855$ and $\widehat\beta_H=0.7580$, so adding one bit multiplies the two local",WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-785-592767a5,quantities by approximately $2^{-0.7855}=0.580$ and $2^{-0.7580}=0.591$. Within-prompt,WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-786-20c2077f,$R^2$ exceeds $0.96$ for both fits. W3 preserves the global degradation direction but rises more,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-787-77d7f917,"steeply than the W4--W8 line, consistent with entry into a distinct low-bit regime rather than a",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-794-cdbce9d7,Split & Metric & $\widehat\beta$ & 95\% prompt-bootstrap interval & Within-prompt $R^2$ & Max. rel. dev.\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-796-1c1f49ff,"Calibration & One-step $W_d$ & 0.7871 & [0.7637, 0.8101] & 0.9624 & 17.2\%\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-797-2e007ccb,"Calibration & Split hazard & 0.7586 & [0.7342, 0.7812] & 0.9640 & 16.2\%\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-798-ff81b5a9,"Held-out & One-step $W_d$ & \textbf{0.7855} & \textbf{[0.7618, 0.8078]} & 0.9603 & 20.5\%\\",WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-799-6f242b4e,"Held-out & Split hazard & \textbf{0.7580} & \textbf{[0.7346, 0.7804]} & 0.9619 & 19.5\%\\",WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-802-695546d2,\caption{Preregistered finite-bit scaling fits over W4--W8. The intervals resample prompts and keep,WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-803-e552986e,"all bit levels within a prompt together. These are empirical finite-range exponents, not",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-809-0dc17960,"Table~\ref{tab:bit-endpoint} reports full-horizon endpoint cost, first-divergence certificate,",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-810-3ce4efdb,"split incidence, and the simultaneous direct/first-divergence certified horizons at tolerance",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-811-0956de46,$0.50$. Every aggregate endpoint quantity worsens monotonically from W8 to W3. The direct certified,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-812-fcd6c84b,horizon falls from FULL at W8 to H8 at W3; the more interpretable first-divergence route is more,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-814-a6333561,"bit, so the claim is explicitly about population averages and simultaneous cell bounds.",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-820-c72e9d1f,Precision & Mean $\Dcmc$ & Mean $\Bfs$ & Split prob. & UCB $\Dcmc$ (FULL) & $H_D(0.50)$ & $H_{\mathrm{FS}}(0.50)$\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-822-69ceea5e,W8 & 0.218 & 0.325 & 0.500 & 0.460 & FULL & H12\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-823-359ecbda,W7 & 0.270 & 0.379 & 0.555 & 0.512 & H24 & H8\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-824-678057e1,W6 & 0.428 & 0.607 & 0.836 & 0.670 & H16 & H4\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-825-573d91f8,W5 & 0.646 & 0.820 & 0.961 & 0.888 & H16 & none\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-826-9ca32d99,W4 & 0.775 & 0.922 & 1.000 & 1.000 & H12 & none\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-827-19bbf265,W3 & 0.866 & 0.972 & 1.000 & 1.000 & H8 & none\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-831-b8010ef2,"prefix-closed certified horizons at tolerance $0.50$. The family uses $n=64$ prompt means,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-832-7969acda,"$K=91$, and $\delta=0.05$.}",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-836-cc4396a6,The same-state regional fits vary: held-out $\beta_W$ is $0.736/0.815/0.866$ and,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-837-888a7b38,$\beta_H$ is $0.706/0.788/0.849$ for early/middle/late thirds. A single global exponent is,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-838-bc54117e,"therefore a useful summary, not a step-invariant physical constant. The release contains $6{,}048$",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-held-out-finite-bit-scaling-839-ea55dc7c,"trajectory--horizon checks, $48$ fresh categorical-law audits, and eight product-law audits, with",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-849-37573363,"reference branch uses BF16, not FP32. The audited \texttt{origin} sampler is monotone, copy-only,",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-851-0a3c2f3f,"of $32$ prompts, two coupling draws, generation lengths $16$ and $64$, and W8/W6/W4. The official",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-853-e363ec00,fallbacks; formula-level tests and exact WP07A endpoint regression passed.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-858-d34a2ac2,\caption{SMDM second-model confirmation. Direct CMC cost $D$ and first-divergence certificate,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-860-b319f8eb,$16$ and $64$ generation positions. H32 and FULL coincide because the explicit terminal operation,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-871-9d4aac73,16 & W8 & BF16 & 0.201 & 0.886 & 0.368 & 42.2\%\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-872-2ba0b56f,16 & W6 & BF16 & 0.444 & 0.920 & 0.762 & 6.3\%\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-873-f1da4c1b,16 & W4 & BF16 & 0.715 & 0.969 & 0.948 & 0.0\%\\,PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-874-745867d9,64 & W8 & BF16 & 0.367 & 0.909 & 0.669 & 10.9\%\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-875-1110daf9,64 & W6 & BF16 & 0.574 & 0.934 & 0.918 & 0.0\%\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-876-4e9a17bd,64 & W4 & BF16 & 0.761 & 0.965 & 0.990 & 0.0\%\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-881-3ad80b74,are not pooled with the primary MDLM certificate.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-886-d06b66ad,$\Dcmc(\mathrm{W8})\le\Dcmc(\mathrm{W6})\le\Dcmc(\mathrm{W4})$ and the analogous,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-887-51d4b785,"ordering for $\Bfs$ hold. CMC is below CRN in every W8 and W6 cell, and in fact in every",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-889-ae45be4a,"original $\approx0.2$B MDLM checkpoint to a separate $1.14$B SMDM checkpoint, and survives an",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-890-9db138d4,"increase from $16$ to $64$ generation positions. It weakens with length: from length $16$ to $64$,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-891-401a2263,"full-horizon $\Dcmc$ rises by $0.166/0.130/0.046$ at W8/W6/W4, while the conditional first split",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-892-9438177c,"moves earlier. Because both lengths use $32$ reverse steps, we report masked fraction and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-895-10194d13,"Track-A validity checks include $3{,}072$ pathwise horizon comparisons with no",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-896-0e7deed5,"$D_H>B_{\mathrm{FS},H}$ violation, $36/36$ diversified actual categorical-law audits",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-897-2629a9e1,"(W8/W6/W4, two lengths, early/middle/late), and $6/6$ product-coupling audits. The SMDM",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-899-73035398,$32$ prompts and two draws; we therefore treat this panel as external-validity confirmation rather,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-second-model-and-longer-generation-confi-900-1fcfceac,than replacing the primary certificate.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-903-f6a7b08a,\subsection{Descriptive GSM8K relevance panel},WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-906-15ce0aca,The official SMDM GSM8K checkpoint~\citep{nie2025smdm} uses a globally coupled fixed-count,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-910-350f3f41,"then bound an exact-answer accuracy gap by the first-split probability. The archived task run,",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-912-6a287244,\emph{descriptive} in this version. We evaluate $100$ preregistered GSM8K test examples~\citep{cobbe2021gsm8k} under two,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-914-f4085c38,"computed at the example level ($n=100$), not by treating the $200$ seed rows as independent.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-920-573459c8,Precision & Accuracy & $\Delta$ vs.\ BF16 & Bootstrap 95\% interval & Answer agreement & Mean token edit\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-922-2210d6c6,BF16 & 51\% & -- & -- & -- & --\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-923-b8c35e9c,"W8 & 51\% & 0 pp & $[0,0]$ pp & 98.5\% & 0.0026\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-924-4584a686,"W6 & 50\% & $-1$ pp & $[-3,0]$ pp & 92.5\% & 0.0091\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-925-0108fed3,"W4 & 49\% & $-2$ pp & $[-6,2]$ pp & 77.5\% & 0.0318\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-928-75ce6ab0,\caption{Descriptive SMDM GSM8K panel. Answer extraction succeeds on all outputs and no generation,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-930-b3de165f,a Wasserstein certificate.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-934-45029082,"The example-level exact McNemar $p$-values are $1.000$, $1.000$, and $0.625$ for W8, W6, and",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-935-f14f0279,W4 respectively. Thus the observed W6/W4 accuracy decreases are small and statistically,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-936-4da06b84,"inconclusive on this panel. Across W8/W6/W4, answer disagreement",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-937-9c94a2b4,($1.5/7.5/22.5\%$) and mean token edit ($0.0026/0.0091/0.0318$) increase monotonically in the,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-940-95f9bf83,"calibration result. More importantly, unchanged W8 task accuracy shows why a near-unit shared-seed",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-942-444c97ff,"Hamming controls task accuracy, but it supplies a preregistered relevance diagnostic without",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-descriptive-gsm8k-relevance-panel-943-cda11268,changing the certified metric post hoc.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-949-fe6f5525,We next instantiate Proposition~\ref{prop:lifted} on the official SMDM GSM8K,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-953-f7ec83e9,"pair is pushed through the two unchanged selectors. The primary panel contains $32$ fixed prompts,",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-954-d0e69122,"length $16$, W8/W6/W4, temperature $0$ and $0.2$, with two coupled draws in the stochastic cells.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-955-655ca78d,An 8-prompt W8/W4 length-64 panel is reported only as sensitivity evidence. In total the release,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-956-ee39e613,"contains $320$ trajectories, $1{,}632$ horizon endpoints, $6{,}656$ trajectory steps,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-957-54b6c53f,"$5{,}507$ same-state events, and no pathwise or monotone copy-only violation.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-960-ead28e2b,"teacher-reachable states were fixed in advance. For each state and branch, $4{,}000$ official",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-961-a5b962e7,"independent samples were compared with $4{,}000$ samples from the corresponding lifted marginal;",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-962-0dc6d3e6,"all cells passed the declared $0.06$ marginal tolerance, with maximum empirical error $0.00025$.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-963-727e127e,"Official, instrumented, and batched selectors agree exactly on $1{,}920$ FP and $1{,}920$",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-964-59f10f08,"quantized proposals, with no fixed-count violation. A subsequent micro-audit regenerates all 30",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-974-a7646b85,W8 & 0.250 & 0.063 & 0.875 & 0.063 & 0.539 & 0.938\\,PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-975-89483945,W6 & 0.406 & 0.000 & 0.846 & 0.154 & 0.447 & 1.000\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-976-33f68382,W4 & 0.906 & 0.017 & 0.586 & 0.397 & 0.388 & 0.810\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-979-e88510c5,"\caption{Length-16, temperature-$0.2$ lifted trajectories. Channel fractions are conditional on a",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-981-1c7b8422,"dominate at W8/W6, while simultaneous proposal--policy events increase sharply at W4.}",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-988-72242f20,\caption{Lifted sample-then-select behavior at length 16 and temperature $0.2$. Left: channel,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-989-732f5cca,"attribution among split trajectories. Right: split probability, first-divergence bound, and",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-990-2d8f1922,terminal paired distortion. The large gap between split incidence and terminal distortion shows,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-991-cb34be78,that many policy-boundary divergences heal.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-995-ae816b2a,\paragraph{Policy boundaries dominate high precision; simultaneous splits persist at W4.},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-996-057fa9db,"Among split trajectories, the policy-first share is $87.5\%$ at W8 and $84.6\%$ at W6. Their",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-997-dc9f1072,"re-agreement rates are $93.8\%$ and $100\%$, and the W6 terminal paired distortion is exactly zero",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-998-ac131a91,"on this panel despite a $40.6\%$ split probability. At W4, the simultaneous proposal--policy share",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-999-55cde4af,rises to $39.7\%$ and the mean first split moves earlier. Conditional terminal damage is $0.1467$,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1000-62ec872f,"for simultaneous W4 splits versus $0.0239$ for policy-only splits, a factor of $6.1$. Thus the",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1001-ce8053db,"upper-bound channels are empirically distinct, but they are not an exact causal decomposition:",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1004-8bb48a4f,\paragraph{Certificates and task functionals.},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1005-9065a974,"At temperature $0.2$, the full-horizon mean paired distortions at W8, W6, and W4 are",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1006-0ef7e7f8,"$0.0010$, $0.0000$, and $0.0664$, respectively; the corresponding mean first-divergence bounds are",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1007-114a7a8e,"$0.1465$, $0.2754$, and $0.6680$. With the preregistered prompt-block radius $0.3427$, the direct",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1008-0f3416a7,"full-horizon UCBs are $0.3437$, $0.3427$, and $0.4091$, so all three certify the full length-16",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1009-7a8965a3,"horizon at tolerance $0.5$. The first-divergence route is much looser: its UCBs are $0.4892$,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1010-2395d823,"$0.6181$, and $1.0000$. This slack is structural because the certificate intentionally ignores",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1011-4f0c9678,"post-split healing. The bounded-functional empirical chain holds in every cell, but length-16",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1012-e68a54d9,GSM8K accuracy is at a truncation floor and the length-64 prompt count is only eight. The result is,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1013-591293c8,"a validity demonstration, not a useful certified accuracy guarantee.",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1016-09cef936,"The proposal laws are heterogeneous: across audited masked-position laws, $77.3\%$ have",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1017-0954272e,"inverse-Simpson effective support at most $1.10$, while the maximum is $3.866$. After selection,",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1019-ac2335db,is $0.99975$ and the maximum empirical effective support is $1.00233$. The audit therefore,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1020-3eccc657,strongly validates the implementation interface but provides weak stochastic stress. It covers a,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1021-ed554f21,"finite 30-state panel, not every reachable state, and does not imply output-level joint maximality,",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-coupling-on-the-official-sample-t-1022-7904724c,"terminal/path optimality, semantic certification, prompt-population generalization, or a",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1032-761feabb,"schemes~\citep{lin2025qdllm,xu2025dllmquant,zhang2026quantdllm,yan2026starquant,huang2026faircalib}.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1033-64f4d25e,"Modern large diffusion language models include the confidence-policy LLaDA family and Dream 7B,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1035-3bc71616,"for dLLM evaluation~\citep{nie2025llada,ye2025dream}. The lifted construction in",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1039-539f60fa,objectives can and cannot certify about the output. FAIR-Calib is the closest theoretical treatment:,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1042-19dc9d77,model-dependent selection~\citep{huang2026faircalib}. Proposition~\ref{prop:kl} identifies the,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1043-edee966d,support failure that prevents this term from being treated as an ordinary finite correction in the,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1046-64c949f1,Adjacent inference-dynamics work shows that early unmasking decisions can shape later trajectories,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1047-b41101f6,"under confidence-based non-autoregressive decoding~\citep{kim2026early}, while sampler-centric",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1048-90bca048,oracle evaluation shows that sampler-induced distributional error can persist even with an exact,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1049-d0855d53,"denoiser~\citep{tang2026sampler}. These results motivate separating model, sampler, and coupling",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1050-ab747719,effects; our focus is the additional quantization-induced law difference and its certifiable upper,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1051-aa3479f9,bounds. Classical coupling and optimal-transport constructions are reviewed by,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1053-010e929d,"Markov chains~\citep{rudolf2018perturbation,ollivier2009ricci} supplies the ambient technique, but",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1056-06a3d680,"conditions are the classical Tsybakov ones~\citep{mammen1999smooth,tsybakov2004optimal}, here",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-related-work-1057-26e8b1f1,applied to decoder action boundaries rather than to classification.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1063-893654b9,"\paragraph{Scope of the certificates.} We report both a fixed, preregistered 64-prompt MDLM",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1065-25fbcd05,"frozen $151{,}528$ eligible WikiText-103 raw-train records remaining after the declared deterministic",WP07C,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1067-bc4c5da7,worst-case or arbitrary-user-prompt guarantee. The SMDM result is a separate fixed 32-prompt,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1072-1d9528f6,full-precision MDLM samples differ by $0.988$. It is a sensitive distributional divergence,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1073-51e2d930,"\emph{detector} and a poor global semantic distortion measure. We therefore certify absolute, not",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1075-e6158d04,bound on any fixed bounded functional through first-split probability. The 100-example GSM8K table,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1077-a158c25d,inequality on 32 prompts. Its first-split UCBs are nevertheless too large to yield a useful,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1078-b4f0d8b6,accuracy certificate; no language-quality or semantic-similarity certificate is claimed.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1082-5ba5aed1,maximal coupling and is not guaranteed to minimize terminal/pathwise Wasserstein cost. The interval,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1083-55422a2b,"$\max_i\delta_i\le\TV(P_t,Q_t)\le h_t^{\mathrm{CMC}}$ concerns the $0$--$1$ split probability and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1086-6a47d003,"sample-then-select transitions, but does not guarantee a closed-form hazard, one-step optimality, or",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1088-d8cad2da,different pushforward maps. The finite SMDM audit validates branch marginals and selectors in a,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1089-65208eeb,sharply concentrated regime; it is not a broad adversarial test of stochastic selector boundaries.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1091-8ad28650,"\paragraph{Finite-bit scaling.} The W4--W8 slopes are empirical laws on one FP32 MDLM,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1092-723fe2eb,"$16$ generation positions, a declared prompt-source population, and simulated weight-only RTN.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1094-b9658710,"models, sequence lengths, activation quantizers, or deployment kernels. W3 is a preregistered stress",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1095-1a648ff9,point outside the primary fit and shows a steeper low-bit departure. The prompt-average local,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1096-0eda64f5,metrics include $32$ stochastic kernels plus the explicit terminal completion; regional fits vary,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1097-255749af,"substantially across the reverse process. Certified-horizon monotonicity is discrete and censored,",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1100-37e588d7,"\paragraph{Models, lengths, and quantization.} We cover two checkpoints and show the coupling",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1101-315abef9,"effect at $16$ and $64$ generation positions, but the primary population certificate remains a",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1102-2aa83d0d,single-model result. The SMDM origin panel uses $32$ prompts; the lifted task-sampler panel uses,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1103-4e390bda,$32$ prompts at length 16 and only eight at length 64. The MDLM reference is FP32 whereas the SMDM,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1104-7459fac6,reference is BF16. The primary MDLM additionally uses a six-level W3--W8 finite-bit sweep; the SMDM,WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1105-2f6db0ff,panels remain W8/W6/W4. All studies use simulated weight-only RTN with no activation quantization,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1109-aaf416fb,\paragraph{Decoder scope.} The first-divergence certificate requires monotone copy-only decoding,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1115-8512080e,validity outside the declared 30-state panel is not inferred.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1122-48661a81,instead averages the two inner CMC draws inside each of 128 IID prompt blocks and uses $n=128$;,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1123-55572fda,its generalization is only to the frozen source-record distribution. Both SMDM panels remain,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-limitations-1124-fd4596d2,"fixed-suite Monte Carlo statements, and the 30-state marginal audit is an implementation check, not",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1131-10e9179b,"The paper makes three claims. First, path-KL can become an information-free upper-bound route under",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1132-5e02f526,"quantization-induced support changes, while finite-horizon transport remains valid. Second, the",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1135-562ffd0e,weighted-Hamming transitions. The new lifting proposition shows how the same coupling logic extends,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1137-c819f277,"zero as the deterministic boundary-crossing limit. Third, coordinate-union, first-divergence, and",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1138-c000166f,simultaneous concentration yield explicit fixed-suite and prompt-population certificates; any fixed,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1139-8619b5b1,"bounded downstream functional is additionally controlled by first-split probability, although that",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1140-6edf1251,bound can be loose.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1142-7b4811e7,The empirical results are evidence for these claims rather than separate contributions. They show,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1143-94d1421b,"non-vacuous MDLM certificates, prompt-source generalization, held-out finite-bit scaling, and a",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1144-4fa95ed2,separate $1.14$B SMDM confirmation through 64 generation positions. The 100-example GSM8K accuracy,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1145-a0c2753d,"table remains descriptive, but a new 320-trajectory lifted release now validates the proposal-to-",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1146-4f740823,selection interface on the official fixed-count task sampler. It shows that high-precision first,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1147-ddf886a7,"splits are primarily policy-boundary events and usually heal, whereas low-precision simultaneous",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1149-7cef53a2,"this an implementation-valid certificate path, while the concentrated transition laws and loose",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1151-e5ceb60b,"stronger: shared-seed stability is not an intrinsic distance between output laws, and modern",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1158-b656bf87,\begin{thebibliography}{99},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1159-2559d87d,\bibitem[Arriola et al.(2025)]{arriola2025bd3lm} M.~Arriola et al. Block diffusion: interpolating,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1160-1a5e06f7,"between autoregressive and diffusion language models. \emph{ICLR}, 2025 (Oral).",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1161-7f16880c,"\bibitem[Cobbe et al.(2021)]{cobbe2021gsm8k} K.~Cobbe, V.~Kosaraju, M.~Bavarian,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1164-d7d73538,"arXiv:2110.14168, 2021.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1165-906640be,\bibitem[Huang et al.(2026)]{huang2026faircalib} H.~Huang et al. Frontier-aware,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1167-8252b5a6,"models. \emph{ICML}, 2026.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1168-47009879,\bibitem[Lin et al.(2025)]{lin2025qdllm} H.~Lin et al. Quantization meets dLLMs: a systematic study,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1169-7e114dff,"of post-training quantization for diffusion LLMs. arXiv:2508.14896, 2025.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1170-bbfd14fa,"\bibitem[Merity et al.(2017)]{merity2017pointer} S.~Merity, C.~Xiong, J.~Bradbury, and R.~Socher.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1171-9a169b4d,"Pointer sentinel mixture models. \emph{ICLR}, 2017.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1172-6254e521,\bibitem[Mammen and Tsybakov(1999)]{mammen1999smooth} E.~Mammen and A.~B. Tsybakov. Smooth,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1173-166963ef,"discrimination analysis. \emph{Ann.\ Statist.}, 27(6), 1999.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1174-081c042d,"\bibitem[Nie et al.(2025)]{nie2025smdm} S.~Nie, F.~Zhu, C.~Du, T.~Pang, Q.~Liu,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1176-0c3ad403,"\emph{ICLR}, 2025.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1177-c0c40392,\bibitem[Nie et al.(2025)]{nie2025llada} S.~Nie et al. Large language diffusion models.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1178-9152bbae,"\emph{NeurIPS}, 2025 (Oral).",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1179-7f7e1f46,"\bibitem[Ye et al.(2025)]{ye2025dream} J.~Ye, Z.~Xie, L.~Zheng, J.~Gao,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1180-d0a20fae,"Z.~Wu, X.~Jiang, Z.~Li, and L.~Kong. Dream 7B: diffusion large language models.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1181-1cdda6ec,"arXiv:2508.15487, 2025.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1182-10ac3813,"\bibitem[Kim et al.(2026)]{kim2026early} J.~Kim, S.~Choi, Y.~Jo, M.~Lee, and M.~Seo.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1184-15d90db3,"diffusion language models. arXiv:2604.10567, 2026.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1185-07b486a2,\bibitem[Lindvall(1992)]{lindvall1992coupling} T.~Lindvall. \emph{Lectures on the Coupling Method}.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1186-d42483ff,"Wiley, 1992.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1187-35b9b487,\bibitem[Ollivier(2009)]{ollivier2009ricci} Y.~Ollivier. Ricci curvature of Markov chains on metric,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1188-dfdc46dd,"spaces. \emph{J.\ Funct.\ Anal.}, 256(3), 2009.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1189-5c53ea55,\bibitem[Rudolf and Schweizer(2018)]{rudolf2018perturbation} D.~Rudolf and N.~Schweizer.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1190-490111bd,"Perturbation theory for Markov chains via Wasserstein distance. \emph{Bernoulli}, 24(4A), 2018.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1191-758d780b,\bibitem[Sahoo et al.(2024)]{sahoo2024mdlm} S.~S. Sahoo et al. Simple and effective masked diffusion,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1192-ecb03fd4,"language models. \emph{NeurIPS}, 2024.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1193-3e531a48,"\bibitem[Tang et al.(2026)]{tang2026sampler} L.~Tang, L.~Yu, S.~Zhang, and G.~Ver Steeg.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1195-61ba5ffe,"language models. arXiv:2602.19619, 2026.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1196-438824dc,\bibitem[Tsybakov(2004)]{tsybakov2004optimal} A.~B. Tsybakov. Optimal aggregation of classifiers in,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1197-781e8ee6,"statistical learning. \emph{Ann.\ Statist.}, 32(1), 2004.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1198-001a96ef,\bibitem[Villani(2009)]{villani2009optimal} C.~Villani. \emph{Optimal Transport: Old and New}.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1199-8fed34e2,"Springer, 2009.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1200-db2e716f,\bibitem[Xu and Yang(2025)]{xu2025dllmquant} C.~Xu and D.~Yang. DLLMQuant: quantizing,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1201-105fb1ed,"diffusion-based large language models. arXiv:2508.14090, 2025.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1202-ab618885,\bibitem[Yan et al.(2026)]{yan2026starquant} X.~Yan et al. STaR-Quant: state-time consistent,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1203-91ac0512,"post-training quantization for diffusion large language models. arXiv:2606.04945, 2026.",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1204-057b2841,\bibitem[Zhang et al.(2026)]{zhang2026quantdllm} T.~Zhang et al. Quant-dLLM: post-training extreme,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1205-47238e7f,"low-bit quantization for diffusion large language models. \emph{ICLR}, 2026 (Poster).",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-conclusion-1211-6d8c0389,\input{paper-appendix-G-complete-proofs-v0.9.tex},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1214-c60abc35,\section{Prompt-Population Certificate Details},SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1218-5ad84fd7,The population is the pinned \texttt{Salesforce/wikitext} WikiText-103 raw-train snapshot,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1220-7dcf37ca,"the artifact. The raw pool contains $1{,}801{,}350$ rows. Unicode NFKC normalization, whitespace collapse, a minimum of $40$",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1221-b0af8042,"characters and $24$ alphabetic characters, an $8$--$64$ GPT-2-token interval, heading removal,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1222-b65f19a4,"and prior-prompt-hash exclusion leave $151{,}528$ eligible records. The experiment draws $128$",WP07C,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1223-f14f7f46,records IID with replacement using PCG64 seed $260801$; all realized records happen to be unique.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1229-5a4850c4,Precision & Route & $\varepsilon=0.25$ & $\varepsilon=0.50$ & $\varepsilon=0.75$\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1231-469900d3,W8 & $D_{\mathrm{CMC}}$ & H12 & FULL & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1232-d4f5b942,W8 & $B_{\mathrm{FS}}$ & none & H12 & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1233-e48fc7d4,W6 & $D_{\mathrm{CMC}}$ & H8 & H24 & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1234-c462a370,W6 & $B_{\mathrm{FS}}$ & none & H4 & H16\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1235-b94059de,W4 & $D_{\mathrm{CMC}}$ & H4 & H12 & H24\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1236-f19ac61a,W4 & $B_{\mathrm{FS}}$ & none & none & none\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1239-c0da4a2a,\caption{Prompt-population absolute certified horizons. Every selection is prefix-closed on the,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1240-1ee3a335,"preregistered grid and uses the simultaneous $K=49$, $\delta=0.05$ event.}",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1244-1909e2b1,The full-horizon split probabilities are $0.8047/0.9688/1.0000$ at W8/W6/W4. The corresponding,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1245-7e9a11f3,$B_{\mathrm{FS}}$ non-vacuity rates are $0.9844/0.9297/0.7422$. All relative certificates against,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-prompt-population-certificate-details-1246-9303f29a,"independent-reference diversity fail for $\theta\in\{0.25,0.50,0.75\}$. The population and fixed",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1253-6c743fed,The scaling experiment draws $64$ fresh prompt records IID from the frozen WikiText-derived,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1254-a42303af,eligible-record population using PCG64 seed $260811$. Prompt draws $0$--$31$ form the calibration,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1255-56d5ade2,split and $32$--$63$ form the held-out split. The same-state aggregate includes $32$ stochastic,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1256-2bdb1156,"native reverse kernels and the explicit terminal completion, hence $33$ transition states per",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1257-0145b9e6,prompt. W4--W8 are used in the primary prompt-fixed-effect regression and W3 is a preregistered,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1264-0ff1515d,Bit & W3 & W4 & W5 & W6 & W7 & W8\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1266-cf7fa675,Mean one-step $W_d$ & 0.023658 & 0.011532 & 0.005824 & 0.003144 & 0.001852 & 0.001351\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1267-1049848a,Mean CMC split hazard & 0.315720 & 0.167392 & 0.088409 & 0.048883 & 0.029109 & 0.021328\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1268-176ccf74,Mean terminal $\Dcmc$ & 0.866211 & 0.775391 & 0.645508 & 0.427734 & 0.269531 & 0.218262\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1269-08232cea,Mean terminal $\Bfs$ & 0.972168 & 0.922363 & 0.820312 & 0.606934 & 0.379395 & 0.325195\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1270-51524f26,Split probability & 1.000000 & 1.000000 & 0.960938 & 0.835938 & 0.554688 & 0.500000\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1273-c33d7e9a,\caption{Six-level aggregate local and terminal quantities. W3 is reported but excluded from the,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1274-62417111,primary W4--W8 scaling fit.},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1284-2af49295,"Early & 0.736 & 0.706 & higher absolute hazard, shallower relative bit slope\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1285-5e1d7dfe,Middle & 0.815 & 0.788 & intermediate regime\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1286-a82c10e3,"Late & 0.866 & 0.849 & lower absolute hazard, steeper relative bit slope\\",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1287-d5527db9,All transitions & 0.786 & 0.758 & preregistered global summary\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1299-5a4850c4,Precision & Route & $\varepsilon=0.25$ & $\varepsilon=0.50$ & $\varepsilon=0.75$\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1301-d9c40289,W8 & $D_{\mathrm{CMC}}$ & none & FULL & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1302-d4f5b942,W8 & $B_{\mathrm{FS}}$ & none & H12 & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1303-1ca7eb69,W7 & $D_{\mathrm{CMC}}$ & none & H24 & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1304-c7e3bd06,W7 & $B_{\mathrm{FS}}$ & none & H8 & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1305-1716066d,W6 & $D_{\mathrm{CMC}}$ & none & H16 & FULL\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1306-ff5968ad,W6 & $B_{\mathrm{FS}}$ & none & H4 & H12\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1307-114ff712,W5 & $D_{\mathrm{CMC}}$ & none & H16 & H24\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1308-269ad027,W5 & $B_{\mathrm{FS}}$ & none & none & H4\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1309-6358734d,W4 & $D_{\mathrm{CMC}}$ & none & H12 & H16\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1310-f19ac61a,W4 & $B_{\mathrm{FS}}$ & none & none & none\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1311-c4714536,W3 & $D_{\mathrm{CMC}}$ & none & H8 & H16\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1312-5f3dcc15,W3 & $B_{\mathrm{FS}}$ & none & none & none\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1315-6cdfdd20,\caption{Prefix-closed simultaneous certified horizons in the six-level scaling experiment. The,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1316-465815e8,"family has $K=91$, $n=64$ prompt means, and $\delta=0.05$, yielding radius $0.242168$.}",WP07B,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1320-ee7404a6,Relative-to-reference-diversity certificates remain negative. Full-horizon direct UCBs are,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-six-level-finite-bit-scaling-details-1321-66b39bba,"$0.460$, $0.512$, $0.670$, $0.888$, $1.000$, and $1.000$ for W8 through W3. The endpoint",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1332-2fefbd5f,"confirmatory panel. The predeclared family contains $48$ upper cells (direct and first-divergence,",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1333-fcd331ca,"two lengths, three precisions, four horizons) and two BF16 reference-diversity lower cells, so",WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1334-51112ed8,"$K=50$. Each upper cell contains $32$ prompts and two coupling draws ($n=64$), giving Hoeffding",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1335-4b41533d,radius $0.232308$. These intervals quantify coupling-draw randomness over the fixed 32 prompts;,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1336-8d47ba46,they do not certify a prompt population.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1344-36667b87,16 & W8 & BF16 & 0.201 & 0.433 & 0.368 & 0.600\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1345-36576ac8,16 & W6 & BF16 & 0.444 & 0.677 & 0.762 & 0.994\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1346-8a9114db,16 & W4 & BF16 & 0.715 & 0.947 & 0.948 & 1.000\\,PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1347-beefb2f4,64 & W8 & BF16 & 0.367 & 0.599 & 0.669 & 0.901\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1348-38937a59,64 & W6 & BF16 & 0.574 & 0.807 & 0.918 & 1.000\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1349-00ad4421,64 & W4 & BF16 & 0.761 & 0.993 & 0.990 & 1.000\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1358-cdfae9bd,The direct prefix-closed certified horizons at tolerances,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1359-a57ee571,"$\varepsilon\in\{0.25,0.50,0.75\}$ are, respectively:",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1360-380a21d4,W8 length 16: none/FULL/FULL; W6 length 16: none/H16/FULL; W4 length 16:,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1361-bd8e6f35,none/H8/H16; W8 length 64: none/H16/FULL; W6 length 64: none/H16/H16; and,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1362-d4b486a1,"W4 length 64: none/H8/H16. The first-divergence route is more conservative, especially at length",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-smdm-statistical-cells-1363-0d8d4d3e,64. We do not pool these cells with the primary MDLM family.,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1365-fcf8f6c4,\subsection{GSM8K example-level analysis},WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1367-5ed999dc,The raw task archive contains $100$ examples under two seeds for each precision. Correctness is,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1368-69bf2601,"identical across seeds for every example, so task uncertainty is calculated on the $100$ unique",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1375-058c88c2,Precision & Quantized wins & BF16 wins & Exact McNemar $p$ & Extraction failures\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1377-cc595007,W8 & 0 & 0 & 1.000 & 0\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1378-1dbce3a1,W6 & 0 & 1 & 1.000 & 0\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1379-06a167b5,W4 & 1 & 3 & 0.625 & 0\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1389-1110a3b0,Table~\ref{tab:gsm8k}. Proposition~\ref{prop:lifted} supplies a valid route once a,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1390-6940ea68,"proposal-level coupling is recorded, but the archived 100-example task run did not contain those",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-gsm8k-example-level-analysis-1391-77fb8de1,coupled proposal trajectories; that table is therefore descriptive evidence only.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1396-43991300,"The separate lifted release contains $320$ trajectories. At length 16, $32$ prompts are evaluated",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1397-240eb7fc,for W8/W6/W4 at temperatures $0$ and $0.2$; the stochastic cells have two coupled draws. The,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1398-7f434854,"length-64 sensitivity uses eight prompts, W8/W4, temperature $0.2$, and two draws. Independent",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1399-bb51fcac,"reaggregation of all checkpoint JSON files reproduces $1{,}632$ horizon endpoints, $6{,}656$",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1400-2418131a,"steps, $5{,}507$ same-state events, $204{,}800$ proposal-position records, and $416{,}014$ RNG",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1409-ce0b6fff,W8 & 0.0010 & 0.3437 & 0.1465 & 0.4892 & 0.250 & 0.938\\,PROPAGATION,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1410-0f3e9e35,W6 & 0.0000 & 0.3427 & 0.2754 & 0.6181 & 0.406 & 1.000\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1411-bef5e42a,W4 & 0.0664 & 0.4091 & 0.6680 & 1.0000 & 0.906 & 0.810\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1414-08546e19,\caption{Lifted SMDM task-sampler results at length 16 and temperature $0.2$. The simultaneous,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1415-dd011ab2,fixed-suite family uses 32 prompt blocks and radius $0.342726$.},CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1419-5e8083d0,"For the direct route, the prefix-closed certified horizon at tolerance $0.5$ is FULL at all three",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1420-5bdcb744,"precisions. For the first-divergence route at the same tolerance it is FULL at W8, H4 at W6, and",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1421-55e37756,none at W4. This contrast quantifies the slack introduced by ignoring post-split healing. At,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1429-7ec10d63,Length & Precision & FP accuracy & Q accuracy & Functional disagreement & First-split probability\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1431-756062cf,16 & W8 & 0.031 & 0.031 & 0.000 & 0.250\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1432-f020f556,16 & W6 & 0.031 & 0.031 & 0.000 & 0.406\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1433-c7d507ea,16 & W4 & 0.031 & 0.031 & 0.000 & 0.906\\,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1434-15b5a813,64 & W8 & 0.625 & 0.625 & 0.000 & 0.875\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1435-a6134cfe,64 & W4 & 0.625 & 0.625 & 0.250 & 1.000\\,WP07D,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1438-9aa45e31,\caption{Bounded-functional diagnostics for temperature $0.2$. The empirical inequality chain,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1439-03bdb799,"holds, but length 16 is at a truncation floor and the length-64 first-split UCB is one; these are",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1440-44b89188,"validity checks, not useful certified accuracy guarantees.}",SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1444-bc904b73,The finite reachable-state implementation audit contains 30 cells spanning early/middle/late,CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1445-d3130cd6,"states, both lengths, and the declared precisions. Each branch marginal is checked with $4{,}000$",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1446-c151ee9d,"official and $4{,}000$ lifted samples. Maximum empirical marginal error is $0.00025$ against a",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1447-1f0cb5e7,"$0.06$ tolerance; all fixed-count checks pass. Symmetric selector regression compares official,",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1448-1d5259cd,"instrumented, and batched implementations on $1{,}920$ FP and $1{,}920$ Q proposals with no",LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1449-f3bc8427,mismatch. The micro-audit finds maximum pushed-forward effective support $1.00233$ and minimum,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1450-225fde6c,modal probability $0.99975$. Proposal laws are less concentrated: mean per-position effective,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1451-d7aa8acf,"support is $1.012/1.015$ for FP/Q at length 16 and $1.173/1.188$ at length 64, with maximum",CERT3,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1452-76363cba,$3.866$. Thus selection sharply concentrates the audited transition laws; the panel is a strong,LOCAL_LIFT,RAW_VERIFIED,AGREES_OR_SCOPE_SUPPORTED
+P09-lifted-sample-then-select-task-sampler-d-1453-54077df4,interface validation but a weak high-entropy stress test.,SCOPE,SUPPORTED_SCOPE_ONLY,AGREES_OR_SCOPE_SUPPORTED

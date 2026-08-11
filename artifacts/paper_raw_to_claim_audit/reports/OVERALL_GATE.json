@@ -1,0 +1,10 @@
+{
+  "candidate_patch_applied": false,
+  "count_gate": "PASS_COUNT_RECONCILIATION",
+  "empirical_gate": "PASS_RAW_REAGGREGATION_WITH_PATCHES",
+  "figure_gate": "PASS_FIGURE_WITH_RENDER_ONLY_DIFFERENCES",
+  "gpu_execution": false,
+  "model_execution": false,
+  "overall_gate": "PASS_PAPER_V09_WITH_CANDIDATE_PATCHES",
+  "theory_gate": "PASS_THEORY_PROOF_MAP"
+}

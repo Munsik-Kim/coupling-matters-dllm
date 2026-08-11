@@ -1,0 +1,10 @@
+{
+  "implementation": "independent loop/dictionary arithmetic; does not import metric_loc_core",
+  "maximum_LCB_UCB_discrepancy": 1.1102230246251565e-16,
+  "maximum_group_mean_discrepancy": 1.1102230246251565e-16,
+  "maximum_pair_metric_discrepancy": 3.3306690738754696e-16,
+  "pass": true,
+  "schema_version": 1,
+  "terminal_pair_count": 3800,
+  "tolerance": 1e-10
+}

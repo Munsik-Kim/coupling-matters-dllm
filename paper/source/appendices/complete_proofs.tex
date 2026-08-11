@@ -1,0 +1,819 @@
+% ======================================================================
+% Complete Proofs
+% Integrated proof appendix for the TMLR submission.
+% Restates each main-text result before its proof; internal lemmas are
+% numbered internally and do not collide with main-text numbering.
+% Main-text proof sketches are removed; this appendix supplies the complete arguments.
+% ======================================================================
+
+\section{Complete Proofs}
+\label{app:proofs}
+
+This appendix contains complete proofs of Proposition~\ref{prop:kl},
+Theorems~\ref{thm:exact}, \ref{thm:hybrid}, \ref{thm:coord}, \ref{thm:fs},
+\ref{thm:cmc}, \ref{thm:fixedsuite}, and~\ref{thm:population}, together with
+Propositions~\ref{prop:persistent-token}, \ref{prop:gap}, \ref{prop:hazard},
+\ref{prop:cmc-onestep-opt}, and~\ref{prop:lifted}, the margin-necessity lemma, and
+Corollaries~\ref{cor:fs-horizon}, \ref{cor:functional}, \ref{cor:det-limit},
+\ref{cor:fixedsuite}, and~\ref{cor:population}. Each main-text statement is
+restated before its proof. All state spaces are finite, so no measurability issues arise and every
+optimal transport problem used below attains its minimum.
+
+\subsection{Notation and standing assumptions}
+\label{app:proofs:setup}
+
+Throughout, $\Vs$ is a finite vocabulary, $\Mtok\notin\Vs$, $\Xs=(\Vs\cup\{\Mtok\})^{N}$,
+$\mathcal{M}(s)=\{i:s[i]=\Mtok\}$, and reverse time runs $t=T,\dots,0$. The metric is
+$d(s,s')=\sum_{i=1}^{N}\lambda_{i}\Ind{s[i]\neq s'[i]}$ with $\lambda_{i}>0$,
+$\sum_{i}\lambda_{i}=1$, so $\operatorname{diam}(d)=1$. We isolate the assumptions used by each
+result:
+
+\begin{itemize}[leftmargin=2.2em,itemsep=1pt]
+\item[\textbf{(A1)}] $\Vs$, $N$, and $T$ are finite; $P_t,Q_t$ are Markov kernels on $\Xs$.
+\item[\textbf{(A2)}] Common initial law: $X_T^\star\sim\mu_T$ and $X_T^q\sim\mu_T$; for
+pathwise statements the coupled initial states are equal almost surely.
+\item[\textbf{(A3)}] \emph{Monotone copy-only support}: for $K_t\in\{P_t,Q_t\}$, if
+$K_t(s,s')>0$ and $s[i]\in\Vs$, then $s'[i]=s[i]$. Thus an unmasked token is never rewritten or
+remasked. A coordinate that is masked may remain masked or become a vocabulary token.
+\item[\textbf{(A4)}] \emph{Deterministic action special case}: when invoked, a map $F_t^M$ uses a
+commit set $C_t^M(s)\subseteq\mathcal M(s)$, writes tokens in $\Vs$ on that set, and copies all
+other coordinates.
+\item[\textbf{(A5)}] \emph{Common deterministic tie-break}: when an argmax or top-$k$ statement is
+invoked, both models use the same fixed strict ordering to resolve ties.
+\end{itemize}
+
+\begin{definition}[Synchronous representation]
+\label{def:app:sync}
+A family of maps $F_t^M:\Xs\times[0,1]\to\Xs$, $M\in\{\star,q\}$, together with independent
+uniforms $U_T,\dots,U_1$ independent of $X_T$, is a synchronous representation if
+$F_t^\star(s,U_t)$ has law $P_t(s,\cdot)$ and $F_t^q(s,U_t)$ has law $Q_t(s,\cdot)$. Every kernel
+on a finite space admits such a representation.
+
+For $j\in\{0,\dots,T\}$, define recursively $Y_T^{(j)}=X_T$ and, for $u=T,\dots,1$,
+\[
+Y_{u-1}^{(j)}=
+\begin{cases}
+F_u^\star(Y_u^{(j)},U_u), & u>j,\\
+F_u^q(Y_u^{(j)},U_u), & u\le j.
+\end{cases}
+\]
+The canonical pathwise hybrid output is $Z^{(j)}:=Y_0^{(j)}$. Thus $Z^{(0)}=X_0^\star$ and
+$Z^{(T)}=X_0^q$ under the corresponding common-random-number coupling.
+\end{definition}
+
+\subsection{Wasserstein preliminaries}
+\label{app:proofs:wass}
+
+\begin{lemma}[Kantorovich distance on a finite space]
+\label{lem:G:metric}
+$\Wd(\mu,\nu)=\min_{\gamma\in\Pi(\mu,\nu)}\Ex_{\gamma}[d(X,Y)]$ is attained, and $\Wd$ is a metric
+on the probability simplex over $\Xs$.
+\end{lemma}
+
+\begin{proof}
+$\Pi(\mu,\nu)$ is a nonempty compact subset of a finite-dimensional simplex and
+$\gamma\mapsto\Ex_{\gamma}[d]$ is linear, hence the minimum is attained. Symmetry and
+$\Wd(\mu,\nu)=0\iff\mu=\nu$ are immediate from $d$ being a metric. For the triangle inequality,
+let $\gamma_{12}\in\Pi(\mu_{1},\mu_{2})$ and $\gamma_{23}\in\Pi(\mu_{2},\mu_{3})$ be optimal.
+Define the glued law on $\Xs^{3}$ by
+$\gamma(x,y,z)=\gamma_{12}(x,y)\,\gamma_{23}(y,z)/\mu_{2}(y)$ when $\mu_{2}(y)>0$ and $0$
+otherwise; its $(1,2)$ and $(2,3)$ marginals are $\gamma_{12}$ and $\gamma_{23}$, so its $(1,3)$
+marginal lies in $\Pi(\mu_{1},\mu_{3})$, and
+$\Ex_{\gamma}[d(X,Z)]\le\Ex_{\gamma}[d(X,Y)]+\Ex_{\gamma}[d(Y,Z)]
+=\Wd(\mu_{1},\mu_{2})+\Wd(\mu_{2},\mu_{3})$.
+\end{proof}
+
+\begin{lemma}[Convexity under a common input law]
+\label{lem:G:convex}
+For any probability law $\mu$ and kernels $K_{1},K_{2}$,
+$\Wd(\mu K_{1},\mu K_{2})\le\sum_{s}\mu(s)\,\Wd\big(K_{1}(s,\cdot),K_{2}(s,\cdot)\big)$.
+\end{lemma}
+
+\begin{proof}
+For each $s$ pick an optimal $\gamma_{s}\in\Pi(K_{1}(s,\cdot),K_{2}(s,\cdot))$
+(Lemma~\ref{lem:G:metric}) and set $\gamma=\sum_{s}\mu(s)\gamma_{s}$. Its marginals are
+$\mu K_{1}$ and $\mu K_{2}$, and its cost is the right-hand side; conclude by minimality.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:kl} (path-KL vacuity)}
+\label{app:proofs:kl}
+
+\paragraph{Proposition~\ref{prop:kl} (restated).}
+\emph{If there exists a teacher-reachable state $s$ at some step $t$ (i.e.\ $\mu^{\star}_{t}(s)>0$)
+with $P_{t}(s,\cdot)\not\ll Q_{t}(s,\cdot)$, then
+$\mathrm{KL}\big(\mathbb{P}^{\star}\,\big\|\,\mathbb{P}^{q}\big)=+\infty$ for the trajectory laws
+on $\Xs^{T+1}$. In particular this holds when deterministic decoders choose different next states
+at $s$; and, under a deterministic commit-set selector with stochastic token sampling, whenever
+$C^{\star}_{t}(s)\neq C^{q}_{t}(s)$.}
+
+\begin{proof}
+By hypothesis there is $s'$ with $P_{t}(s,s')>0=Q_{t}(s,s')$. Consider the trajectory event
+$E=\{(x_{T},\dots,x_{0}):x_{t}=s,\ x_{t-1}=s'\}$. By the Markov property,
+\[
+\mathbb{P}^{\star}(E)=\mu^{\star}_{t}(s)\,P_{t}(s,s')>0,
+\qquad
+\mathbb{P}^{q}(E)=\mu^{q}_{t}(s)\,Q_{t}(s,s')=0 .
+\]
+Hence $\mathbb{P}^{\star}\not\ll\mathbb{P}^{q}$, and by the definition of KL divergence on a finite
+space (with the convention $a\log(a/0)=+\infty$ for $a>0$),
+$\mathrm{KL}(\mathbb{P}^{\star}\|\mathbb{P}^{q})=+\infty$.
+
+For the deterministic sub-case, $P_{t}(s,\cdot)=\delta_{F^{\star}_{t}(s)}$ and
+$Q_{t}(s,\cdot)=\delta_{F^{q}_{t}(s)}$ with $F^{\star}_{t}(s)\neq F^{q}_{t}(s)$; take
+$s'=F^{\star}_{t}(s)$. For the stochastic-token sub-case, assume each model first chooses a deterministic commit set
+$C_t^M(s)\subseteq\mathcal M(s)$, writes only vocabulary tokens on that set, and copies the
+remaining coordinates. Every state in the support of $P_t(s,\cdot)$ then has mask set exactly
+$\mathcal M(s)\setminus C_t^\star(s)$, while every state in the support of $Q_t(s,\cdot)$ has mask
+set $\mathcal M(s)\setminus C_t^q(s)$. Distinct commit sets therefore give disjoint supports.
+
+Finally, the marginalization map $(x_{T},\dots,x_{0})\mapsto x_{0}$ is a deterministic
+pushforward, and KL divergence is nonincreasing under pushforwards (data-processing inequality),
+so $\mathrm{KL}(\mu^{\star}_{0}\|\mu^{q}_{0})\le\mathrm{KL}(\mathbb{P}^{\star}\|\mathbb{P}^{q})$.
+An infinite right-hand side therefore carries no information about the output KL, which is the
+one-directional reading stated in the main text.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:exact} (exact one-step decomposition)}
+\label{app:proofs:action}
+
+\paragraph{Theorem~\ref{thm:exact} (restated).}
+\emph{For monotone copy-only deterministic decoders evaluated at a shared state $s$, with commit
+sets $C^{\star}_{t},C^{q}_{t}\subseteq\mathcal{M}(s)$ and committed tokens
+$a^{\star}_{t,i},a^{q}_{t,i}\in\Vs$,}
+\[
+\epsilon_{t}(s)\;=\;d\big(F^{\star}_{t}(s),F^{q}_{t}(s)\big)
+\;=\;\sum_{i\in C^{\star}_{t}\triangle C^{q}_{t}}\lambda_{i}
+\;+\;\sum_{i\in C^{\star}_{t}\cap C^{q}_{t}}\lambda_{i}\,\Ind{a^{\star}_{t,i}\neq a^{q}_{t,i}} .
+\]
+
+\begin{proof}
+Write $s^{\star}=F^{\star}_{t}(s)$, $s^{q}=F^{q}_{t}(s)$ and partition $\{1,\dots,N\}$ into four
+classes.
+
+\emph{(i) $i\notin\mathcal{M}(s)$.} By \textbf{(A4)} the position is in neither commit set and both decoders copy it, so $s^{\star}[i]=s^{q}[i]=s[i]$ and the contribution is $0$.
+
+\emph{(ii) $i\in\mathcal{M}(s)\setminus(C^{\star}_{t}\cup C^{q}_{t})$.} Both copy the mask:
+$s^{\star}[i]=s^{q}[i]=\Mtok$; contribution $0$.
+
+\emph{(iii) $i\in C^{\star}_{t}\triangle C^{q}_{t}$.} Exactly one decoder commits. The committing
+side writes a token in $\Vs$ by \textbf{(A4)}; the other side copies $\Mtok$. Since
+$\Mtok\notin\Vs$, $s^{\star}[i]\neq s^{q}[i]$ \emph{whatever} token was written; contribution
+$\lambda_{i}$.
+
+\emph{(iv) $i\in C^{\star}_{t}\cap C^{q}_{t}$.} Both commit; $s^{\star}[i]=a^{\star}_{t,i}$ and
+$s^{q}[i]=a^{q}_{t,i}$, so the contribution is $\lambda_{i}\Ind{a^{\star}_{t,i}\neq a^{q}_{t,i}}$.
+
+Summing the four classes against $\lambda$ gives the identity.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:persistent-token} (persistent token lower bound)}
+\label{app:proofs:persistence}
+
+\paragraph{Proposition~\ref{prop:persistent-token} (restated).}
+\emph{For deterministic actions at a shared state, let
+$I=\{i\in C_t^\star\cap C_t^q:a_{t,i}^\star\ne a_{t,i}^q\}$. Under a common monotone copy-only
+suffix, $\eta_t(s)\ge\sum_{i\in I}\lambda_i$.}
+
+\begin{proof}
+Let $s^\star=F_t^\star(s)$ and $s^q=F_t^q(s)$. For every $i\in I$,
+$s^\star[i]=a_{t,i}^\star\ne a_{t,i}^q=s^q[i]$, and both values are vocabulary tokens. By
+Assumption~\textbf{(A3)}, every terminal state in the support of
+$\delta_{s^\star}Q_{t-1:1}$ retains $a_{t,i}^\star$ at coordinate $i$, while every terminal state
+in the support of $\delta_{s^q}Q_{t-1:1}$ retains $a_{t,i}^q$. Hence every coupling of these two
+terminal laws has cost at least $\sum_{i\in I}\lambda_i$. Taking the infimum over couplings gives
+the claimed lower bound on $\eta_t(s)$.
+\end{proof}
+
+\subsection{Proof of Lemma~\ref{lem:margin-main} (margin necessity)}
+\label{app:proofs:margins}
+
+We now prove the two inclusions stated in Lemma~\ref{lem:margin-main}. Assumption~\textbf{(A5)} handles ties: fix a strict total order $\prec$ on indices, and let both decoders select
+the $\prec$-least maximizer.
+
+\begin{lemma}[Token-margin necessity]
+\label{lem:G:tokmargin}
+Fix a position $i$ and logit vectors $z^{\star},z^{q}\in\mathbb{R}^{|\Vs|}$ with
+$\|z^{q}-z^{\star}\|_{\infty}\le R$. Let $a$ and $b$ be the tie-broken argmaxes of $z^{\star}$ and
+$z^{q}$ respectively, and let
+$M^{\mathrm{tok}}=z^{\star}_{(1)}-z^{\star}_{(2)}$ be the top-1/top-2 gap of $z^{\star}$. If
+$b\neq a$ then $M^{\mathrm{tok}}\le2R$.
+\end{lemma}
+
+\begin{proof}
+Since $b$ is selected under $z^{q}$ over $a$, either $z^{q}_{b}>z^{q}_{a}$, or
+$z^{q}_{b}=z^{q}_{a}$ with $b\prec a$. In the first case,
+\[
+z^{\star}_{a}-z^{\star}_{b}
+=(z^{\star}_{a}-z^{q}_{a})+(z^{q}_{a}-z^{q}_{b})+(z^{q}_{b}-z^{\star}_{b})
+\le R+0+R=2R .
+\]
+In the second case, $a$ being selected under $z^{\star}$ over $b$ while $b\prec a$ forces
+$z^{\star}_{a}>z^{\star}_{b}$, and
+$z^{\star}_{a}-z^{\star}_{b}
+=(z^{\star}_{a}-z^{q}_{a})+(z^{q}_{b}-z^{\star}_{b})\le2R$
+using $z^{q}_{a}=z^{q}_{b}$. In both cases, since $b\neq a$ we have
+$z^{\star}_{b}\le z^{\star}_{(2)}$, whence
+$M^{\mathrm{tok}}=z^{\star}_{(1)}-z^{\star}_{(2)}\le z^{\star}_{a}-z^{\star}_{b}\le2R$.
+\end{proof}
+
+\begin{lemma}[Policy-margin necessity]
+\label{lem:G:polmargin}
+Let $c^{\star},c^{q}\in\mathbb{R}^{\mathcal{M}(s)}$ be confidence scores with
+$\max_{i}|c^{q}_{i}-c^{\star}_{i}|\le R^{\mathrm{pol}}$, and let $C^{\star},C^{q}$ be the
+tie-broken top-$k$ index sets under $c^{\star}$ and $c^{q}$ respectively, with
+$k<|\mathcal{M}(s)|$. Let
+$M^{\mathrm{pol}}=c^{\star}_{(k)}-c^{\star}_{(k+1)}$ (order statistics of $c^{\star}$). If
+$C^{q}\neq C^{\star}$ then $M^{\mathrm{pol}}\le2R^{\mathrm{pol}}$. (If $|\mathcal{M}(s)|\le k$,
+both decoders commit all masked positions and no policy split can occur; by convention
+$M^{\mathrm{pol}}=+\infty$.)
+\end{lemma}
+
+\begin{proof}
+Since $|C^{\star}|=|C^{q}|=k$ and $C^{q}\neq C^{\star}$, there exist
+$i\in C^{\star}\setminus C^{q}$ and $j\in C^{q}\setminus C^{\star}$. Membership under $c^{\star}$
+gives $c^{\star}_{i}\ge c^{\star}_{(k)}$ and $c^{\star}_{j}\le c^{\star}_{(k+1)}$. Selection of
+$j$ over $i$ under $c^{q}$ gives $c^{q}_{j}>c^{q}_{i}$, or $c^{q}_{j}=c^{q}_{i}$ with
+$j\prec i$; in the latter case, $i$'s selection over $j$ under $c^{\star}$ forces
+$c^{\star}_{i}>c^{\star}_{j}$, and in either case, exactly as in
+Lemma~\ref{lem:G:tokmargin},
+$c^{\star}_{i}-c^{\star}_{j}\le2R^{\mathrm{pol}}$. Therefore
+$M^{\mathrm{pol}}\le c^{\star}_{i}-c^{\star}_{j}\le2R^{\mathrm{pol}}$.
+\end{proof}
+
+Both inclusions are necessary conditions only; no claim of sufficiency is made or used anywhere in
+the paper.
+
+\subsection{Proof of Theorem~\ref{thm:hybrid} (hybrid propagation)}
+\label{app:proofs:hybrid}
+
+\paragraph{Theorem~\ref{thm:hybrid} (restated).}
+\emph{Under \textbf{(A1)}--\textbf{(A2)}, with
+$\eta_{t}(s)=\Wd\big(P_{t}(s,\cdot)Q_{t-1:1},\,Q_{t}(s,\cdot)Q_{t-1:1}\big)$,}
+\[
+\Wd(\mu^{\star}_{0},\mu^{q}_{0})\ \le\ \sum_{t=1}^{T}\Ex_{S_{t}\sim\mu^{\star}_{t}}\big[\eta_{t}(S_{t})\big].
+\]
+\emph{Moreover, for the CRN coupling of Definition~\ref{def:app:sync}, the pathwise analogue
+$\Ex[d(X^{\star}_{0},X^{q}_{0})]\le\sum_{t}\Ex[d(Z^{(t-1)},Z^{(t)})]$ holds.}
+
+\begin{proof}
+Define the hybrid \emph{laws} $H_{j}=\mu_{T}P_{T}\cdots P_{j+1}Q_{j}\cdots Q_{1}$ for
+$j=0,\dots,T$ (empty products are identities), so $H_{0}=\mu^{\star}_{0}$ and
+$H_{T}=\mu^{q}_{0}$. By Lemma~\ref{lem:G:metric} and the triangle inequality along the chain
+$H_{0},H_{1},\dots,H_{T}$,
+\[
+\Wd(\mu^{\star}_{0},\mu^{q}_{0})\ \le\ \sum_{j=1}^{T}\Wd(H_{j-1},H_{j}).
+\]
+Fix $j$. Both $H_{j-1}$ and $H_{j}$ push the same prefix law
+$\mu_{T}P_{T}\cdots P_{j+1}=\mu^{\star}_{j}$ through a suffix kernel: writing
+$K_{1}=P_{j}Q_{j-1:1}$ and $K_{2}=Q_{j}Q_{j-1:1}$,
+\[
+H_{j-1}=\mu^{\star}_{j}K_{1},\qquad H_{j}=\mu^{\star}_{j}K_{2}.
+\]
+Lemma~\ref{lem:G:convex} then gives
+$\Wd(H_{j-1},H_{j})\le\Ex_{S_{j}\sim\mu^{\star}_{j}}
+\big[\Wd\big(K_{1}(S_{j},\cdot),K_{2}(S_{j},\cdot)\big)\big]
+=\Ex_{\mu^{\star}_{j}}[\eta_{j}]$. Summing over $j$ proves the distributional bound.
+
+For the pathwise analogue, note that $(Z^{(j)})_{j=0}^{T}$ of Definition~\ref{def:app:sync} are
+$T+1$ random states on one probability space with $Z^{(0)}=X^{\star}_{0}$ and
+$Z^{(T)}=X^{q}_{0}$. The pointwise triangle inequality of the metric $d$ gives, for every sample
+path,
+$d(Z^{(0)},Z^{(T)})\le\sum_{t=1}^{T}d(Z^{(t-1)},Z^{(t)})$; take expectations. (Each pair
+$(Z^{(t-1)},Z^{(t)})$ is, marginally, a coupling of $H_{t-1}$ and $H_{t}$, so the pathwise sum
+dominates the distributional one term by term; the two versions are consistent.)
+\end{proof}
+
+\begin{remark}[The occupancy--suffix asymmetry is forced]
+\label{rem:G:asym}
+In the display above, the step-$j$ input law is the \emph{teacher} occupancy $\mu^{\star}_{j}$
+while the propagation kernel $Q_{j-1:1}$ is the \emph{quantized} suffix, because consecutive
+hybrids share the FP prefix and the Q suffix by construction. Reversing the order of the
+telescoping (Q prefix, P suffix) yields the mirror pairing
+$\Ex_{\mu^{q}_{j}}[\Wd(Q_{j}P_{j-1:1},P_{j}P_{j-1:1})]$; no ordering yields teacher occupancy
+paired with teacher propagation. This is the precise content of the claim that the two chains
+enter asymmetrically.
+\end{remark}
+
+\subsection{Proof of Theorem~\ref{thm:coord} (coordinate-union hierarchy)}
+\label{app:proofs:coord}
+
+Throughout this subsection fix the CRN synchronous representation and the canonical hybrids
+$Z^{(0)},\dots,Z^{(T)}$ of Definition~\ref{def:app:sync}; set
+$A_{t,i}=\Ind{Z^{(t-1)}[i]\neq Z^{(t)}[i]}$, $N_{i}=\sum_{t=1}^{T}A_{t,i}$,
+$q_{t,i}=\Ex[A_{t,i}]$, and
+\begin{align*}
+U_{\mathrm{union}}(Z)&=\sum_i\lambda_i\Ind{N_i\ge1},
+& B_{\mathrm{union}}&=\Ex[U_{\mathrm{union}}(Z)],\\
+B_{\mathrm{coord}}&=\sum_i\lambda_i\min\{1,\Ex[N_i]\},
+& B_{\mathrm{tel}}&=\sum_t\Ex\big[d(Z^{(t-1)},Z^{(t)})\big].
+\end{align*}
+
+\paragraph{Theorem~\ref{thm:coord} (restated).}
+$\displaystyle
+\Wd(\mu^{\star}_{0},\mu^{q}_{0})\ \le\ \Dcrn\ \le\ B_{\mathrm{union}}\ \le\ B_{\mathrm{coord}}
+\ \le\ \min\{1,\,B_{\mathrm{tel}}\}.$
+
+\begin{proof}
+\emph{First inequality.} $(Z^{(0)},Z^{(T)})=(X^{\star}_{0},X^{q}_{0})$ is a coupling of
+$(\mu^{\star}_{0},\mu^{q}_{0})$: $Z^{(0)}$ applies only full-precision maps to $X_{T}$ with the
+uniforms, hence has law $\mu^{\star}_{0}$, and symmetrically for $Z^{(T)}$. Minimality of $\Wd$
+over couplings gives $\Wd\le\Dcrn$.
+
+\emph{Second inequality.} Fix a sample path and a coordinate $i$. If $A_{t,i}=0$ for every $t$,
+then $Z^{(0)}[i]=Z^{(1)}[i]=\dots=Z^{(T)}[i]$, so
+$\Ind{Z^{(0)}[i]\neq Z^{(T)}[i]}\le\Ind{N_{i}\ge1}$ pointwise. Multiplying by $\lambda_{i}$ and
+summing,
+$d(X^{\star}_{0},X^{q}_{0})=d(Z^{(0)},Z^{(T)})\le U(Z)$ pointwise; take expectations.
+
+\emph{Third inequality.} For each $i$, $\Pr[N_{i}\ge1]\le1$ trivially and
+$\Pr[N_{i}\ge1]\le\Ex[N_{i}]$ by Markov's inequality applied to the nonnegative integer variable
+$N_{i}$; hence $\Pr[N_{i}\ge1]\le\min\{1,\Ex[N_{i}]\}$. Multiply by $\lambda_{i}$ and sum.
+
+\emph{Fourth inequality.} Termwise $\min\{1,\Ex[N_{i}]\}\le1$ gives
+$B_{\mathrm{coord}}\le\sum_{i}\lambda_{i}=1$, and termwise
+$\min\{1,\Ex[N_{i}]\}\le\Ex[N_{i}]$ gives
+\[
+B_{\mathrm{coord}}\ \le\ \sum_{i}\lambda_{i}\,\Ex[N_{i}]
+=\sum_{i}\lambda_{i}\sum_{t}q_{t,i}
+=\sum_{t}\Ex\Big[\sum_{i}\lambda_{i}A_{t,i}\Big]
+=\sum_{t}\Ex\big[d(Z^{(t-1)},Z^{(t)})\big]=B_{\mathrm{tel}},
+\]
+where the middle equality is Tonelli for finite sums and the next uses the definition of $d$.
+\end{proof}
+
+\label{app:proofs:gap}
+\begin{proposition}[Exact gap decomposition]
+\label{prop:G:gap}
+\[
+B_{\mathrm{coord}}-\Dcrn
+=\sum_{i}\lambda_{i}\Big[
+\underbrace{\min\{1,\Ex[N_{i}]\}-\Pr[N_{i}\ge1]}_{\text{multiplicity gap }\ge0}
++\underbrace{\Pr[N_{i}\ge1]-\Pr\big[Z^{(0)}[i]\neq Z^{(T)}[i]\big]}_{\text{cancellation gap }\ge0}
+\Big].
+\]
+Moreover, when $\Ex[N_{i}]\le1$ the multiplicity gap equals $\Ex[(N_{i}-1)^{+}]$, so it vanishes
+iff $N_{i}\in\{0,1\}$ a.s.; and the cancellation gap vanishes iff, for every coordinate
+$i$ with $\lambda_i>0$, $\Pr[N_i\ge1,\,Z^{(0)}[i]=Z^{(T)}[i]]=0$ (equivalently, a changed
+coordinate ends different almost surely).
+\end{proposition}
+
+\begin{proof}
+By the terminal identity $\Dcrn=\sum_{i}\lambda_{i}\Pr[Z^{(0)}[i]\neq Z^{(T)}[i]]$ (definition of
+$d$ plus linearity), the display telescopes. Nonnegativity of the two brackets is the third and
+second inequalities of Theorem~\ref{thm:coord} respectively. If $\Ex[N_{i}]\le1$ then
+$\min\{1,\Ex[N_{i}]\}-\Pr[N_{i}\ge1]=\Ex[N_{i}]-\Pr[N_{i}\ge1]
+=\sum_{k\ge1}(k-1)\Pr[N_{i}=k]=\Ex[(N_{i}-1)^{+}]$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:fs} (first-divergence certificate)}
+\label{app:proofs:fs}
+
+\begin{definition}[First divergence]
+\label{def:G:tau}
+Let $\Gamma$ be any coupling of the two chains with $X^{\star}_{T}=X^{q}_{T}$. If the chains ever
+split, let $\tau$ be the unique $t\in\{1,\dots,T\}$ such that
+$X^{\star}_{u}=X^{q}_{u}$ for all $u\ge t$ and $X^{\star}_{t-1}\neq X^{q}_{t-1}$; otherwise set
+$\tau=\dagger$. Uniqueness follows because any earlier chronological split would violate the
+agreement condition for all $u\ge t$. On $\{\tau=t\}$ the chains agree at the input of step $t$;
+write $X_{\tau}:=X^{\star}_{\tau}=X^{q}_{\tau}$. Later re-agreement is permitted and does not alter
+$\tau$.
+\end{definition}
+
+\begin{lemma}[Frozen prefix]
+\label{lem:G:frozen}
+Assume \textbf{(A3)} for each chain separately. If $X^{\star}_{t}=X^{q}_{t}=s$,
+then for every $u\le t$ and every $i\notin\mathcal{M}(s)$,
+$X^{\star}_{u}[i]=X^{q}_{u}[i]=s[i]$.
+\end{lemma}
+
+\begin{proof}
+Fix a chain $M\in\{\star,q\}$ and argue by downward induction on $u$ from $u=t$. Base case:
+$X^{M}_{t}[i]=s[i]$. Inductive step: if $X^{M}_{u}[i]=s[i]\in\Vs$ (position $i$ is not masked in $s$), Assumption~\textbf{(A3)} gives
+$X^{M}_{u-1}[i]=X^{M}_{u}[i]=s[i]$. The two chains agree at $i$ for all $u\le t$ because each separately equals $s[i]$.
+\end{proof}
+
+\paragraph{Theorem~\ref{thm:fs} (restated).}
+\emph{For any coupling $\Gamma$ of monotone copy-only chains from a common initial state, with
+$R(s)=\sum_{i\in\mathcal{M}(s)}\lambda_{i}$,}
+\[
+\Wd(\mu^{\star}_{0},\mu^{q}_{0})\ \le\ D_{\Gamma}\ \le\
+\Bfs^{\Gamma}:=\Ex_{\Gamma}\big[R(X_{\tau})\Ind{\tau\neq\dagger}\big]\ \le\
+\Pr_{\Gamma}[\tau\neq\dagger]\ \le\ 1 .
+\]
+
+\begin{proof}
+The first inequality is minimality of $\Wd$ over couplings. For the second, condition on the value
+of $\tau$. On $\{\tau=\dagger\}$ the chains coincide at every time, in particular
+$d(X^{\star}_{0},X^{q}_{0})=0$. On $\{\tau=t\}$, apply Lemma~\ref{lem:G:frozen} with
+$s=X_{\tau}$: for every $i\notin\mathcal{M}(X_{\tau})$ we have
+$X^{\star}_{0}[i]=X^{q}_{0}[i]$, hence
+\[
+d(X^{\star}_{0},X^{q}_{0})
+=\sum_{i}\lambda_{i}\Ind{X^{\star}_{0}[i]\neq X^{q}_{0}[i]}
+=\sum_{i\in\mathcal{M}(X_{\tau})}\lambda_{i}\Ind{X^{\star}_{0}[i]\neq X^{q}_{0}[i]}
+\le R(X_{\tau}).
+\]
+Taking expectations over the disjoint events $\{\tau=\dagger\},\{\tau=T\},\dots,\{\tau=1\}$
+yields $D_{\Gamma}\le\Bfs^{\Gamma}$. The last two inequalities follow from $R\le1$ and
+probabilities being at most $1$.
+\end{proof}
+
+\subsection{Proof of Corollary~\ref{cor:fs-horizon} (finite-horizon first divergence)}
+\label{app:proofs:fs-horizon}
+
+\paragraph{Corollary~\ref{cor:fs-horizon} (restated).}
+\emph{For $r\in\{0,\dots,T-1\}$, stop the coupled chains at time $r$ and let
+$\tau^{(r)}\in\{r+1,\dots,T\}\cup\{\dagger\}$ be their unique first divergence before that
+stopping time. Then}
+\[
+\Wd(\mu_r^\star,\mu_r^q)
+\le \Ex_\Gamma[d(X_r^\star,X_r^q)]
+\le \Ex_\Gamma[R(X_{\tau^{(r)}})\Ind{\tau^{(r)}\neq\dagger}]
+\le1.
+\]
+
+\begin{proof}
+The first inequality is the defining minimality of Wasserstein distance over couplings of
+$(\mu_r^\star,\mu_r^q)$. If $\tau^{(r)}=\dagger$, the two states agree at time $r$. On
+$\{\tau^{(r)}=t\}$, Lemma~\ref{lem:G:frozen} applied at the common pre-split state
+$X_t^\star=X_t^q$ shows that every coordinate already unmasked at time $t$ remains identical in
+both chains down to time $r$. Hence only coordinates in $\mathcal M(X_t)$ can contribute to
+$d(X_r^\star,X_r^q)$, and the same pointwise calculation as in Theorem~\ref{thm:fs} gives
+$d(X_r^\star,X_r^q)\le R(X_t)$. Averaging over the disjoint first-divergence events proves the
+claim. Replacing the global start time $T$ by a deterministic window start at which the coupled
+states agree gives the windowed statement verbatim.
+\end{proof}
+
+
+
+\subsection{Proof of Corollary~\ref{cor:functional} (bounded-functional stability)}
+\label{app:proofs:functional}
+
+\paragraph{Corollary~\ref{cor:functional} (restated).}
+\emph{Under the setting of Corollary~\ref{cor:fs-horizon}, for every fixed
+$f:\Xs\to[0,1]$,
+$|\Ex f(X_r^\star)-\Ex f(X_r^q)|
+\le\Ex_\Gamma|f(X_r^\star)-f(X_r^q)|
+\le\Pr_\Gamma(X_r^\star\ne X_r^q)
+\le\Pr_\Gamma(\tau^{(r)}\ne\dagger)$.}
+
+\begin{proof}
+Because $\Gamma$ has marginals $\mu_r^\star$ and $\mu_r^q$,
+\[
+\Ex f(X_r^\star)-\Ex f(X_r^q)
+=\Ex_\Gamma\!\left[f(X_r^\star)-f(X_r^q)\right].
+\]
+Taking absolute values and applying Jensen's inequality gives the first bound. Since $f$ takes
+values in $[0,1]$, $|f(x)-f(y)|\le\Ind{x\ne y}$, which gives the second. Finally, if
+$\tau^{(r)}=\dagger$, the chains have agreed throughout the window down to time $r$, so
+$X_r^\star=X_r^q$. Hence
+$\{X_r^\star\ne X_r^q\}\subseteq\{\tau^{(r)}\ne\dagger\}$, proving the last inequality.
+For a correctness indicator, the two expectations are the corresponding accuracies.
+\end{proof}
+
+\label{app:proofs:hazard}
+\begin{proposition}[Survival--hazard identity]
+\label{prop:G:hazard}
+Suppose in addition that $\Gamma$ admits a synchronous representation
+(Definition~\ref{def:app:sync}) with one-step maps $(G^{\star}_{t},G^{q}_{t})$ driven by
+$U_{t}$, and let $G_{t}=\{X^{\star}_{u}=X^{q}_{u}\ \forall u\ge t\}$ and
+$h^{\Gamma}_{t}(s)=\Pr\big[G^{\star}_{t}(s,U_{t})\neq G^{q}_{t}(s,U_{t})\big]$. Then
+\[
+\Bfs^{\Gamma}=\sum_{t=1}^{T}\Ex\Big[\Ind{G_{t}}\;h^{\Gamma}_{t}(X_{t})\;R(X_{t})\Big].
+\]
+\end{proposition}
+
+\begin{proof}
+The events $\{\tau=t\}=G_{t}\cap\{G^{\star}_{t}(X_{t},U_{t})\neq G^{q}_{t}(X_{t},U_{t})\}$ are
+pairwise disjoint with union $\{\tau\neq\dagger\}$, and $X_{\tau}=X_{t}$ on $\{\tau=t\}$, so
+\[
+\Bfs^{\Gamma}
+=\sum_{t}\Ex\Big[\Ind{G_{t}}\,R(X_{t})\,
+\Ind{G^{\star}_{t}(X_{t},U_{t})\neq G^{q}_{t}(X_{t},U_{t})}\Big].
+\]
+Both $\Ind{G_{t}}$ and $X_{t}$ are measurable with respect to
+$\mathcal{F}_{t}:=\sigma(X_{T},U_{T},\dots,U_{t+1})$, and $U_{t}$ is independent of
+$\mathcal{F}_{t}$. Conditioning each summand on $\mathcal{F}_{t}$ and integrating over $U_{t}$
+replaces the last indicator by $h^{\Gamma}_{t}(X_{t})$.
+\end{proof}
+
+\begin{remark}[The certificate depends only on the pre-split coupling]
+\label{rem:G:presplit}
+$(\tau,X_{\tau})$ is measurable with respect to the trajectory up to the first split, hence
+$\Bfs^{\Gamma}$ is unchanged by any modification of the coupling \emph{after} the split. In
+contrast $D_{\Gamma}$ does depend on the continuation; the implemented continuation is part of
+the coupling specification and the chain
+$\Wd\le D_{\Gamma}\le\Bfs^{\Gamma}$ holds for that specification.
+\end{remark}
+
+\subsection{Proof of Theorem~\ref{thm:cmc} (coordinatewise maximal coupling)}
+\label{app:proofs:cmc}
+
+\begin{lemma}[Maximal coupling of two categorical laws]
+\label{lem:G:maxcoupling}
+Let $p,q$ be probability mass functions on a finite set $\mathcal{Y}$, $r=p\wedge q$,
+$\alpha=\sum_{y}r(y)$, and $\delta=\TV(p,q)=1-\alpha$. Define a pair $(X,Y)$ by: with probability
+$\alpha$, draw $X=Y\sim r/\alpha$; otherwise draw $X\sim(p-r)/\delta$ and $Y\sim(q-r)/\delta$
+independently. Then $X\sim p$, $Y\sim q$, and $\Pr[X\neq Y]=\delta$, which is minimal among all
+couplings of $(p,q)$. (If $\delta=0$ the residual branch is never taken; if $\alpha=0$ the common
+branch is never taken.)
+\end{lemma}
+
+\begin{proof}
+Marginals: for any $y$,
+$\Pr[X=y]=\alpha\cdot\frac{r(y)}{\alpha}+\delta\cdot\frac{p(y)-r(y)}{\delta}=p(y)$, and
+symmetrically for $Y$. Disagreement: on the common branch $X=Y$. On the residual branch the
+supports $\{p>q\}$ of $p-r$ and $\{q>p\}$ of $q-r$ are disjoint, so $X\neq Y$ almost surely;
+hence $\Pr[X\neq Y]=\delta$. Minimality: for any coupling $\gamma$ of $(p,q)$ and any $y$,
+$\gamma(X=Y=y)\le\min\{p(y),q(y)\}=r(y)$, so $\Pr_{\gamma}[X=Y]\le\alpha$, i.e.\
+$\Pr_{\gamma}[X\neq Y]\ge\delta$.
+\end{proof}
+
+\paragraph{Theorem~\ref{thm:cmc} (restated).}
+\emph{Assume the one-step transitions factorize at every state:
+$P_{t}(s,\cdot)=\bigotimes_{i}p^{\star}_{t,i}(\cdot\mid s)$ and
+$Q_{t}(s,\cdot)=\bigotimes_{i}p^{q}_{t,i}(\cdot\mid s)$, and let
+$\delta_{t,i}(s)=\TV(p^{\star}_{t,i},p^{q}_{t,i})$. Coupling each coordinate by
+Lemma~\ref{lem:G:maxcoupling}, independently across coordinates, defines a one-step coupling with
+both marginals exact and split probability
+$h^{\mathrm{CMC}}_{t}(s)=1-\prod_{i}\big(1-\delta_{t,i}(s)\big)$, satisfying}
+\[
+\max_{i}\delta_{t,i}(s)\ \le\ \TV\big(P_{t}(s,\cdot),Q_{t}(s,\cdot)\big)\ \le\
+h^{\mathrm{CMC}}_{t}(s)\ \le\ \min\Big\{1,\ \sum_{i}\delta_{t,i}(s)\Big\},
+\]
+\emph{and iterating these one-step couplings from a common initial state (with any fixed valid
+continuation after the first split) yields a path coupling $\Gamma_{\mathrm{CMC}}$ with}
+$\Wd(\mu^{\star}_{0},\mu^{q}_{0})\le D_{\mathrm{CMC}}\le\Bfs^{\mathrm{CMC}}\le1$.
+
+\begin{proof}
+\emph{Validity of the one-step coupling.} Let $(X_{i},Y_{i})_{i}$ be independent across $i$, each
+distributed as in Lemma~\ref{lem:G:maxcoupling} for the pair
+$(p^{\star}_{t,i},p^{q}_{t,i})$. Then $X=(X_{i})_{i}$ has law
+$\bigotimes_{i}p^{\star}_{t,i}=P_{t}(s,\cdot)$ and $Y=(Y_{i})_{i}$ has law $Q_{t}(s,\cdot)$, by
+independence and the per-coordinate marginal property. Both joint marginals are therefore
+\emph{exact}; no approximation is involved.
+
+\emph{Split probability.} $\{X\neq Y\}=\bigcup_{i}\{X_{i}\neq Y_{i}\}$, and by independence
+$\Pr[X=Y]=\prod_{i}(1-\delta_{t,i})$, giving
+$h^{\mathrm{CMC}}_{t}(s)=1-\prod_{i}(1-\delta_{t,i}(s))$.
+
+\emph{Sandwich.} Lower bound: the coordinate projection $\pi_{i}$ is a deterministic map, and
+total variation is nonincreasing under pushforwards, so
+$\delta_{t,i}=\TV\big(\pi_{i}\#P_{t},\pi_{i}\#Q_{t}\big)\le\TV(P_{t},Q_{t})$ for every $i$; take
+the maximum. Middle: $\TV$ equals the minimal disagreement probability over couplings
+(Lemma~\ref{lem:G:maxcoupling} applied to the joint laws, whose proof of minimality used nothing
+about $\mathcal{Y}$), and the product construction is one particular coupling, so
+$\TV(P_{t},Q_{t})\le h^{\mathrm{CMC}}_{t}$. Upper: $h^{\mathrm{CMC}}\le1$ trivially, and by the
+Weierstrass product inequality $\prod_{i}(1-\delta_{i})\ge1-\sum_{i}\delta_{i}$, so
+$h^{\mathrm{CMC}}\le\sum_{i}\delta_{i}$.
+
+\emph{Path coupling.} Construct $(X^{\star}_{t-1},X^{q}_{t-1})$ from
+$(X^{\star}_{t},X^{q}_{t})$ as follows: if $X^{\star}_{t}=X^{q}_{t}=s$, use the one-step CMC
+coupling at $s$; otherwise use any fixed coupling of
+$P_{t}(X^{\star}_{t},\cdot)$ and $Q_{t}(X^{q}_{t},\cdot)$ (e.g.\ the event-addressed independent
+residual coupling used in the implementation). By induction on $t$: conditionally on
+$(X^{\star}_{t},X^{q}_{t})$, the first component has conditional law
+$P_{t}(X^{\star}_{t},\cdot)$ and the second $Q_{t}(X^{q}_{t},\cdot)$ in both branches; hence the
+first marginal path is the FP chain and the second the quantized chain. This is a valid coupling
+$\Gamma_{\mathrm{CMC}}$ with a synchronous representation (each branch is a measurable function
+of the current pair and fresh uniforms), so Theorem~\ref{thm:fs} applies verbatim and yields
+$\Wd\le D_{\mathrm{CMC}}\le\Bfs^{\mathrm{CMC}}\le1$. By Remark~\ref{rem:G:presplit},
+$\Bfs^{\mathrm{CMC}}$ does not depend on the choice of continuation, while $D_{\mathrm{CMC}}$ is
+the realized cost of the implemented continuation.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:cmc-onestep-opt} (one-step Wasserstein optimality)}
+\label{app:proofs:cmc-opt}
+
+\paragraph{Proposition~\ref{prop:cmc-onestep-opt} (restated).}
+\emph{Under the factorization assumptions of Theorem~\ref{thm:cmc},}
+\[
+\Wd\big(P_t(s,\cdot),Q_t(s,\cdot)\big)=\sum_i\lambda_i\delta_{t,i}(s),
+\]
+\emph{and the independent coordinatewise maximal coupling attains the minimum.}
+
+\begin{proof}
+Let $\gamma$ be any coupling of $P_t(s,\cdot)$ and $Q_t(s,\cdot)$, with coupled states
+$(X,Y)$. Its $i$th coordinate marginal is a coupling of
+$p_{t,i}^\star(\cdot\mid s)$ and $p_{t,i}^q(\cdot\mid s)$. By the coupling characterization of
+total variation (Lemma~\ref{lem:G:maxcoupling}),
+$\Pr_\gamma[X_i\neq Y_i]\ge\delta_{t,i}(s)$. Therefore
+\[
+\Ex_\gamma[d(X,Y)]
+=\sum_i\lambda_i\Pr_\gamma[X_i\neq Y_i]
+\ge\sum_i\lambda_i\delta_{t,i}(s).
+\]
+Under the independent coordinatewise maximal coupling, equality holds for every coordinate:
+$\Pr[X_i\neq Y_i]=\delta_{t,i}(s)$. Its expected weighted-Hamming cost is therefore the lower
+bound above, proving optimality.
+\end{proof}
+
+\begin{remark}[Two one-step objectives]
+\label{rem:G:cmcscope}
+The product CMC is Wasserstein-optimal for the additive one-step cost $d$, but it is not generally
+a maximal coupling of the \emph{joint} transition laws, which instead minimizes the $0$--$1$ event
+$\Pr[X\neq Y]$. Nor is the iterated product construction claimed to be a Wasserstein-optimal
+\emph{path} or terminal coupling. The direct and first-divergence routes can therefore prefer
+different one-step couplings.
+\end{remark}
+
+
+
+\subsection{Proof of Proposition~\ref{prop:lifted} (lifted sample-then-select coupling)}
+\label{app:proofs:lifted}
+
+\noindent\textbf{Proposition~\ref{prop:lifted} (restated).}\par
+\noindent \emph{For any coupling $\pi_t$ of the proposal laws, the pushforward pair
+$(\Phi_t^\star(s,\xi^\star),\Phi_t^q(s,\xi^q))$ is a coupling of the actual transitions. Its
+split probability is at most the sum of proposal mismatch probability and the probability that an
+equal proposal is mapped to different next states. Under product proposal CMC the first term is
+$1-\prod_i(1-\delta_{t,i}^{\mathrm{prop}})$. Iteration yields a valid path coupling, and when the
+pushed-forward transitions are monotone copy-only the first-divergence and bounded-functional
+results apply.}
+
+\begin{proof}
+Let $(\xi^\star,\xi^q)\sim\pi_t(\cdot,\cdot\mid s)$. For any $A\subseteq\Xs$,
+\begin{align*}
+\Pr\!\left[\Phi_t^\star(s,\xi^\star)\in A\right]
+&=\nu_t^\star\!\left(\{\xi:\Phi_t^\star(s,\xi)\in A\}\mid s\right)
+=P_t(s,A),\\
+\Pr\!\left[\Phi_t^q(s,\xi^q)\in A\right]
+&=\nu_t^q\!\left(\{\xi:\Phi_t^q(s,\xi)\in A\}\mid s\right)
+=Q_t(s,A).
+\end{align*}
+Thus the pushforward pair has the required marginals. For the split event, partition according to
+whether the proposals agree:
+\[
+\{\Phi_t^\star(s,\xi^\star)\ne\Phi_t^q(s,\xi^q)\}
+\subseteq
+\{\xi^\star\ne\xi^q\}
+\cup
+\{\xi^\star=\xi^q,\,\Phi_t^\star(s,\xi^\star)\ne\Phi_t^q(s,\xi^q)\}.
+\]
+Taking probabilities proves the channel upper bound. If the proposal laws are coordinate products
+and $\pi_t$ is the independent product of coordinatewise maximal couplings, proposal equality has
+probability $\prod_i(1-\delta_{t,i}^{\mathrm{prop}})$, giving the stated first term.
+
+To form a path coupling, use the lifted one-step coupling whenever the two current states agree and
+any fixed valid coupling otherwise. The same induction used in the proof of
+Theorem~\ref{thm:cmc} shows that the two path marginals are the FP and quantized chains. If each
+marginal transition is monotone copy-only, Theorem~\ref{thm:fs} and its corollaries apply to this
+valid path coupling without any factorization assumption on the pushed-forward transition.
+\end{proof}
+
+\subsection{Proof of Corollary~\ref{cor:det-limit} (temperature-zero limit)}
+\label{app:proofs:det-limit}
+
+\paragraph{Corollary~\ref{cor:det-limit} (restated).}
+\emph{If the two proposal laws are Dirac masses, the proposal coupling is unique; coupling-choice
+comparisons disappear, the next-state pair is deterministic, and under monotone copy-only decoding
+the deterministic action decomposition and margin lemmas apply.}
+
+\begin{proof}
+A coupling of $\delta_{\xi_t^\star}$ and $\delta_{\xi_t^q}$ must assign probability one to the
+single pair $(\xi_t^\star,\xi_t^q)$, so there is no coupling freedom. Applying the deterministic maps
+$\Phi_t^\star$ and $\Phi_t^q$ produces the deterministic next-state pair
+$(\Phi_t^\star(s,\xi_t^\star),\Phi_t^q(s,\xi_t^q))$. If the resulting actions are monotone
+copy-only, they fall exactly under the deterministic setting of Theorem~\ref{thm:exact}; the
+margin-necessity lemmas then apply to token and policy boundary crossings as stated.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:fixedsuite} (fixed-suite simultaneous certificate)}
+\label{app:proofs:stat}
+
+\paragraph{Theorem~\ref{thm:fixedsuite} (restated).}
+\emph{Fix prompts $c_{1},\dots,c_{m}$, a predeclared finite family of cells
+$j\in\mathcal{J}$ with $K=|\mathcal{J}^{\uparrow}|+|\mathcal{J}^{\downarrow}|$ one-sided
+statements, and for each cell $r_{j}$ draws
+$X_{a,s,j}\in[0,1]$, $a\le m$, $s\le r_{j}$, independent across $(a,s)$ within the cell
+(arbitrary dependence across cells). Let
+$\hat\mu_{j}=\frac{1}{mr_{j}}\sum_{a,s}X_{a,s,j}$ and
+$\mu_{j}=\frac{1}{m}\sum_{a}\Ex[X_{a,1,j}]$. Then with probability at least $1-\delta$,
+simultaneously for every upper cell
+$\mu_{j}\le\hat\mu_{j}+\sqrt{\log(K/\delta)/(2mr_{j})}$ and for every lower cell
+$\mu_{j}\ge\hat\mu_{j}-\sqrt{\log(K/\delta)/(2mr_{j})}$.}
+
+\begin{proof}
+Fix an upper cell $j$ and write $n=mr_{j}$. The variables
+$\{X_{a,s,j}\}$ are independent, $[0,1]$-valued, and not necessarily identically distributed;
+their means average to
+$\frac{1}{n}\sum_{a,s}\Ex[X_{a,s,j}]=\frac{1}{m}\sum_{a}\Ex[X_{a,1,j}]=\mu_{j}$, using that
+draws within a prompt are identically distributed. Hoeffding's inequality for independent bounded
+variables gives, for every $\varepsilon>0$,
+\[
+\Pr\big[\hat\mu_{j}\le\mu_{j}-\varepsilon\big]\ \le\ \exp\!\big(-2n\varepsilon^{2}\big).
+\]
+Choosing $\varepsilon_{j}=\sqrt{\log(K/\delta)/(2mr_{j})}$ makes the right side $\delta/K$. The
+symmetric tail handles each lower cell with the same $\varepsilon_{j}$. A union bound over the $K$
+one-sided statements bounds the probability that \emph{any} of them fails by $\delta$; on the
+complementary event all $K$ inequalities hold simultaneously. No assumption is made about
+dependence \emph{across} cells: the union bound is valid under arbitrary joint laws.
+\end{proof}
+
+\subsection{Proof of Corollary~\ref{cor:fixedsuite} (fixed-suite CMC certificate)}
+\label{app:proofs:fixedsuite-cor}
+
+\paragraph{Corollary~\ref{cor:fixedsuite} (restated).}
+\emph{If for every prompt $a$ and cell $j$,
+$W_{a,j}\le\Ex[D_{a,1,j}]\le\Ex[B_{a,1,j}]$, then simultaneous applications of
+Theorem~\ref{thm:fixedsuite} to the preregistered $D$ and $B$ cells yield
+$\overline W_j\le\min\{1,\operatorname{UCB}(\widehat D_j),
+\operatorname{UCB}(\widehat B_j)\}$ for all cells.}
+
+\begin{proof}
+Average the prompt-wise deterministic inequalities to obtain
+$\overline W_j\le m^{-1}\sum_a\Ex[D_{a,1,j}]$ and
+$\overline W_j\le m^{-1}\sum_a\Ex[B_{a,1,j}]$. On the simultaneous event of
+Theorem~\ref{thm:fixedsuite}, these two averages are at most their corresponding UCBs for every
+cell. The metric diameter supplies the additional bound $\overline W_j\le1$; taking the minimum
+preserves validity. Since the event is simultaneous over the preregistered horizon grid, any
+deterministic prefix-closed selection rule based on the realized UCBs inherits the same coverage.
+\end{proof}
+
+\begin{remark}[Post-hoc horizon selection is licensed by simultaneity]
+\label{rem:G:posthoc}
+The certified-horizon rule in the main text selects, after observing the data, the largest
+prefix-closed horizon whose UCBs all fall below a tolerance. Because the guarantee of
+Theorem~\ref{thm:fixedsuite} is simultaneous over the entire predeclared family, any selection rule that is a
+deterministic function of the realized UCBs inherits the same $1-\delta$ coverage; no correction
+for selection is needed beyond the union bound already paid. This is exactly why the family
+$\mathcal{J}$ must be declared before data collection, as done in the protocol.
+\end{remark}
+
+\begin{remark}[Independence premise]
+\label{rem:G:indep}
+Applying Theorem~\ref{thm:fixedsuite} to the CMC draws treats the $r_{j}$ event-addressed pseudorandom streams per
+prompt as independent draws. This is an implementation premise about the PRNG, stated as such in
+the statistical-certification and limitations sections; the collision-freedom and reproducibility checks of the audit support but do
+not prove it. The conservative prompt-block sensitivity, which averages within prompts first ($n=m$), does not rely on within-prompt independence; it still assumes independence across prompt blocks.
+\end{remark}
+
+\subsection{Proof of Theorem~\ref{thm:population} (prompt-population concentration)}
+\label{app:proofs:population}
+
+\paragraph{Theorem~\ref{thm:population} (restated).}
+\emph{Let $C_1,\dots,C_m\stackrel{\mathrm{iid}}{\sim}\Psrc$. For each preregistered cell $j$,
+let $X_{a,1,j},\dots,X_{a,r_j,j}\in[0,1]$ have common conditional mean $g_j(C_a)$, and suppose
+the prompt blocks $(C_a,X_{a,1:r_j,j})$ are independent across $a$ within the cell. Define
+$Y_{a,j}=r_j^{-1}\sum_sX_{a,s,j}$,
+$\widehat\nu_j=m^{-1}\sum_aY_{a,j}$, and
+$\nu_j=\Ex_{C\sim\Psrc}[g_j(C)]$. For a preregistered family of $K$ one-sided statements, with
+probability at least $1-\delta$, simultaneously for every upper cell
+$\nu_j\le\widehat\nu_j+\sqrt{\log(K/\delta)/(2m)}$, with the analogous lower bound for every
+lower cell. Dependence across cells is unrestricted.}
+
+\begin{proof}
+Fix a cell $j$. Since each $X_{a,s,j}$ lies in $[0,1]$, the block average $Y_{a,j}$ also lies in
+$[0,1]$. Conditional on $C_a$,
+\[
+\Ex[Y_{a,j}\mid C_a]
+=\frac1{r_j}\sum_{s=1}^{r_j}\Ex[X_{a,s,j}\mid C_a]
+=g_j(C_a),
+\]
+where no independence among the repeated draws inside one prompt block is needed. Taking expectation
+over the IID prompt draw gives
+$\Ex[Y_{a,j}]=\Ex_{C\sim\Psrc}[g_j(C)]=\nu_j$. By assumption the prompt blocks are independent
+across $a$, so $Y_{1,j},\dots,Y_{m,j}$ are independent $[0,1]$-valued random variables with common
+mean $\nu_j$. One-sided Hoeffding therefore gives
+\[
+\Pr\!\left[\widehat\nu_j\le\nu_j-\varepsilon\right]
+\le \exp(-2m\varepsilon^2)
+\]
+for an upper cell, and the symmetric upper-tail inequality yields the lower-cell statement. Taking
+$\varepsilon=\sqrt{\log(K/\delta)/(2m)}$ makes the failure probability at most $\delta/K$ for
+one statement. A union bound over the $K$ preregistered one-sided statements proves simultaneous
+coverage. Dependence across cells is irrelevant to the union bound.
+\end{proof}
+
+\subsection{Proof of Corollary~\ref{cor:population} (prompt-population CMC certificate)}
+\label{app:proofs:population-cor}
+
+\paragraph{Corollary~\ref{cor:population} (restated).}
+\emph{Suppose for every prompt $c$ and cell $j$,
+$W_j(c)\le\Ex_U[D_j(c,U)]\le\Ex_U[B_j(c,U)]$. Under the sampling conditions of
+Theorem~\ref{thm:population}, simultaneous UCBs based on prompt-block averages satisfy
+$\Ex_C[W_j(C)]\le\min\{1,\operatorname{UCB}(\widehat D_j),
+\operatorname{UCB}(\widehat B_j)\}$ for every preregistered cell.}
+
+\begin{proof}
+The prompt-wise coupling inequalities imply, after averaging over $C\sim\Psrc$,
+\[
+\Ex_C[W_j(C)]
+\le \Ex_C\Ex_U[D_j(C,U)]
+\le \Ex_C\Ex_U[B_j(C,U)].
+\]
+Apply Theorem~\ref{thm:population} to the prompt-block averages of the repeated $D$ draws and,
+separately, to those of the repeated $B$ draws. On the simultaneous event, the two population
+expectations on the right are bounded by their corresponding UCBs in every cell. The normalized
+Hamming diameter adds the deterministic bound $\Ex_C[W_j(C)]\le1$, so taking the minimum preserves
+validity. Since the event is simultaneous on the preregistered horizon grid, any deterministic
+prefix-closed selection rule based on these UCBs inherits the same coverage, by the same argument as
+Remark~\ref{rem:G:posthoc}.
+\end{proof}
+
+\begin{remark}[Population and fixed-suite targets are different]
+Theorem~\ref{thm:fixedsuite} conditions on a fixed collection of prompts and may use every
+independent coupling draw as a bounded observation. Theorem~\ref{thm:population} instead treats the
+IID prompt block as the sampling unit; repeated conditional draws are averaged within that block.
+The resulting estimands and Hoeffding radii therefore must not be pooled or interchanged.
+\end{remark}

@@ -1,0 +1,9 @@
+{
+  "cert3_training_unique_prompt_hashes": 64,
+  "excluded_prompt_blocks": [],
+  "overlap_count": 0,
+  "pass": true,
+  "replacement_prompts_added": 0,
+  "retained_evaluation_prompt_count": 128,
+  "wp07c_evaluation_unique_prompt_hashes": 128
+}

@@ -1,0 +1,79 @@
+\documentclass[10pt]{article}
+\usepackage[preprint]{tmlr}
+% If accepted, use: \usepackage[accepted]{tmlr}
+% For a non-anonymous preprint, use: \usepackage[preprint]{tmlr}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,graphicx,enumitem,microtype,placeins,array,multirow,float}
+\usepackage{hyperref}
+\hypersetup{hidelinks,pdftitle={Coupling Matters: Finite-Horizon Transport Analysis for Quantized Masked Diffusion Language Models},pdfauthor={Munsik Kim},pdfsubject={Preprint / technical report; not peer reviewed}}
+\usepackage{url}
+\usepackage{xcolor}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Xs}{\mathcal{X}}
+\newcommand{\Vs}{\mathcal{V}}
+\newcommand{\Mtok}{\mathsf{M}}
+\newcommand{\Ind}[1]{\mathbf{1}\{#1\}}
+\newcommand{\Wd}{W_{d}}
+\newcommand{\Ex}{\mathbb{E}}
+\renewcommand{\Pr}{\mathbb{P}}
+\newcommand{\Dcrn}{D_{\mathrm{CRN}}}
+\newcommand{\Dcmc}{D_{\mathrm{CMC}}}
+\newcommand{\Bfs}{B_{\mathrm{FS}}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Psrc}{\mathcal{P}_{\mathrm{src}}}
+\newcommand{\proofapp}{\par\noindent\emph{Complete proof in Appendix~\ref{app:proofs}.}\par}
+
+\title{Coupling Matters: Finite-Horizon Transport Analysis for\\Quantized Masked Diffusion Language Models}
+
+\author{\name Munsik Kim \\
+\addr Independent Researcher, Republic of Korea}
+
+\def\month{August}
+\def\year{2026}
+\def\openreview{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Post-training quantization (PTQ) of masked diffusion language models is often assessed through local reconstruction error, but iterative masked generation can turn a small local change into a different token, commit set, and subsequent state. The standard trajectory-KL route from local perturbation to output stability can therefore become infinite after a single support mismatch. We develop a finite-horizon transport analysis in which the \emph{coupling}---the rule used to synchronize full-precision and quantized generation---is an explicit part of the measured upper bound. The central masked-diffusion result bounds terminal distortion after the first divergence by the residual masked mass, exposing a separation between split incidence and split consequence. For product transitions, coordinatewise maximal coupling is one-step optimal for weighted Hamming; for sample-then-select samplers, proposal couplings remain valid after model-dependent selection. Simultaneous concentration yields fixed-suite and declared prompt-population guarantees. Across MDLM and SMDM checkpoints, six bit widths, 16--64 generated positions, and official-sampler temperature sweeps, the same output marginals can produce sharply different paired costs under different couplings, while no coupling universally minimizes terminal damage. We also report two preregistered negative investigations: frozen additive token metrics do not resolve Hamming saturation, and survival--residual calibration does not beat uniform clipping on the primary W4 GSM8K endpoint. These results delimit what coupling-aware transport analysis supports---and what it does not.\footnote{Generative AI tools were used as assistive tools for hypothesis refinement, code and artifact drafting, literature discovery, and manuscript editing. All mathematical statements, proofs, references, numerical claims, code, and artifacts were checked by the authors against frozen source data, independent calculations, and explicit audits. The author takes responsibility for the complete report.}
+\end{abstract}
+
+\noindent\textbf{Version note.} Technical report v1.0.0. Preprint; not peer reviewed.
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/framework}
+\input{sections/experiments}
+\input{sections/negative_investigations}
+\input{sections/discussion}
+
+\section*{Broader impact}
+This work studies the reliability of efficiency interventions for iterative language generation. Potential benefits include more transparent reporting of quantization-induced distribution shift and fewer misleading stability claims. The main risk is over-interpreting an exact-token transport bound as a semantic or task-performance guarantee. We mitigate that risk by separating fixed-suite and population estimands, reporting failed relative and task-level investigations, and explicitly limiting claims to the declared metrics, couplings, models, and samplers. The study uses public text corpora and benchmark data and does not involve human-subject data collection.
+
+\section*{Reproducibility statement}
+Appendix~\ref{app:proofs} contains complete proofs. The experimental appendices specify model and checkpoint identities, prompt populations, statistical families, coupling and event-addressed RNG contracts, negative investigations, and source-to-claim accounting. The supplementary source package contains anonymized manuscript code, figure data, compact audit ledgers, archive hashes, and model-free reproduction instructions; large public checkpoints and datasets are referenced by immutable identifiers rather than duplicated.
+
+\clearpage
+\input{references}
+
+\appendix
+\input{appendices/supporting_statements}
+\input{appendices/complete_proofs}
+\input{appendices/experimental_details}
+\input{appendices/negative_investigations}
+\input{appendices/reproducibility}
+
+\end{document}

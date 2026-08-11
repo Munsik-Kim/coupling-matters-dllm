@@ -1,0 +1,6 @@
+family,path,found,observed_size,expected_size,observed_sha256,expected_sha256,hash_pass,raw_run_available
+WP07B,,False,,94337276,,c3243252c1eee31b147ec695539c6cd9de740cde7f18574615d6c175aec8940e,False,True
+LOCAL_LIFT_1,,False,,71680668,,65a4cad00d6602e515ec545098baa9dd3b8bcea683d0b6c28a71e7fe4536af51,False,True
+LOCAL_LIFT_1R,,False,,293555,,633caa321940ad784440364e1f4d99ca6dc71487f84c6531dabdfdc1a148a0a7,False,True
+LOCAL_LIFT_MICRO,,False,,736744,,5535061d6848b6d64ed547418fe28f45abd8703b2d532c66f86bde4a3b2d807e,False,True
+WP05A,,False,,,,8a3dbf623a6c78bf2a908297f898ddfedb36fe0ca89b29a71d4000fe1f47cf5f,False,True

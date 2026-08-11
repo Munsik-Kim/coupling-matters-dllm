@@ -1,0 +1,1 @@
+prompt_id,seed,severity,family,generation_length,horizon,kernel_count,D,B_FS,slack,pathwise_pass,split_by_horizon,first_split_kernel,first_split_type,endpoint_fp_hash,endpoint_q_hash,fp_cumulative_committed,q_cumulative_committed,normalized_generation_progress,terminal_semantics

@@ -1,0 +1,9 @@
+generation_length,precision,temperature,trajectory_count,prompt_count,split_count,mean_terminal_D,pathwise_violations,monotone_violations
+16,W4,0.0,32,32,28,0.06640625,0,0
+16,W4,0.2,64,32,58,0.06640625,0,0
+16,W6,0.0,32,32,14,0.001953125,0,0
+16,W6,0.2,64,32,26,0.0,0,0
+16,W8,0.0,32,32,9,0.001953125,0,0
+16,W8,0.2,64,32,16,0.0009765625,0,0
+64,W4,0.2,16,8,16,0.09765625,0,0
+64,W8,0.2,16,8,14,0.0,0,0
