@@ -1,6 +1,6 @@
 # Coupling Matters
 
-Finite-Horizon Transport Analysis for Quantized Masked Diffusion Language Models
+Developed mathematical bounds and CPU audit tools to study how low-bit changes in a masked text generator spread to its final output. The comparisons control the randomness shared by the original and changed models, so the synchronization rule is part of the analysis.
 
 **Preprint / technical report; not peer reviewed.**
 
