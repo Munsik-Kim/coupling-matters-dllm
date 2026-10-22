@@ -51,13 +51,13 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 4352,
-      "sha256": "8e01a5db3196752e8ae321cc604b4d2d01d9d12c6adfe6852499ed742cfe5672"
+      "size_bytes": 4540,
+      "sha256": "0bb40cbb80463c635f40d643c5b0c87b2ab970ec46d544ef01bfecc1c7621e6f"
     },
     {
       "path": "README_KO.md",
-      "size_bytes": 1445,
-      "sha256": "9d2d159baed76a8ae955ed8e2358205fa4c76b3332dd1ec10ad130f52e424d74"
+      "size_bytes": 1696,
+      "sha256": "9d483def80dd968b127f16d53b8bc06d2eca3ef49078ecafa3e8b7f31b1660fe"
     },
     {
       "path": "artifacts/ARTIFACT_INDEX.csv",
