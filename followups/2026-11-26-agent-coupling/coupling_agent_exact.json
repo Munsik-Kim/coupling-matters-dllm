@@ -1,0 +1,406 @@
+{
+  "labels": {
+    "tool": [
+      "read_metadata",
+      "set_flag_on",
+      "read_history"
+    ],
+    "argument": [
+      "wrong_id",
+      "target_id"
+    ],
+    "verification": [
+      "stop",
+      "fresh_status_check"
+    ]
+  },
+  "a": {
+    "tool": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "argument": [
+      "1/2",
+      "1/2"
+    ],
+    "verification": [
+      "1/2",
+      "1/2"
+    ]
+  },
+  "b": {
+    "tool": [
+      "1/4",
+      "1/4",
+      "1/2"
+    ],
+    "argument": [
+      "1/4",
+      "3/4"
+    ],
+    "verification": [
+      "1/4",
+      "3/4"
+    ]
+  },
+  "results": {
+    "independent": {
+      "stage_joint_matrices": {
+        "tool": [
+          [
+            "1/8",
+            "1/8",
+            "1/4"
+          ],
+          [
+            "1/16",
+            "1/16",
+            "1/8"
+          ],
+          [
+            "1/16",
+            "1/16",
+            "1/8"
+          ]
+        ],
+        "argument": [
+          [
+            "1/8",
+            "3/8"
+          ],
+          [
+            "1/8",
+            "3/8"
+          ]
+        ],
+        "verification": [
+          [
+            "1/8",
+            "3/8"
+          ],
+          [
+            "1/8",
+            "3/8"
+          ]
+        ]
+      },
+      "metrics": {
+        "correct_tool": {
+          "a": "1/4",
+          "b": "1/4",
+          "both_fail": "9/16",
+          "recovery": "3/16",
+          "loss": "3/16",
+          "both_pass": "1/16",
+          "delta": "0",
+          "disagreement": "3/8",
+          "variance_paired_difference": "3/8"
+        },
+        "correct_argument": {
+          "a": "1/2",
+          "b": "3/4",
+          "both_fail": "1/8",
+          "recovery": "3/8",
+          "loss": "1/8",
+          "both_pass": "3/8",
+          "delta": "1/4",
+          "disagreement": "1/2",
+          "variance_paired_difference": "7/16"
+        },
+        "target_state_on": {
+          "a": "1/8",
+          "b": "3/16",
+          "both_fail": "91/128",
+          "recovery": "21/128",
+          "loss": "13/128",
+          "both_pass": "3/128",
+          "delta": "1/16",
+          "disagreement": "17/64",
+          "variance_paired_difference": "67/256"
+        },
+        "verified_success": {
+          "a": "1/16",
+          "b": "9/64",
+          "both_fail": "825/1024",
+          "recovery": "135/1024",
+          "loss": "55/1024",
+          "both_pass": "9/1024",
+          "delta": "5/64",
+          "disagreement": "95/512",
+          "variance_paired_difference": "735/4096"
+        }
+      },
+      "first_raw_difference_and_final_outcome": {
+        "tool": {
+          "mass": "11/16",
+          "recovery": "27/256",
+          "loss": "3/64"
+        },
+        "argument": {
+          "mass": "5/32",
+          "recovery": "9/512",
+          "loss": "1/256"
+        },
+        "verification": {
+          "mass": "5/64",
+          "recovery": "9/1024",
+          "loss": "3/1024"
+        },
+        "none": {
+          "mass": "5/64",
+          "recovery": "0",
+          "loss": "0"
+        }
+      }
+    },
+    "shared_gumbel": {
+      "stage_joint_matrices": {
+        "tool": [
+          [
+            "1/4",
+            "1/20",
+            "1/5"
+          ],
+          [
+            "0",
+            "1/5",
+            "1/20"
+          ],
+          [
+            "0",
+            "0",
+            "1/4"
+          ]
+        ],
+        "argument": [
+          [
+            "1/4",
+            "1/4"
+          ],
+          [
+            "0",
+            "1/2"
+          ]
+        ],
+        "verification": [
+          [
+            "1/4",
+            "1/4"
+          ],
+          [
+            "0",
+            "1/2"
+          ]
+        ]
+      },
+      "metrics": {
+        "correct_tool": {
+          "a": "1/4",
+          "b": "1/4",
+          "both_fail": "7/10",
+          "recovery": "1/20",
+          "loss": "1/20",
+          "both_pass": "1/5",
+          "delta": "0",
+          "disagreement": "1/10",
+          "variance_paired_difference": "1/10"
+        },
+        "correct_argument": {
+          "a": "1/2",
+          "b": "3/4",
+          "both_fail": "1/4",
+          "recovery": "1/4",
+          "loss": "0",
+          "both_pass": "1/2",
+          "delta": "1/4",
+          "disagreement": "1/4",
+          "variance_paired_difference": "3/16"
+        },
+        "target_state_on": {
+          "a": "1/8",
+          "b": "3/16",
+          "both_fail": "63/80",
+          "recovery": "7/80",
+          "loss": "1/40",
+          "both_pass": "1/10",
+          "delta": "1/16",
+          "disagreement": "9/80",
+          "variance_paired_difference": "139/1280"
+        },
+        "verified_success": {
+          "a": "1/16",
+          "b": "9/64",
+          "both_fail": "271/320",
+          "recovery": "29/320",
+          "loss": "1/80",
+          "both_pass": "1/20",
+          "delta": "5/64",
+          "disagreement": "33/320",
+          "variance_paired_difference": "1987/20480"
+        }
+      },
+      "first_raw_difference_and_final_outcome": {
+        "tool": {
+          "mass": "3/10",
+          "recovery": "9/320",
+          "loss": "1/80"
+        },
+        "argument": {
+          "mass": "7/40",
+          "recovery": "3/80",
+          "loss": "0"
+        },
+        "verification": {
+          "mass": "21/160",
+          "recovery": "1/40",
+          "loss": "0"
+        },
+        "none": {
+          "mass": "63/160",
+          "recovery": "0",
+          "loss": "0"
+        }
+      }
+    },
+    "maximal": {
+      "stage_joint_matrices": {
+        "tool": [
+          [
+            "1/4",
+            "0",
+            "1/4"
+          ],
+          [
+            "0",
+            "1/4",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/4"
+          ]
+        ],
+        "argument": [
+          [
+            "1/4",
+            "1/4"
+          ],
+          [
+            "0",
+            "1/2"
+          ]
+        ],
+        "verification": [
+          [
+            "1/4",
+            "1/4"
+          ],
+          [
+            "0",
+            "1/2"
+          ]
+        ]
+      },
+      "metrics": {
+        "correct_tool": {
+          "a": "1/4",
+          "b": "1/4",
+          "both_fail": "3/4",
+          "recovery": "0",
+          "loss": "0",
+          "both_pass": "1/4",
+          "delta": "0",
+          "disagreement": "0",
+          "variance_paired_difference": "0"
+        },
+        "correct_argument": {
+          "a": "1/2",
+          "b": "3/4",
+          "both_fail": "1/4",
+          "recovery": "1/4",
+          "loss": "0",
+          "both_pass": "1/2",
+          "delta": "1/4",
+          "disagreement": "1/4",
+          "variance_paired_difference": "3/16"
+        },
+        "target_state_on": {
+          "a": "1/8",
+          "b": "3/16",
+          "both_fail": "13/16",
+          "recovery": "1/16",
+          "loss": "0",
+          "both_pass": "1/8",
+          "delta": "1/16",
+          "disagreement": "1/16",
+          "variance_paired_difference": "15/256"
+        },
+        "verified_success": {
+          "a": "1/16",
+          "b": "9/64",
+          "both_fail": "55/64",
+          "recovery": "5/64",
+          "loss": "0",
+          "both_pass": "1/16",
+          "delta": "5/64",
+          "disagreement": "5/64",
+          "variance_paired_difference": "295/4096"
+        }
+      },
+      "first_raw_difference_and_final_outcome": {
+        "tool": {
+          "mass": "1/4",
+          "recovery": "0",
+          "loss": "0"
+        },
+        "argument": {
+          "mass": "3/16",
+          "recovery": "3/64",
+          "loss": "0"
+        },
+        "verification": {
+          "mass": "9/64",
+          "recovery": "1/32",
+          "loss": "0"
+        },
+        "none": {
+          "mass": "27/64",
+          "recovery": "0",
+          "loss": "0"
+        }
+      }
+    }
+  },
+  "b_oracle_one_stage": {
+    "baseline": "9/64",
+    "interventions": {
+      "tool": {
+        "rate": "9/16",
+        "gain": "27/64"
+      },
+      "argument": {
+        "rate": "3/16",
+        "gain": "3/64"
+      },
+      "verification": {
+        "rate": "3/16",
+        "gain": "3/64"
+      }
+    }
+  },
+  "a_to_b_substitutions": {
+    "rate_by_b_stages": {
+      "none": "1/16",
+      "verification": "3/32",
+      "argument": "3/32",
+      "argument+verification": "9/64",
+      "tool": "1/16",
+      "tool+verification": "3/32",
+      "tool+argument": "3/32",
+      "tool+argument+verification": "9/64"
+    },
+    "argument_verification_interaction": "1/64"
+  }
+}

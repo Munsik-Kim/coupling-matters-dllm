@@ -12,6 +12,8 @@ DOI: https://doi.org/10.5281/zenodo.21880649
 
 핵심 정리는 monotone MASK→token, committed-token copy-only 가정 아래 첫 분기 시점의 남은 mask 질량으로 이후 normalized Hamming 왜곡을 상계합니다. 구현된 coordinatewise maximal coupling은 유효한 product coupling이지만 joint-optimal 또는 Wasserstein-optimal coupling이라고 주장하지 않습니다.
 
+**에이전트 평가 후속 연구 · 2026년 11월 26일.** CPU 검증을 마치고 이 응용을 위한 신규 dLLM GPU 실험을 보류했습니다. 두 실행을 짝짓는 방식이 측정 정밀도와 수정 우선순위에 미치는 영향을 비교했습니다. [동결 판단·한국어 보고서·재현 코드](followups/2026-11-26-agent-coupling/README.md)
+
 빠른 검증:
 
 ```bash

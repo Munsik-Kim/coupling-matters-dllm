@@ -15,6 +15,8 @@ Post-training quantization can change token choices, commit sets, and later stat
 
 This repository contains the technical report, compact evidence, selected model-free experiment code, independent audits, preregistered negative investigations, and reusable techniques extracted from the project. It does not contain the private development repository, its history, model checkpoints, private logs, or large raw trajectory archives.
 
+**Agent evaluation follow-up, 26 November 2026.** The CPU study is complete. New dLLM GPU experiments for this application are on hold. The exact models show both how pairing can improve precision and how the first divergent action can point to a less effective repair. [Decision, report and reproduction](followups/2026-11-26-agent-coupling/README.md)
+
 ## Main contributions
 
 - A first-divergence residual-unresolved-mass certificate for monotone copy-only masked generation.
