@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "repository": "Munsik-Kim/coupling-matters-dllm",
   "version": "v1.0.0",
-  "file_count": 391,
+  "file_count": 403,
   "files": [
     {
       "path": ".gitattributes",
@@ -51,13 +51,13 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 4540,
-      "sha256": "0bb40cbb80463c635f40d643c5b0c87b2ab970ec46d544ef01bfecc1c7621e6f"
+      "size_bytes": 4894,
+      "sha256": "53128ad2959c1b53bd1778f2477ab2afe5996cdf0a5fd516d500bfb31b978ca0"
     },
     {
       "path": "README_KO.md",
-      "size_bytes": 1696,
-      "sha256": "9d483def80dd968b127f16d53b8bc06d2eca3ef49078ecafa3e8b7f31b1660fe"
+      "size_bytes": 2066,
+      "sha256": "c455faf8af9fd3344a3938a2df49fdb608816340ea6bb057e0c349b120c851de"
     },
     {
       "path": "artifacts/ARTIFACT_INDEX.csv",
@@ -1553,6 +1553,66 @@
       "path": "experiments/transport_calibration_negative/trcal_core.py",
       "size_bytes": 61486,
       "sha256": "c0dd47ba0d6adba7f26c5cf4d7f02a566474f27464d73a203758218a48bc8893"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/Coupling_Matters_Agent_Report_KO.md",
+      "size_bytes": 23689,
+      "sha256": "10f769575c9d42d10c07c43170802d2520c9f4e672f0c095c0684a483daae7bd"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/Coupling_Matters_Agent_Report_KO.pdf",
+      "size_bytes": 896465,
+      "sha256": "4c86e912818ba35ef232c3afcd023269c702b56910162812060cb01449d6b024"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/README.md",
+      "size_bytes": 4901,
+      "sha256": "b3f4d25c48d1e867184a6c0a0c00fbdf25f5bf08155a2557ecea21a367a6bfe0"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/README_KO.txt",
+      "size_bytes": 2351,
+      "sha256": "9a12ee892bf45badb722223c8d380d781860cb608948bc80451929644380aaf0"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/audit_case017.py",
+      "size_bytes": 2795,
+      "sha256": "16b32dcb446cbd9b1c0d5d5f9a96a070f51b303f7b8064423861e3782881bc02"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/case017_counts.json",
+      "size_bytes": 311,
+      "sha256": "ec6c34ec60b7b0489986a23dbd8ef6fb597e4cc98aa43777c8b8333f576da417"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/case017_pairs.csv",
+      "size_bytes": 808,
+      "sha256": "7200ee921bf43eb87adf61a1c0386ef770c336977c82db312de75612c776295f"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/counterexamples.json",
+      "size_bytes": 3410,
+      "sha256": "073ba5de793c4745ba87e1d45427fa8553f9fa0fd15f843d52085c393daaf075"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/counterexamples.py",
+      "size_bytes": 4971,
+      "sha256": "08ea43408e6a0b40a8504bbab28ccf5a7d98d35418ad6f8ef525198373ea5ffe"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/coupling_agent_exact.json",
+      "size_bytes": 8540,
+      "sha256": "b965bff488fcee2db3780c70af8987286e8108db9ff3ef12b6151cc09332a19a"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/coupling_agent_exact.py",
+      "size_bytes": 8349,
+      "sha256": "20a8c048dda9498d253762a8bdb64b6d09b5b59466b6c68add65ca40ed9d1cf8"
+    },
+    {
+      "path": "followups/2026-11-26-agent-coupling/run_checks.py",
+      "size_bytes": 722,
+      "sha256": "a7630a3ced4a7d52d721ed9aaed48265d4d2033fe61c92a8a9fbd8e5dfa09fd6"
     },
     {
       "path": "licenses/Apache-2.0.txt",

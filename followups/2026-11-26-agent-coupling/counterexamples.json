@@ -1,0 +1,179 @@
+{
+  "opposite_argument_policies": {
+    "same_tool": {
+      "success_a": "1/2",
+      "success_b": "1/2",
+      "both_success": "0",
+      "recovery": "1/2",
+      "loss": "1/2",
+      "delta": "0",
+      "variance_paired_difference": "1"
+    },
+    "independent": {
+      "success_a": "1/2",
+      "success_b": "1/2",
+      "both_success": "1/4",
+      "recovery": "1/4",
+      "loss": "1/4",
+      "delta": "0",
+      "variance_paired_difference": "1/2"
+    },
+    "opposite_tool": {
+      "success_a": "1/2",
+      "success_b": "1/2",
+      "both_success": "1/2",
+      "recovery": "0",
+      "loss": "0",
+      "delta": "0",
+      "variance_paired_difference": "0"
+    }
+  },
+  "asymmetric_reveal": {
+    "coadapted": {
+      "b_one_given_a_zero_or_one": [
+        "1/2",
+        "1/2"
+      ],
+      "respects_both_step_kernels": true,
+      "final": {
+        "success_a": "1/2",
+        "success_b": "1/2",
+        "both_success": "1/4",
+        "recovery": "1/4",
+        "loss": "1/4",
+        "delta": "0",
+        "variance_paired_difference": "1/2"
+      }
+    },
+    "unrestricted_match": {
+      "b_one_given_a_zero_or_one": [
+        "0",
+        "1"
+      ],
+      "respects_both_step_kernels": false,
+      "final": {
+        "success_a": "1/2",
+        "success_b": "1/2",
+        "both_success": "1/2",
+        "recovery": "0",
+        "loss": "0",
+        "delta": "0",
+        "variance_paired_difference": "0"
+      }
+    },
+    "unrestricted_flip": {
+      "b_one_given_a_zero_or_one": [
+        "1",
+        "0"
+      ],
+      "respects_both_step_kernels": false,
+      "final": {
+        "success_a": "1/2",
+        "success_b": "1/2",
+        "both_success": "0",
+        "recovery": "1/2",
+        "loss": "1/2",
+        "delta": "0",
+        "variance_paired_difference": "1"
+      }
+    }
+  },
+  "main_simulator_extremes": {
+    "max_joint_success": {
+      "tool_joint": [
+        [
+          "1/4",
+          0,
+          "1/4"
+        ],
+        [
+          0,
+          "1/4",
+          0
+        ],
+        [
+          0,
+          0,
+          "1/4"
+        ]
+      ],
+      "argument_joint": [
+        [
+          "1/4",
+          "1/4"
+        ],
+        [
+          0,
+          "1/2"
+        ]
+      ],
+      "verification_joint": [
+        [
+          "1/4",
+          "1/4"
+        ],
+        [
+          0,
+          "1/2"
+        ]
+      ],
+      "final": {
+        "success_a": "1/16",
+        "success_b": "9/64",
+        "both_success": "1/16",
+        "recovery": "5/64",
+        "loss": "0",
+        "delta": "5/64",
+        "variance_paired_difference": "295/4096"
+      }
+    },
+    "min_joint_success": {
+      "tool_joint": [
+        [
+          "1/4",
+          "1/4",
+          0
+        ],
+        [
+          0,
+          0,
+          "1/4"
+        ],
+        [
+          0,
+          0,
+          "1/4"
+        ]
+      ],
+      "argument_joint": [
+        [
+          "1/4",
+          "1/4"
+        ],
+        [
+          0,
+          "1/2"
+        ]
+      ],
+      "verification_joint": [
+        [
+          "1/4",
+          "1/4"
+        ],
+        [
+          0,
+          "1/2"
+        ]
+      ],
+      "final": {
+        "success_a": "1/16",
+        "success_b": "9/64",
+        "both_success": "0",
+        "recovery": "9/64",
+        "loss": "1/16",
+        "delta": "5/64",
+        "variance_paired_difference": "807/4096"
+      }
+    }
+  }
+}
